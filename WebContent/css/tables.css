@@ -1,0 +1,16 @@
+@media screen and (max-width: 920px) {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+
+	
+	.adminTable td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #DDD; /* riga divisione campi stesso */
+		position: relative;
+		width: 100%;
+	/*	padding-left: 50%; */ 
+	}

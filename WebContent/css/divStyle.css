@@ -1,0 +1,64 @@
+.divContorno {
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 5%;
+	border: black 3px solid;
+	border-radius: 30px 30px 30px 30px;
+	text-align: center;
+	background-color: #DDD;
+}
+
+#header {
+	 background-color:#024924;
+	  padding-top: 20px;
+	  padding-bottom:20px;
+}
+
+#contenitore {
+	 
+	margin: 2% 5% 2% 5%;
+	overflow: auto;
+	/*consente la non fuoriuscita dei form dal div */
+	width:90%;
+}
+
+#slides {
+	height: 20%;
+}
+
+.buttonTd {
+	width: 50%;
+}
+
+.tabTitle {
+	font-weight: bold;
+}
+
+
+@media screen and (max-width: 1199px) {
+	#leftLogin {
+		width: 100%; 
+		
+		margin: 5px auto;
+	}
+	#rightLogin {
+		width: 100%;
+		margin: 5px auto;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	#leftLogin {
+	
+		float: left;
+		margin-left: 10%;
+		margin-top: 5%;
+		margin-bottom: 5%;
+	}
+	#rightLogin {
+		float: right;
+		margin-right: 10%;
+		margin-top: 5%;
+		margin-bottom: 5%;
+	}
+}
