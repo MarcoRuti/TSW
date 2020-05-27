@@ -61,8 +61,8 @@
   if (name != null) {
 %>
 <!--
-	<p><%=name%></p>
-	<a href="logout.jsp?link=<%=url%>">Logout</a><br/>
+	<p>< %=name%></p>
+	<a href="logout.jsp?link=< %=url%>">Logout</a><br/>
 	 -->
 <%
   try {
