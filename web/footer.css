@@ -1,0 +1,33 @@
+footer p{
+	margin: 1.5em;
+	display: inline;
+	
+}
+
+p a{
+	color: black;
+	text-decoration:none;
+}
+
+
+.footer {
+	position: absolute;
+	height: 100px;
+	z-index: 0; /* Mette la bottomBar al di sopra di tutti gli elementi */
+	bottom: 0; /* Posizionano la barra */
+	left: 0;   /* in basso */
+	width: 100%;
+	
+	padding: 1em;
+    color: grey;
+    background-color: white;
+    text-align: center;
+}
+
+#right_side {
+	text-align: right;
+}
+
+#info_menu p{
+	text-align: center;
+}

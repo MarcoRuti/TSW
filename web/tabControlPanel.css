@@ -1,0 +1,74 @@
+.tabConPan {
+/*	border: 1px solid black; */
+}
+
+table.tabConPan {
+	font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr.tabConPan{
+	font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th{ /* Stile per la riga contenente gli header */
+	 border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th>a {
+	color: #BBB;
+}
+td.tabConPan { /* Stile per le righe contenenti i dati*/
+	 border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+	
+}
+
+/* Mette colori alternati per gli elementi nella tabella*/
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+@media screen and (max-width: 920px) {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	th { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	/* Bordi di ogni nuova tupla*/
+	tr { border: 1px solid #CCC; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #DDD; /* riga divisione campi stesso */
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+}

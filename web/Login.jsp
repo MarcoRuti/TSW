@@ -6,8 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+
 <%@ page import="java.lang.*" %>
 <!DOCTYPE html>
 <html>
@@ -19,25 +18,24 @@
 
     <link rel="stylesheet" type="text/css" href="Style1.css">
 
-    <!--
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="footer.css">
 
-    <link rel="stylesheet" href="css/divStyle.css" type="text/css">
-    -->
+    <link rel="stylesheet" href="divStyle.css" type="text/css">
 
-    <!--
+
+<!--
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
-    -->
+-->
 
     <title>Login</title>
 </head>
 <body>
-<!--
-< %
+
+<%
     String url = (String) request.getParameter("link"); //riceve il link della pagina che lo ha chiamato
     session.setAttribute("link", url);
-% >
--->
+%>
+
 <!-- Navbar mini-piccola -->
 <div class="navbar">
 
@@ -47,7 +45,7 @@
         <nav>
             <ul id="menu">
                 <!-- HOME -->
-                <li class="current"><a href="index.jsp"><img src="img/logo.png" alt="Home" class="icon" id="home"></a></li>
+                <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home"></a></li>
             </ul>
         </nav>
 
@@ -63,8 +61,8 @@
 <div class="divContorno">
     <div id="contenitore">
 
-<!--
-        < %
+
+        <%
             try {
 
                 String username = (String) session.getAttribute("name");
@@ -72,7 +70,7 @@
         %>
         <p>Utente < %=username %> gi‡ connesso!</p>
         <p><a href="logout.jsp?link=< %=url %>">Logout</a></p>
-        < %
+        <%
         } else {
         %>
         -->
@@ -112,14 +110,14 @@
                 </table>
             </form>
         </div>
-        < %
+        <%
             }
         } catch(NullPointerException e) {
-        % >
+        %>
         <p>Error in page.</p>
-        < %
+        <%
             }
-        % >
+        %>
 
     </div>
 </div>
