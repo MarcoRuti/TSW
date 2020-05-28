@@ -16,11 +16,11 @@
     <meta name="descrizione" content="i-buy">
 
 
-    <link rel="stylesheet" type="text/css" href="Style1.css">
+    <link rel="stylesheet" type="text/css" href="css/Style1.css">
 
-    <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
 
-    <link rel="stylesheet" href="divStyle.css" type="text/css">
+    <link rel="stylesheet" href="css/divStyle.css" type="text/css">
 
 
 <!--

@@ -24,7 +24,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link href="Style1.css" rel="stylesheet" type="text/css">
+	<link href="css/Style1.css" rel="stylesheet" type="text/css">
 	<title>StoreDemo</title>
 </head>
 <body>

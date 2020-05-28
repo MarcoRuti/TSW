@@ -15,13 +15,11 @@
 
   <!-- Linkare bootstrap da un sito -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-  <title>I-Buy</title><link rel="stylesheet" type="text/css" href="page_style.css">
-  <link rel="stylesheet" type="text/css" href="footer.css">
-  <link rel="stylesheet" href="slides.css" type="text/css">
-
-  <link rel="stylesheet" href="divStyle.css" type="text/css">
-
-  <link rel="stylesheet" type="text/css" href="searchProductHome.css">
+  <title>I-Buy</title><link rel="stylesheet" type="text/css" href="css/page_style.css">
+  <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <link rel="stylesheet" href="css/slides.css" type="text/css">
+  <link rel="stylesheet" href="css/divStyle.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="css/searchProductHome.css">
 
   <script>
     //Ricerca Live homepage
