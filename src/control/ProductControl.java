@@ -1,4 +1,4 @@
-package it.unisa.control;
+package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import it.unisa.model.Cart;
-import it.unisa.model.ProductBean;
-import it.unisa.model.ProductModelDM;
+import model.Cart;
+import model.ProductBean;
+import model.ProductModelDM;
 
 
 @WebServlet("/ProductControl")

@@ -118,7 +118,7 @@
         <%
         } else {
         %>
-        <li style="float: right;"><a href="Login.jsp?link=<%=url%>">
+        <li style="float: right;"><a href="login.jsp?link=<%=url%>">
           Login </a></li>
         <%
           }

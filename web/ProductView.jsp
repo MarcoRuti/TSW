@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*,it.unisa.model.ProductBean,it.unisa.model.Cart"%>
+    pageEncoding="UTF-8" import="java.util.*,model.ProductBean,model.Cart"%>
  <%
  	Collection<?> products = (Collection<?>) request.getAttribute("products");
  
