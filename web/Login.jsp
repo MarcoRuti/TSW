@@ -16,16 +16,14 @@
     <meta name="descrizione" content="i-buy">
 
 
-    <link rel="stylesheet" type="text/css" href="css/Style1.css">
 
     <link rel="stylesheet" type="text/css" href="css/footer.css">
-
     <link rel="stylesheet" href="css/divStyle.css" type="text/css">
 
 
-<!--
+
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
--->
+
 
     <title>Login</title>
 </head>

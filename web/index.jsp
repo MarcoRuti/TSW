@@ -11,7 +11,7 @@
 <head>
   <!-- Codice da inserire -->
   <!-- <meta charset="UTF-8"> -->
-  <!-- <link href="Style1.css" rel="stylesheet" type="text/css"> -->
+
 
   <!-- Linkare bootstrap da un sito -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
