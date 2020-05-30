@@ -1,18 +1,21 @@
 <%--
   Created by IntelliJ IDEA.
   User: dario
-  Date: 28/05/2020
-  Time: 15:28
+  Date: 30/05/2020
+  Time: 16:23
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
-         import="beans.ProductBean, beans.OrdineBean, beans.Acquistabile, java.util.*"%>
+         import ="beans.OffertaBean, beans.Acquistabile, java.util.*"
+
+%>
 <!DOCTYPE html>
 <html>
+
 <%
-    OrdineBean ordine=(OrdineBean) request.getAttribute("ordine");
-    ProductBean bean = (ProductBean) request.getAttribute("prodPage");
+    OffertaBean bean = (OffertaBean) request.getAttribute("offertaPage");
+
     int isAdmin = 0; //variabile usata per tener traccia di admin loggato
     int isCliente = 0;
     try {
@@ -28,10 +31,10 @@
         usernameCliente = "0";
 %>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-
-
+    <meta name="description" content="La Saporita">
+    <meta name=" author" content="Silvio Cresci">
+    <meta name=" author" content="Raffaella Romano">
 
     <link rel="stylesheet" type="text/css" href="css/page_style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
@@ -40,20 +43,21 @@
 
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
 
-    <title><%=bean.getNome() %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Offerte</title>
 </head>
 <body>
-
 <%
-    String url = "http://localhost:8080/LaSaporita/index.jsp"; //la stringa url porter? all'index
-//	String url = request.getRequestURL().toString(); //riceve una stringa contenente l'url della pagina
+    String url = "http://localhost:8080/LaSaporita/index.jsp"; //la stringa url porter‡ all'index
+//  String url = request.getRequestURL().toString(); //riceve una stringa contenente l'url della pagina
     String name = (String) session.getAttribute("name"); //riceve il nome dell'utente dalla sessione
 
     String tipoPage = (String) request.getAttribute("pagina");
-    String tipoProd = (String) request.getAttribute("tipo");
+
     String searchKey = (String) request.getAttribute("search");
 
 %>
+
 <!-- Navbar grande -->
 <div class="navbar">
 
@@ -66,7 +70,7 @@
                 <li class="current"><a href="index.jsp"><img src="img/logo.png" alt="Home"
                                                              class="icon" id="home"></a></li>
                 <!-- PRODOTTI -->
-                <li class="has_children"><a href="./AllProductList"> PRODOTTI</a>
+                <li class="has_children"><a href="./AllProductList">PRODOTTI</a>
                     <ul>
                         <!-- dropdown menu -->
 
@@ -83,8 +87,8 @@
                 <li class= "has_children"><a href="./AllOffertaList?">OFFERTE</a>
 
                         <%
-				if (name != null) {
-			%>
+        if (name != null) {
+      %>
                 <li style="float: right;"><a>Benvenuto <%=name%></a></li>
                 <li style="float: right;"><a href="logout.jsp?link=<%=url%>">
                     Logout </a></li>
@@ -107,7 +111,6 @@
     </div>
 
 </div>
-
 <br/>
 <div class="divContorno">
     <div id="contenitore">
@@ -119,25 +122,23 @@
         <!-- TABELLA MOSTRATA SU SCHERMI GRANDI -->
         <table width="100%" id="tabBigPage">
             <tr>
-                <td rowspan="4" align="center" width="50%"><img src="img/<%=bean.getNome()%>.jpg" width="200px" height="200px" alt="Foto prodotto" id="prodType" ></td>
-                <td align="center"><h1><%=bean.getNome() %></h1><hr/></td>
+                <td td rowspan="5" align="center" width="50%"><img src="img/<%=bean.getCodice()%>.jpg" width="200px" height="200px" alt="Foto prodotto" id="prodType" ></td>
+                <td align="center"><h1>Codice offerta: <%=bean.getCodice() %></h1><hr/></td>
             </tr>
+            <tr align="right"><td><h3>L'offerta comprende: <%= bean.getComponenti()%></h3><hr/></td></tr>
+            <tr align="right"><td><h3>Data Inizio: <%= bean.getDataInizio() %></h3><hr/></td></tr>
+            <tr align="right"><td><h3>Data Fine: <%= bean.getDataFine() %></h3><hr/></td></tr>
+            <tr align="right"><td><h3>Prezzo: &euro;<%=formatter.format("%.2f", prezzo) %></h3><hr/></td></tr>
 
-            <tr align="right"><td><h3><%= bean.getComponenti() %></h3><hr/></td></tr>
-
-            <tr align="right"><td><h3>&euro;<%=formatter.format("%.2f", prezzo) %></h3><hr/></td></tr>
 
 
-            <tr align="right"><td><h4>Codice Prodotto: <%= bean.getCodice() %></h4><hr/></td></tr>
             <%
                 if(isCliente!=0) { //loggato con cliente, mostra il tasto Add to Cart
             %>
             <!-- SEZIONE AGGIUNTA CARRELLO -->
             <tr><td colspan="2" align="center">
 
-                <a href="./ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/empty-cart-light.png" width="150px" height="100px" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
-
-
+                <a href="./OffertaControl?action=addC&codice=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>"><img src="img/empty-cart-light.png" width="150px" height="100px" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
             </td></tr>
             <%
                 }
@@ -151,27 +152,32 @@
         <table width="100%" id="tabSmallPage">
             <tr>
                 <td width="50%">
-
+                    <img src="img/<%=bean.getCodice()   %>.jpg" alt="Foto prodotto" id="prodType" >
                 </td>
             </tr><tr>
             <td>
-                <h1><%=bean.getNome() %></h1><hr/>
+                <h1>DataInizio: <%=bean.getDataInizio() %></h1><hr/>
             </td>
         </tr><tr>
             <td>
-                <h3><%= bean.getComponenti() %></h3><hr/>
+                <h3>Data Fine: <%= bean.getDataFine()  %></h3><hr/>
             </td>
         </tr>
+            <tr>
+                <td>
+                    <h3>Prodotti inclusi nell'offerta: <%= bean.getProdottiInOfferta()  %></h3><hr/>
+                </td>
+            </tr>
 
             <%
                 Formatter formatter2 = new Formatter();
 
             %>
 
-            <tr><td><h3>&euro;<%=formatter2.format("%.2f", prezzo) %></h3><hr/></td></tr>
+            <tr><td><h3>&euro;<%=formatter2.format("%.2f", bean.getPrezzo()) %></h3><hr/></td></tr>
             <tr>
                 <td>
-                    <h4>Codice Prodotto: <%= bean.getCodice() %></h4><hr/>
+                    <h4>Codice Offerta: <%= bean.getCodice() %></h4><hr/>
                 </td>
             </tr>
             <%
@@ -180,7 +186,7 @@
             <!-- SEZIONE AGGIUNTA CARRELLO -->
             <tr><td colspan="2" align="center">
 
-                <a href="./ProductControl?action=addC&id=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/cartIcon.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
+                <a href="./OffertaControl?action=addC&id=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>"><img src="img/cartIcon.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
             </td></tr>
             <%
                 }
@@ -191,7 +197,6 @@
 
     </div>
 </div>
-
 
 
 <!-- Footer -->
@@ -223,7 +228,7 @@
 
 <hr>
 
-<p style="color:grey; text-align:center;">Copyright � 2020 I-Buy. All rights reserved.</p>
+<p style="color:grey; text-align:center;">Copyright © 2020 I-Buy. All rights reserved.</p>
 
 </body>
 </html>

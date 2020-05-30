@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Cart;
-import model.ProductBean;
-import model.ProductModelDM;
+import components.Cart;
+import beans.ProductBean;
+import model.ProductModel;
 
 
 @WebServlet("/ProductControl")
 public class ProductControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	static ProductModelDM model = new ProductModelDM();
+	static ProductModel model = new ProductModel();
 	
 	
     public ProductControl() {

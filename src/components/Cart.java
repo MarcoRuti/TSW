@@ -1,4 +1,4 @@
-package model;
+package components;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,4 +32,5 @@ public class Cart<T> {
 	public void deleteItems() {
 		items.clear();
 	}
+
 }

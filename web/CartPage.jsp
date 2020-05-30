@@ -2,7 +2,7 @@
 <%@page import="beans.Acquistabile"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
-         import="components.Cart, beans.OrdineBean, beans.ProdottoBean,beans.Acquistabile, java.util.*, java.sql.*"%>
+         import="components.Cart, beans.OrdineBean, beans.ProductBean, java.util.*, java.sql.*"%>
 
 <%@ page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
@@ -126,7 +126,7 @@
         <%
             List<Acquistabile> prodcart = cart.getProducts(); 	//prendi i prodotti già presenti nel carrello
             for(Acquistabile beancart: prodcart) { //per ogni prodotto ricevuto nel carrello
-                if(beancart instanceof ProdottoBean){
+                if(beancart instanceof ProductBean){
                     System.out.println(beancart.toString());
                     Formatter formatter = new Formatter(); //UTILIZZATO PER POTER STAMPARE SEMPRE 2 DECIMALI DOPO LA VIRGOLA
 

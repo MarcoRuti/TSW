@@ -19,19 +19,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 9.0.30" level="application_server_libraries" />
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../StoreDemo/StoreDemo/WebContent/WEB-INF/lib/mysql-connector-java-8.0.12.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" exported="" name="jquery-3.2.1.slim" level="application" />
-    <orderEntry type="library" exported="" name="popper.js" level="application" />
-    <orderEntry type="library" exported="" name="bootstrap" level="application" />
-    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" exported="" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 9.0.33" level="application_server_libraries" />
   </component>
 </module>
