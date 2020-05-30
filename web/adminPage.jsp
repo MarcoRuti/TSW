@@ -139,14 +139,15 @@
         }
         else if(isCliente == 1) { //accesso alla pagina con account locale
         %>
+
         <h2>ACCESSO NON AUTORIZZATO!</h2>
-        <p>Questa pagina Ã‹ riservata solo ad account administrator. Torna alla <a href="index.jsp">home</a> per loggarti.</p>
+        <p>Questa pagina è riservata solo ad account administrator. Torna alla <u><a href="index.jsp">home</a></u> per loggarti.</p>
         <%
         }
-        else if(isAdmin == 0) { //isAdmin sarâ€¡ = 0 quando nessun account Ã‹ al momento collegato
+        else if(isAdmin == 0) { //isAdmin sarà = 0 quando nessun account è al momento collegato
         %>
         <h2>ACCESSO NON AUTORIZZATO!</h2>
-        <p>Non sei autorizzato ad entrare in questa pagina. Torna alla <a href="index.jsp">home</a> per loggarti.</p>
+        <p>Non sei autorizzato ad entrare in questa pagina. Torna alla <u><a href="index.jsp">home</a></u> per loggarti.</p>
 
         <%
             }
@@ -155,7 +156,7 @@
         <!-- 	<p><%=e %></p> -->
         <p>.</p>
         <h2>ACCESSO NON AUTORIZZATO!</h2>
-        <p>Non sei autorizzato ad entrare in questa pagina. Torna alla <a href="index.jsp">home</a> per loggarti.</p>
+        <p>Non sei autorizzato ad entrare in questa pagina. Torna alla <u><a href="index.jsp">home</a></u> per loggarti.</p>
         <%
             }
 
