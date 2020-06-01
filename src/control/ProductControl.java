@@ -47,7 +47,7 @@ public class ProductControl extends HttpServlet {
 					request.setAttribute("product", model.doRetrieveProductByKey(id));
 				} else if(action.equals("addCart")) {
 					String id = request.getParameter("id");
-					ProductBean bean = model.doRetrieveProductByKey(id);
+					ProductBean bean = model.doRetrieveProductByKey("id");
 					if(bean != null && !bean.isEmpty()) {
 						cart.addItem(bean);
 						request.setAttribute("message", "Product "+ bean.getNome()+" added to cart");

@@ -261,7 +261,7 @@ public class ProductModel {
 
 	}
 
-	public synchronized ProductBean doRetrieveProductByKey(int code) throws SQLException {
+	public synchronized ProductBean doRetrieveProductByKey(String code) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
