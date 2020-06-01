@@ -44,23 +44,23 @@ public class ProductControl extends HttpServlet {
 				if(action.equals("details")) {
 					String id = request.getParameter("id");
 					request.removeAttribute("product");
-					request.setAttribute("product", model.doRetrieveByKey(id));
+					request.setAttribute("product", model.doRetrieveProductByKey(id));
 				} else if(action.equals("addCart")) {
 					String id = request.getParameter("id");
-					ProductBean bean = model.doRetrieveByKey(id);
+					ProductBean bean = model.doRetrieveProductByKey(id);
 					if(bean != null && !bean.isEmpty()) {
 						cart.addItem(bean);
-						request.setAttribute("message", "Product "+ bean.getName()+" added to cart");
+						request.setAttribute("message", "Product "+ bean.getNome()+" added to cart");
 					}
 				} else if(action.equals("clearCart")) {
 					cart.deleteItems();
 					request.setAttribute("message", "Cart cleaned");
 				} else if(action.equals("deleteCart")) {
 					String id = request.getParameter("id");
-					ProductBean bean = model.doRetrieveByKey(id);
+					ProductBean bean = model.doRetrieveProductByKey(id);
 					if(bean != null && !bean.isEmpty()) {
 						cart.deleteItem(bean);
-						request.setAttribute("message", "Product "+ bean.getName()+" deleted from cart");
+						request.setAttribute("message", "Product "+ bean.getNome()+" deleted from cart");
 					}
 				} else if(action.equals("insert")) {
 					String name = request.getParameter("name");
@@ -69,19 +69,19 @@ public class ProductControl extends HttpServlet {
 					int quantity = Integer.parseInt(request.getParameter("quantity"));
 					
 					ProductBean bean = new ProductBean();
-					bean.setName(name);
-					bean.setDescription(description);
-					bean.setPrice(price);
+					bean.setNome(name);
+					bean.setComponenti(description);
+					bean.setPrezzo(price);
 					bean.setQuantity(quantity);
 					
 					model.doSave(bean);
-					request.setAttribute("message", "Product "+ bean.getName()+" added");
+					request.setAttribute("message", "Product "+ bean.getNome()+" added");
 				} else if(action.equals("delete")) {
 					String id = request.getParameter("id");
-					ProductBean bean = model.doRetrieveByKey(id);
+					ProductBean bean = model.doRetrieveProductByKey(id);
 					if(bean != null && !bean.isEmpty()) {
-						model.doDelete(bean);
-						request.setAttribute("message", "Product "+ bean.getName()+" deleted");
+						model.doDeleteInt("id");
+						request.setAttribute("message", "Product "+ bean.getNome()+" deleted");
 					}
 				} else if(action.equals("update")) {
 					String id = request.getParameter("id");
@@ -91,14 +91,14 @@ public class ProductControl extends HttpServlet {
 					int quantity = Integer.parseInt(request.getParameter("quantity"));	
 					
 					ProductBean bean = new ProductBean();
-					bean.setCode(Integer.parseInt(id));
-					bean.setName(name);
-					bean.setDescription(description);
-					bean.setPrice(price);
+					bean.setCodice(Integer.parseInt(id));
+					bean.setNome(name);
+					bean.setComponenti(description);
+					bean.setPrezzo(price);
 					bean.setQuantity(quantity);
 					
-					model.doUpdate(bean);
-					request.setAttribute("message", "Product "+ bean.getName()+" updated");
+					model.doSave(bean);
+					request.setAttribute("message", "Product "+ bean.getNome()+" updated");
 				}
 			}
 		} catch(SQLException | NumberFormatException e) {
@@ -110,7 +110,7 @@ public class ProductControl extends HttpServlet {
 		
 		try {
 			request.removeAttribute("products");
-			request.setAttribute("products", model.doRetrieveAll(sort));
+			request.setAttribute("products", model.doRetrieveAllProduct());
 		} catch(SQLException e) {
 			System.out.println("Error: "+ e.getMessage());
 			request.setAttribute("error", e.getMessage());

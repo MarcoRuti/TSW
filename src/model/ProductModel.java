@@ -91,7 +91,7 @@ public class ProductModel {
 
 
 	//Genera query DELETE per eliminare la riga identificata da 'code' all'interno del DB
-	public synchronized boolean doDeleteInt(int code)
+	public synchronized boolean doDeleteInt(String code)
 			throws SQLException {
 
 		Connection connection1 = null;
