@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class ProductModelDM implements ProductModel<ProductBean> {
+public class ProductModelDM extends ProductBean {
 
-    @Override
+
     public ProductBean doRetrieveByKey(String code) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -92,7 +92,7 @@ public class ProductModelDM implements ProductModel<ProductBean> {
         return products;
     }
 
-    @Override
+
     public void doSave(ProductBean product) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
