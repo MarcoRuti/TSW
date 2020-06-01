@@ -32,7 +32,7 @@ public class ProductModelDM extends ProductBean {
             while(rs.next()) {
                 bean.setCodice(rs.getInt("code"));
                 bean.setNome(rs.getString("name"));
-                bean.setComponenti(rs.getString("description"));
+                bean.setDescrizione(rs.getString("description"));
                 bean.setPrezzo(rs.getInt("price"));
             }
 
@@ -74,7 +74,7 @@ public class ProductModelDM extends ProductBean {
 
                 bean.setCodice(rs.getInt("code"));
                 bean.setNome(rs.getString("name"));
-                bean.setComponenti(rs.getString("description"));
+                bean.setDescrizione(rs.getString("description"));
                 bean.setPrezzo(rs.getInt("price"));
 
 
@@ -105,7 +105,7 @@ public class ProductModelDM extends ProductBean {
             preparedStatement = connection.prepareStatement(insertSQL);
 
             preparedStatement.setString(1, product.getNome());
-            preparedStatement.setString(2, product.getComponenti());
+            preparedStatement.setString(2, product.getDescrizione());
             preparedStatement.setInt(3, (int) product.getPrezzo());
 
 
@@ -137,7 +137,7 @@ public class ProductModelDM extends ProductBean {
             preparedStatement = connection.prepareStatement(updateSQL);
 
             preparedStatement.setString(1, product.getNome());
-            preparedStatement.setString(2, product.getComponenti());
+            preparedStatement.setString(2, product.getDescrizione());
             preparedStatement.setInt(3, (int) product.getPrezzo());
 
 

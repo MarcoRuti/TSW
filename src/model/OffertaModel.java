@@ -14,4 +14,7 @@ public class OffertaModel {
     }
     public void doDeleteInt(int codiciOfferte) {
     }
+
+  //  public Object doRetrieveOffertaByKey(int code) {
+  //  }
 }

@@ -156,7 +156,7 @@
                     }
                 %>
             </tr>
-            <tr align="right"><td>Componenti: <%= bean.getComponenti()%></td></tr>
+            <tr align="right"><td>Componenti: <%= bean.getDescrizione()%></td></tr>
             <tr align ="right"><td>Data Inizio Offerta: <%=bean.getDataInizio() %> </td></tr>
             <tr align ="right"><td>Data Fine Offerta: <%=bean.getDataFine() %> </td></tr>
             <tr align="right"><td style="color:black;"> Prezzo:

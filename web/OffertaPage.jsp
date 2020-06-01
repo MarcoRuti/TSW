@@ -125,7 +125,7 @@
                 <td td rowspan="5" align="center" width="50%"><img src="img/<%=bean.getCodice()%>.jpg" width="200px" height="200px" alt="Foto prodotto" id="prodType" ></td>
                 <td align="center"><h1>Codice offerta: <%=bean.getCodice() %></h1><hr/></td>
             </tr>
-            <tr align="right"><td><h3>L'offerta comprende: <%= bean.getComponenti()%></h3><hr/></td></tr>
+            <tr align="right"><td><h3>L'offerta comprende: <%= bean.getDescrizione()%></h3><hr/></td></tr>
             <tr align="right"><td><h3>Data Inizio: <%= bean.getDataInizio() %></h3><hr/></td></tr>
             <tr align="right"><td><h3>Data Fine: <%= bean.getDataFine() %></h3><hr/></td></tr>
             <tr align="right"><td><h3>Prezzo: &euro;<%=formatter.format("%.2f", prezzo) %></h3><hr/></td></tr>

@@ -40,7 +40,7 @@ public class ProductModel {
 			preparedStatement.setString(2, product.getNome());
 			preparedStatement.setString(3, product.getTipo());
 			preparedStatement.setDouble(4, product.getPrezzo());
-			preparedStatement.setString(5, product.getComponenti());
+			preparedStatement.setString(5, product.getDescrizione());
 
 			System.out.println(preparedStatement.toString());
 
@@ -73,7 +73,7 @@ public class ProductModel {
 			preparedStatement.setInt(1, product.getCodice());
 			preparedStatement.setString(2, product.getNome());
 			preparedStatement.setDouble(3, product.getPrezzo());
-			preparedStatement.setString(4, product.getComponenti());
+			preparedStatement.setString(4, product.getDescrizione());
 			preparedStatement.setString(5, product.getTipo());
 
 			preparedStatement.executeUpdate();
@@ -91,7 +91,7 @@ public class ProductModel {
 
 
 	//Genera query DELETE per eliminare la riga identificata da 'code' all'interno del DB
-	public synchronized boolean doDeleteInt(String code)
+	public synchronized boolean doDeleteInt(int code)
 			throws SQLException {
 
 		Connection connection1 = null;
@@ -116,8 +116,8 @@ public class ProductModel {
 				DriverManagerConnectionPool.releaseConnection(connection1);
 			}
 		}
-		OffertaModel model= new OffertaModel();
-		model.doDeleteInt(getCodiciOfferte(code));
+		//OffertaModel model= new OffertaModel();
+		//model.doDeleteInt(getCodiciOfferte(code));
 
 
 		Connection connection = null;
@@ -169,7 +169,7 @@ public class ProductModel {
 
 				bean.setCodice(rs.getInt("Codice"));
 				bean.setNome(rs.getString("Nome"));
-				bean.setComponenti(rs.getString("Ingredienti"));
+				bean.setDescrizione(rs.getString("Ingredienti"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
 
@@ -205,7 +205,7 @@ public class ProductModel {
 				ProductBean bean = new ProductBean();
 				bean.setCodice(rs.getInt("Codice"));
 				bean.setNome(rs.getString("Nome"));
-				bean.setComponenti(rs.getString("ingredienti"));
+				bean.setDescrizione(rs.getString("ingredienti"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
 
@@ -242,7 +242,7 @@ public class ProductModel {
 				ProductBean bean = new ProductBean();
 				bean.setCodice(rs.getInt("Codice"));
 				bean.setNome(rs.getString("Nome"));
-				bean.setComponenti(rs.getString("ingredienti"));
+				bean.setDescrizione(rs.getString("ingredienti"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
 
@@ -273,14 +273,14 @@ public class ProductModel {
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setInt(1, code);
+			preparedStatement.setInt(1, Integer.parseInt(code));
 
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
 				bean.setCodice(rs.getInt("Codice"));
 				bean.setNome(rs.getString("Nome"));
-				bean.setComponenti(rs.getString("Ingredienti"));
+				bean.setDescrizione(rs.getString("Ingredienti"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
 

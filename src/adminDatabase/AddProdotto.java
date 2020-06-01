@@ -46,7 +46,7 @@ public class AddProdotto extends HttpServlet {
         bean.setNome(nome);
         bean.setPrezzo(prezzo);
         bean.setCodice(codice);
-        bean.setComponenti(ingredienti);
+        bean.setDescrizione(ingredienti);
         bean.setTipo(tipo);
 
         try {

@@ -136,7 +136,7 @@ public class ClientModel{
 
         String selectSQL = "SELECT * FROM " + ClientModel.TAB_NAME;
         try {
-            connection = DriverManagerConnectionPool.getConnection(db, username, password);
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
 
             ResultSet rs = preparedStatement.executeQuery();

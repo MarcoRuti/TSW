@@ -14,8 +14,8 @@ public interface Acquistabile {
 
     public void setPrezzo(double prezzo);
 
-    public String getComponenti();
+    public String getDescrizione();
 
-    public void setComponenti(String componenti);
+    public void setDescrizione(String componenti);
 
 }

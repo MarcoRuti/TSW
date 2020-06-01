@@ -76,7 +76,7 @@ public class AcquistabileControl extends HttpServlet {
                     int codice = Integer.parseInt(request.getParameter("codice"));
                     System.out.println("Provo ad aggiungere il prodotto Codice: " + codice);
                     int justAdded=0;
-                    List<Acquistabile> inCart = cart.getProducts();
+                    List<Acquistabile> inCart = cart.getItems();
 
                     if(inCart.size()>0) {
                         System.out.println("Sono presenti " + inCart.size() + " elementi nel carrello.");
@@ -92,10 +92,10 @@ public class AcquistabileControl extends HttpServlet {
                         if(prod instanceof ProductBean)
                             model.doRetrieveProductByKey(codice);
                         else if(prod instanceof OffertaBean)
-                            modelO.doRetrieveOffertaByKey(codice);
+                            model.doRetrieveProductByKey(codice);
 
                         prod.toString();
-                        cart.addProduct(prod);
+                        cart.addItem(prod);
                         ordine.addProdotto(prod);
                         ordine.setUsernameCliente(usernameCliente);
                         System.out.println("Aggiunto al carrello oggetto " + codice + ".");
@@ -105,11 +105,11 @@ public class AcquistabileControl extends HttpServlet {
 
                 } else if (action.equalsIgnoreCase("deleteC")) {
                     int cod = Integer.parseInt(request.getParameter("codice"));
-                    cart.deleteProduct(model.doRetrieveProductByKey(cod));
+                    cart.deleteItem(model.doRetrieveProductByKey(cod));
                     ordine.deleteProduct(model.doRetrieveProductByKey(cod));
                 }
                 else if (action.equalsIgnoreCase("deleteAll")) {
-                    cart.deleteAll();
+                    cart.deleteItems();
                     ordine.setArray(null);
                 }
             }

@@ -37,13 +37,7 @@ public class OffPage extends HttpServlet {
 
         request.removeAttribute("offertaPage");
 
-        try {
-            request.setAttribute("offertaPage", model.doRetrieveOffertaByKey(code));
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            System.out.println("[OffPage.java - setAttribute offerta] ERROR: " + e.getMessage());
-        }
+        //request.setAttribute("offertaPage", model.doRetrieveOffertaByKey(code));
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/OffertaPage.jsp");
         dispatcher.forward(request, response);

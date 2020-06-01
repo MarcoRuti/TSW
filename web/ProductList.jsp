@@ -193,7 +193,7 @@
                     }
                 %>
             </tr>
-            <tr align="right"><td><%= bean.getComponenti()%></td></tr>
+            <tr align="right"><td><%= bean.getDescrizione()%></td></tr>
 
             <tr align="right"><td style="color:green;">
                 &euro;<%=formatter.format("%.2f", prezzo)%></td></tr>
@@ -239,7 +239,7 @@
             </tr><tr>
             <td><a href="./ProductPage?codice=<%=bean.getCodice()%>"><%= bean.getNome() %></a></td>
         </tr><tr>
-            <td><%= bean.getComponenti() %></td>
+            <td><%= bean.getDescrizione() %></td>
         </tr><tr>
             <%
                 Formatter formatter2 = new Formatter();

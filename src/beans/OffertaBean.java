@@ -70,7 +70,7 @@ public class OffertaBean implements Acquistabile{
         String nome=""+codice;
         return nome;
     }
-    public String getComponenti() {
+    public String getDescrizione() {
         String p="";
         for(int i=0;i<arrayProdotti.size();i++) {
             p+=arrayProdotti.get(i).getNome()+" ";
@@ -83,7 +83,7 @@ public class OffertaBean implements Acquistabile{
 
     }
 
-    public void setComponenti(String componenti) {
+    public void setDescrizione(String componenti) {
 
     }
 

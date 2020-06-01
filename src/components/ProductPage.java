@@ -44,7 +44,7 @@ public class ProductPage extends HttpServlet {
         request.removeAttribute("prodPage");
 
         try {
-            request.setAttribute("prodPage", model.doRetrieveProductByKey(codice));
+            request.setAttribute("prodPage", model.doRetrieveProductByKey("codice"));
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

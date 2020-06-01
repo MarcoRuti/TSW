@@ -1,5 +1,6 @@
 package control;
 
+
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -19,7 +20,7 @@ import model.ProductModel;
 public class ProductControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	static ProductModel model = new ProductModel();
+	//static ProductModel model = new ProductModel();
 	
 	
     public ProductControl() {
@@ -48,7 +49,7 @@ public class ProductControl extends HttpServlet {
 				} else if(action.equals("addCart")) {
 					String id = request.getParameter("id");
 					ProductBean bean = model.doRetrieveProductByKey("id");
-					if(bean != null && !bean.isEmpty()) {
+					if(bean != null ) {
 						cart.addItem(bean);
 						request.setAttribute("message", "Product "+ bean.getNome()+" added to cart");
 					}
@@ -58,7 +59,7 @@ public class ProductControl extends HttpServlet {
 				} else if(action.equals("deleteCart")) {
 					String id = request.getParameter("id");
 					ProductBean bean = model.doRetrieveProductByKey(id);
-					if(bean != null && !bean.isEmpty()) {
+					if(bean != null ) {
 						cart.deleteItem(bean);
 						request.setAttribute("message", "Product "+ bean.getNome()+" deleted from cart");
 					}
@@ -70,7 +71,7 @@ public class ProductControl extends HttpServlet {
 					
 					ProductBean bean = new ProductBean();
 					bean.setNome(name);
-					bean.setComponenti(description);
+					bean.setDescrizione(description);
 					bean.setPrezzo(price);
 					bean.setQuantity(quantity);
 					
@@ -79,8 +80,8 @@ public class ProductControl extends HttpServlet {
 				} else if(action.equals("delete")) {
 					String id = request.getParameter("id");
 					ProductBean bean = model.doRetrieveProductByKey(id);
-					if(bean != null && !bean.isEmpty()) {
-						model.doDeleteInt("id");
+					if(bean != null) {
+						model.doDeleteInt(Integer.parseInt("id"));
 						request.setAttribute("message", "Product "+ bean.getNome()+" deleted");
 					}
 				} else if(action.equals("update")) {
@@ -93,9 +94,9 @@ public class ProductControl extends HttpServlet {
 					ProductBean bean = new ProductBean();
 					bean.setCodice(Integer.parseInt(id));
 					bean.setNome(name);
-					bean.setComponenti(description);
+					bean.setDescrizione(description);
 					bean.setPrezzo(price);
-					bean.setQuantity(quantity);
+
 					
 					model.doSave(bean);
 					request.setAttribute("message", "Product "+ bean.getNome()+" updated");

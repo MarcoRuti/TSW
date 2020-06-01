@@ -7,14 +7,14 @@ public class ProductBean implements Serializable,Acquistabile {
 
     int codice;
     String nome;
-    String ingredienti;
+    String descrizione;
     double prezzo;
     String tipo;
 
     public ProductBean() {
         codice=-1;
         nome="";
-        ingredienti= "";
+        descrizione = "";
         tipo="";
         prezzo=0;
     }
@@ -31,11 +31,11 @@ public class ProductBean implements Serializable,Acquistabile {
     public void setNome(String nome) {
         this.nome=nome;
     }
-    public String getComponenti() {
-        return ingredienti;
+    public String getDescrizione() {
+        return descrizione;
     }
-    public void setComponenti (String ingredienti) {
-        this.ingredienti=ingredienti;
+    public void setDescrizione(String descrizione) {
+        this.descrizione =descrizione;
     }
 
     public String getTipo() {
@@ -54,7 +54,7 @@ public class ProductBean implements Serializable,Acquistabile {
 
     public String toString() {
         return "ProdottoBean[Codice=" + codice + ", Nome=" + nome + ", Ingredienti= "
-                + "" + ingredienti + ", Tipo=" + tipo + ",Prezzo=" + prezzo + "]";
+                + "" + descrizione + ", Tipo=" + tipo + ",Prezzo=" + prezzo + "]";
     }
 
 

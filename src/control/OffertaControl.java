@@ -1,4 +1,4 @@
-package controls;
+package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -39,16 +39,16 @@ public class OffertaControl extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String usernameCliente=(String) request.getSession().getAttribute("usernameCliente");
-        OrdineBean ordine= (OrdineBean) request.getSession().getAttribute("ordine");
+        String usernameCliente = (String) request.getSession().getAttribute("usernameCliente");
+        OrdineBean ordine = (OrdineBean) request.getSession().getAttribute("ordine");
         //Prende un oggetto di tipo carrello dalla sessione. Se non Ë presente, lo crea e lo aggiunge alla sessione
-        Cart cart = (Cart)request.getSession().getAttribute("cart");
-        if(cart == null) {
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+        if (cart == null) {
             cart = new Cart();
             request.getSession().setAttribute("cart", cart);
         }
-        if(ordine==null) {
-            ordine= new OrdineBean();
+        if (ordine == null) {
+            ordine = new OrdineBean();
             request.getSession().setAttribute("ordine", ordine);
         }
 
@@ -61,56 +61,55 @@ public class OffertaControl extends HttpServlet {
         System.out.println("Aggiunto in pagina: " + page);
 
 
-
         try {
             if (action != null) {
                 if (action.equalsIgnoreCase("addC")) {
                     //	System.out.println("Entrato nell'if.");
                     int codice = Integer.parseInt(request.getParameter("codice"));
                     System.out.println("Provo ad aggiungere l'offerta con Codice: " + codice);
-                    int justAdded=0;
-                    List<Acquistabile> inCart = cart.getProducts();
+                    int justAdded = 0;
+                    List<Acquistabile> inCart = cart.getItems();
 
-                    if(inCart.size()>0) {
+                    if (inCart.size() > 0) {
                         System.out.println("Sono presenti " + inCart.size() + " elementi nel carrello.");
-                        for(int i=0; i<inCart.size(); i++){
-                            if(codice==inCart.get(i).getCodice()) {
+                        for (int i = 0; i < inCart.size(); i++) {
+                            if (codice == inCart.get(i).getCodice()) {
                                 justAdded = 1;
                             }
                         }
                     }
-                    if(justAdded == 0) {
+                    if (justAdded == 0) {
 
-                        OffertaBean offerta = model.doRetrieveOffertaByKey(codice);
-                        offerta.toString();
-                        cart.addProduct(offerta);
-                        ordine.addProdotto(offerta);
-                        ordine.setUsernameCliente(usernameCliente);
-                        System.out.println("Aggiunto al carrello oggetto " + codice + ".");
-                    }
-                    else
-                        System.out.println("Elemento gi‡ nel carrello.");
+                        //     OffertaBean offerta = model.doRetrieveOffertaByKey(codice);
+                        //     offerta.toString();
+                        //     cart.addItem(offerta);
+                        //     ordine.addProdotto(offerta);
+                        //      ordine.setUsernameCliente(usernameCliente);
+                        //      System.out.println("Aggiunto al carrello oggetto " + codice + ".");
+                        //    }
+                        //   else
+                        //       System.out.println("Elemento gi‡ nel carrello.");
 
-                } else if (action.equalsIgnoreCase("deleteC")) {
-                    int cod = Integer.parseInt(request.getParameter("codice"));
-                    cart.deleteProduct(model.doRetrieveOffertaByKey(cod));
-                    ordine.deleteProduct(model.doRetrieveOffertaByKey(cod));
+                        //    } else if (action.equalsIgnoreCase("deleteC")) {
+                        //       int cod = Integer.parseInt(request.getParameter("codice"));
+                        //      cart.deleteItem(model.doRetrieveOffertaByKey(cod));
+                        //     ordine.deleteProduct(model.doRetrieveOffertaByKey(cod));
 
-                }
-                else if (action.equalsIgnoreCase("deleteAll")) {
-                    cart.deleteAll();
-                    ordine.removeAll();
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("[OffertaControl - action] Error:" + e.getMessage());
-        }
+                        //   }
+                        //   else if (action.equalsIgnoreCase("deleteAll")) {
+                        //       cart.deleteItems();
+                        //        ordine.removeAll();
+                        //     }
+                        //   }
+                        //    } catch (SQLException e) {
+                        //      System.out.println("[OffertaControl - action] Error:" + e.getMessage());
+                        //  }
 
-        request.getSession().setAttribute("cart", cart);
-        request.setAttribute("cart", cart);
-        request.removeAttribute("ordine");
-        request.setAttribute("ordine", ordine);
-        request.getSession().setAttribute("ordine", ordine);
+                        request.getSession().setAttribute("cart", cart);
+                        request.setAttribute("cart", cart);
+                        request.removeAttribute("ordine");
+                        request.setAttribute("ordine", ordine);
+                        request.getSession().setAttribute("ordine", ordine);
 
 /*
 		String order = request.getParameter("order"); //Se order Ë null, in ProductModel verr‡ gestito
@@ -124,15 +123,23 @@ public class OffertaControl extends HttpServlet {
 		}
 */
 //		System.out.println("Product Control eseguito. Trasferisco su JSP.");
-        if(page.equals("cart")) {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartPage.jsp");
-            dispatcher.forward(request, response);
+                        if (page.equals("cart")) {
+                            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartPage.jsp");
+                            dispatcher.forward(request, response);
+                        } else if (page.equals("tutti")) {
+
+
+                            response.sendRedirect("./AllOffertaList");
+                        }
+
+                    }
+                }
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        else if(page.equals("tutti")) {
-
-
-            response.sendRedirect("./AllOffertaList");
-        }
-
-    }
-}
+    }}

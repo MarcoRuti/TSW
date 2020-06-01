@@ -82,17 +82,17 @@ public class DeleteServlet extends HttpServlet {
                 break;
             }
 
-            case "offerta": {
-                OffertaModel model = new OffertaModel(db,username,password);
-                System.out.println("Tabella" + table);
-                try {
-                    result = model.doDeleteInt(Integer.parseInt(primaryKey));
-                }
-                catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                break;
-            }
+          //  case "offerta": {
+          //      OffertaModel model = new OffertaModel(db,username,password);
+          //      System.out.println("Tabella" + table);
+          //      try {
+                 //   result = model.doDeleteInt(primaryKey);
+            //    }
+              //  catch (SQLException e) {
+               //     e.printStackTrace();
+             //   }
+          //      break;
+          //  }
 
             case "ordine": {
                 OrdineModel model = new OrdineModel(db,username,password);

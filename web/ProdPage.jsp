@@ -123,7 +123,7 @@
                 <td align="center"><h1><%=bean.getNome() %></h1><hr/></td>
             </tr>
 
-            <tr align="right"><td><h3><%= bean.getComponenti() %></h3><hr/></td></tr>
+            <tr align="right"><td><h3><%= bean.getDescrizione() %></h3><hr/></td></tr>
 
             <tr align="right"><td><h3>&euro;<%=formatter.format("%.2f", prezzo) %></h3><hr/></td></tr>
 
@@ -159,7 +159,7 @@
             </td>
         </tr><tr>
             <td>
-                <h3><%= bean.getComponenti() %></h3><hr/>
+                <h3><%= bean.getDescrizione() %></h3><hr/>
             </td>
         </tr>
 
