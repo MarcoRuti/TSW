@@ -73,7 +73,7 @@ public class ClientModel{
             preparedStatement.setString(1, code);
 
             result = preparedStatement.executeUpdate();
-            connection.commit();
+           /* Che cazzo è?! */ connection.commit(); /*Porca madonna*/
         } finally {
             try {
                 if (preparedStatement != null)
@@ -136,7 +136,7 @@ public class ClientModel{
 
         String selectSQL = "SELECT * FROM " + ClientModel.TAB_NAME;
         try {
-            connection = DriverManagerConnectionPool.getConnection();
+            connection = DriverManagerConnectionPool.getConnection(db, username, password);
             preparedStatement = connection.prepareStatement(selectSQL);
 
             ResultSet rs = preparedStatement.executeQuery();
