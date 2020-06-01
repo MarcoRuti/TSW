@@ -54,7 +54,7 @@
         <nav>
             <ul id="menu">
                 <!-- HOME -->
-                <li class="current"><a href="index.jsp"><img src="img/logo.png" alt="Home"
+                <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home"
                                                              class="icon" id="home" style=></a></li>
 
                 <!-- PRODOTTI -->
@@ -89,7 +89,7 @@
                     }
                 %>
                 <li style="float: right;"><a href="CartPage.jsp"><img
-                        src="img/empty-cart-light.png" alt="Carrello" class="icon"
+                        src="img/carrello_vuoto.png" alt="Carrello" class="icon"
                         id="cartHome" style="height: 30px; width: 30px;"></a></li>
 
 
@@ -124,7 +124,7 @@
         %>
 
         <%
-            List<Acquistabile> prodcart = cart.getProducts(); 	//prendi i prodotti già presenti nel carrello
+            List<Acquistabile> prodcart = cart.getItems(); 	//prendi i prodotti già presenti nel carrello
             for(Acquistabile beancart: prodcart) { //per ogni prodotto ricevuto nel carrello
                 if(beancart instanceof ProductBean){
                     System.out.println(beancart.toString());
@@ -323,6 +323,6 @@ else {
 
 <hr>
 
-<p style="color:grey; text-align:center;">Copyright 2018 La Saporita. All rights reserved.</p>
+<p style="color:grey; text-align:center;">Copyright 2020 I-Buy. All rights reserved.</p>
 </body>
 </html>

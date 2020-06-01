@@ -1,4 +1,4 @@
-package controls;
+package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -73,7 +73,7 @@ public class AcquistabileControl extends HttpServlet {
             if (action != null) {
                 if (action.equalsIgnoreCase("addC")) {
                     //	System.out.println("Entrato nell'if.");
-                    int codice = Integer.parseInt(request.getParameter("codice"));
+                    String codice = ("codice");
                     System.out.println("Provo ad aggiungere il prodotto Codice: " + codice);
                     int justAdded=0;
                     List<Acquistabile> inCart = cart.getItems();
@@ -81,9 +81,9 @@ public class AcquistabileControl extends HttpServlet {
                     if(inCart.size()>0) {
                         System.out.println("Sono presenti " + inCart.size() + " elementi nel carrello.");
                         for(int i=0; i<inCart.size(); i++){
-                            if(codice==inCart.get(i).getCodice()) {
-                                justAdded = 1;
-                            }
+                         //   if(codice==inCart.get(i).getCodice()) {
+                          //      justAdded = 1;
+                         //   }
                         }
                     }
                     if(justAdded == 0) {
@@ -104,7 +104,8 @@ public class AcquistabileControl extends HttpServlet {
                         System.out.println("Elemento gi‡ nel carrello.");
 
                 } else if (action.equalsIgnoreCase("deleteC")) {
-                    int cod = Integer.parseInt(request.getParameter("codice"));
+                    String cod;
+                    cod = "codice";
                     cart.deleteItem(model.doRetrieveProductByKey(cod));
                     ordine.deleteProduct(model.doRetrieveProductByKey(cod));
                 }

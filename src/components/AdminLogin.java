@@ -3,6 +3,7 @@ package components;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,37 +21,37 @@ import model.AdmAccountModel;
 public class AdminLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-
-    static String db = "pizzeria";
+    static String db = "i-buy";
     static String username = "root";
-    static String password = "root";
+    static String password = "rootroot";
+
 
     static AdmAccountModel model = new AdmAccountModel(db,username,password);
 
 
-    /**
-     * @see HttpServlet#HttpServlet()
+    /*
+    @see HttpServlet#HttpServlet()
      */
     public AdminLogin() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+    /*
+    @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Error. This servlet must be called with POST method.");
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+    /*
+    @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        String userForm=request.getParameter("Username");
-        String passForm=request.getParameter("Password");
+        String userForm=request.getParameter("UsernameAdmin");
+        String passForm=request.getParameter("PasswordAdmin");
         System.out.println("Username: " + userForm + ", password: " + passForm);
 
 
@@ -59,7 +60,7 @@ public class AdminLogin extends HttpServlet {
         int isAdminIn = 0; //Questa variabile a 0 serve per prevenire l'accesso non autorizzato alla pagina dopo il login
         int isClientIn = 0;
         session.setAttribute("adminIn", isAdminIn); //salvo la variabile nella session per leggerla dalle pagine autorizzate
-        session.setAttribute("ClientIn", isClientIn);
+        session.setAttribute("clientIn", isClientIn);
         String linkReind = (String) session.getAttribute("link");
         System.out.println(linkReind);
         try {
@@ -67,7 +68,7 @@ public class AdminLogin extends HttpServlet {
             request.removeAttribute("accounts");
             account = model.doRetrieveAccountByName(userForm);
             request.setAttribute("accounts", account);
-            //System.out.println(account.toString());
+            System.out.println(account.toString());
         } catch(SQLException e) {
             System.out.println("[AdminLogin.java] Error: " + e);
         }
@@ -79,8 +80,8 @@ public class AdminLogin extends HttpServlet {
             isAdminIn = 1; //metto il bit di controllo admin a 1 per l'accesso autorizzato
             session.setAttribute("adminIn", isAdminIn); //inserisco il bit nella session per leggerlo dalle page autorizzate
 
-            //	RequestDispatcher disp = getServletContext().getRequestDispatcher("/" + linkReind); //trasferisco sulla pagina dopo il login
-            //	disp.forward(request, response);
+            RequestDispatcher disp = getServletContext().getRequestDispatcher("/" + linkReind); //trasferisco sulla pagina dopo il login
+            disp.forward(request, response);
             response.sendRedirect(linkReind);
         }
         else { //username o psw o entrambi errati

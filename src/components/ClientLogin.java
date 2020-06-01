@@ -20,9 +20,9 @@ import model.ClientModel;
 public class ClientLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    static String db = "pizzeria";
+    static String db = "i-buy";
     static String username = "root";
-    static String password = "root";
+    static String password = "rootroot";
 
     static ClientModel model= new ClientModel(db,username,password);
 
@@ -44,15 +44,15 @@ public class ClientLogin extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userForm=request.getParameter("usernameCliente");
-        String passForm=request.getParameter("PswCliente");
-        //System.out.println("Username: " + userForm + ", password: " + passForm);
+        String passForm=request.getParameter("pswCliente");
+        System.out.println("Username: " + userForm + ", password: " + passForm);
 
         ClienteBean account= new ClienteBean();
         HttpSession session=request.getSession();
         int isAdminIn=0;
         int isClientIn=0;
         session.setAttribute("adminIn", isAdminIn);
-        session.setAttribute("clienteIn", isClientIn);
+        session.setAttribute("clientIn", isClientIn);
         String linkReind= (String) session.getAttribute("link");
 
         try {
@@ -67,7 +67,7 @@ public class ClientLogin extends HttpServlet {
             session.setAttribute("usernameCliente", userForm);
             isClientIn=1;
             session.setAttribute("name", account.getNome());
-            session.setAttribute("clienteIn", isClientIn);
+            session.setAttribute("clientIn", isClientIn);
 
             response.sendRedirect(linkReind);
         }

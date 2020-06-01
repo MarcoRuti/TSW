@@ -147,7 +147,7 @@ public class AdmAccountModel {
             while (rs.next()) {
                 AdminAccountBean bean = new AdminAccountBean();
                 bean.setUsername(rs.getString("username"));
-                bean.setPassword(rs.getString("password"));
+                bean.setPassword(rs.getString("psw"));
 
                 products.add(bean);
             }

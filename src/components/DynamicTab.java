@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DynamicTab extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    static String url = "jdbc:mysql://localhost:3306/pizzeria";
+    static String url = "jdbc:mysql://localhost:3306/i-buy";
     static String user = "root";
     static String psw = "root";
 

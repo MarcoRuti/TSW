@@ -52,7 +52,7 @@
 
 </div>
 
-<!-- 	<p>Richiesta login ricevuto da <%=url %></p>  -->
+	<p>Richiesta login ricevuto da <%=url %></p>
 
 <h2 align="center">Login</h2>
 
@@ -66,7 +66,7 @@
                 String username = (String) session.getAttribute("name");
                 if(username!=null) {
         %>
-        <p>Utente < %=username %> gi‡ connesso!</p>
+        <p>Utente <%=username %> già connesso!</p>
         <p><a href="logout.jsp?link=< %=url %>">Logout</a></p>
         <%
         } else {
@@ -74,7 +74,7 @@
         -->
 
         <div id="leftLogin">
-            <form action="./AdminLogin" method="POST">
+            <form action="AdminLogin" method="POST">
                 <table align="center" style="width:300px; height:250px">
                     <caption class="tabTitle">Admin</caption>
                     <tr><td colspan=2>Username:</td></tr>
@@ -92,7 +92,7 @@
         </div>
 
         <div id="rightLogin">
-            <form action="./ClientLogin" method="POST">
+            <form action="ClientLogin" method="POST">
                 <table align="center" style="width:300px; height:250px">
                     <caption class="tabTitle">Cliente</caption>
                     <tr><td colspan=2>Username:</td></tr>
@@ -101,7 +101,7 @@
                     </td></tr>
                     <tr><td colspan=2>Password</td></tr>
                     <tr><td colspan=2>
-                        <input type="password" placeholder="Enter password" name="PswCliente" required style="width:100%; height:100%">
+                        <input type="password" placeholder="Enter password" name="pswCliente" required style="width:100%; height:100%">
                     </td></tr>
                     <tr><td class="buttonTd"><input type="submit" style="width:100%; height:100%" ></td>
                         <td class="buttonTd"><input type="reset" style="width:100%; height:100%"></td></tr>
