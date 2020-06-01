@@ -34,7 +34,7 @@ public class LocaleModel {
                 + " VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
-            connection = DriverManagerConnectionPool.getConnection(db, username, password);
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
             preparedStatement.setInt(1, negozio.getCodice());
             preparedStatement.setString(2, negozio.getNome());
@@ -69,7 +69,7 @@ public class LocaleModel {
         String deleteSQL = "DELETE FROM " + LocaleModel.TAB_NAME + " WHERE Codice = ?";
 
         try {
-            connection = DriverManagerConnectionPool.getConnection(db, username, password);
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(deleteSQL);
             preparedStatement.setInt(1, code);
 
@@ -98,7 +98,7 @@ public class LocaleModel {
         String selectSQL = "SELECT * FROM " + LocaleModel.TAB_NAME + " WHERE Codice = ?";
 
         try {
-            connection = DriverManagerConnectionPool.getConnection(db, username, password);
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
             preparedStatement.setInt(1, code);
 
@@ -142,7 +142,7 @@ public class LocaleModel {
         }
 
         try {
-            connection = DriverManagerConnectionPool.getConnection(db, username, password);
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
 
             ResultSet rs = preparedStatement.executeQuery();

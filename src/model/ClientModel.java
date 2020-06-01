@@ -33,7 +33,7 @@ public class ClientModel{
                 + " VALUES (?, ?, ?, ?)";
 
         try {
-            connection = DriverManagerConnectionPool.getConnection(db, username, password);
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
             preparedStatement.setString(1, cliente.getUsername());
             preparedStatement.setString(2, cliente.getNome());
@@ -68,7 +68,7 @@ public class ClientModel{
         String deleteSQL = "DELETE FROM " + ClientModel.TAB_NAME + " WHERE username = ?";
 
         try {
-            connection = DriverManagerConnectionPool.getConnection(db, username, password);
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(deleteSQL);
             preparedStatement.setString(1, code);
 
@@ -99,7 +99,7 @@ public class ClientModel{
         String selectSQL = "SELECT * FROM " + ClientModel.TAB_NAME + " WHERE username = ?";
 
         try {
-            connection = DriverManagerConnectionPool.getConnection(db, username, password);
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
             preparedStatement.setString(1, user);
 
@@ -136,7 +136,7 @@ public class ClientModel{
 
         String selectSQL = "SELECT * FROM " + ClientModel.TAB_NAME;
         try {
-            connection = DriverManagerConnectionPool.getConnection(db, username, password);
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
 
             ResultSet rs = preparedStatement.executeQuery();

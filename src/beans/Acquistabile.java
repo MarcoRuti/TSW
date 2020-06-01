@@ -2,9 +2,7 @@ package beans;
 
 public interface Acquistabile {
 
-
     public int getCodice();
-
 
     public void setCodice(int codice);
 
@@ -19,7 +17,5 @@ public interface Acquistabile {
     public String getComponenti();
 
     public void setComponenti(String componenti);
-
-
 
 }

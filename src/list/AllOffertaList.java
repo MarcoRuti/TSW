@@ -39,6 +39,7 @@ public class AllOffertaList extends HttpServlet {
         request.setAttribute("pagina", "tutti");
 
         request.removeAttribute("offertaList");
+        /* doRetrieveAllOfferta metodo mancante in OffertaModel
         try {
 
 
@@ -49,7 +50,7 @@ public class AllOffertaList extends HttpServlet {
             e.printStackTrace();
             System.out.println("[AllOffertaList.java - setAttribute offertaList] ERROR: " + e);
         }
-
+        */
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/OffertaList.jsp");
         dispatcher.forward(request, response);
 

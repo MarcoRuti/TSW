@@ -33,7 +33,7 @@ public class AdmAccountModel {
         String insertSQL="INSERT INTO "+AdmAccountModel.TAB_NAME+" VALUES ( ?, ?)";
 
         try {
-            connection= DriverManagerConnectionPool.getConnection(db, username, password);
+            connection= DriverManagerConnectionPool.getConnection();
             preparedStatement=connection.prepareStatement(insertSQL);
             preparedStatement.setString(1, account.getUsername());
             preparedStatement.setString(2, account.getPassword());
@@ -64,7 +64,7 @@ public class AdmAccountModel {
         String deleteSQL = "DELETE FROM " + AdmAccountModel.TAB_NAME + " WHERE username = ?";
 
         try {
-            connection = DriverManagerConnectionPool.getConnection(db, username, password);
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(deleteSQL);
             preparedStatement.setString(1, code);
 
@@ -96,7 +96,7 @@ public class AdmAccountModel {
 
         try {
 
-            con=DriverManagerConnectionPool.getConnection("jdbc:mysql://localhost:3306/pizzeria", "root", "root");
+            con=DriverManagerConnectionPool.getConnection();
             preparedStatement = con.prepareStatement(selectSQL);
             preparedStatement.setString(1, userIn);
 
@@ -139,7 +139,7 @@ public class AdmAccountModel {
         }
 
         try {
-            connection = DriverManagerConnectionPool.getConnection(db, username, password);
+            connection = DriverManagerConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(selectSQL);
 
             ResultSet rs = preparedStatement.executeQuery();
