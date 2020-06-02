@@ -81,9 +81,9 @@ public class AcquistabileControl extends HttpServlet {
                     if(inCart.size()>0) {
                         System.out.println("Sono presenti " + inCart.size() + " elementi nel carrello.");
                         for(int i=0; i<inCart.size(); i++){
-                         //   if(codice==inCart.get(i).getCodice()) {
-                          //      justAdded = 1;
-                         //   }
+                          if(codice.equals(inCart.get(i).getCodice())) {
+                               justAdded = 1;
+                           }
                         }
                     }
                     if(justAdded == 0) {
@@ -91,8 +91,8 @@ public class AcquistabileControl extends HttpServlet {
                         Acquistabile prod = null;
                         if(prod instanceof ProductBean)
                             model.doRetrieveProductByKey(codice);
-                        else if(prod instanceof OffertaBean)
-                            model.doRetrieveProductByKey(codice);
+                      //  else if(prod instanceof OffertaBean)
+                      //      model.doRetrieveProductByKey(codice);
 
                         prod.toString();
                         cart.addItem(prod);
