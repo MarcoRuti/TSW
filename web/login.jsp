@@ -16,10 +16,10 @@
     <meta name="descrizione" content="i-buy">
 
 
-
+    <link rel="stylesheet" type="text/css" href="css/page_style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" href="css/slides.css" type="text/css">
     <link rel="stylesheet" href="css/divStyle.css" type="text/css">
-
 
 
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
@@ -41,7 +41,7 @@
         <label class="toggle" for="toggle">&#9776;</label> <!-- simbolo menu (3 linee orizzontali) -->
         <input class="toggle" id="toggle" type="checkbox">
         <nav>
-            <ul id="menu">
+            <ul id="menu" style="width:100%; height:75px">
                 <!-- HOME -->
                 <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home"></a></li>
             </ul>
@@ -52,7 +52,9 @@
 
 </div>
 
-	<p>Richiesta login ricevuto da <%=url %></p>
+<!--
+<p>Richiesta login ricevuto da < %=url %></p>
+-->
 
 <h2 align="center">Login</h2>
 

@@ -94,7 +94,7 @@
             <tr class="adminTable"><td width="50%" class="adminTable">
                 <fieldset>
                     <legend>Admin account</legend>
-                    <p><a href="./DynamicTab?tab=adminaccount&action=<%=action%>">Visualizza e gestisci lista account amministratore.</a></p> <!-- permette modifica e rimozione nella pagina aperta -->
+                    <p><a href="DynamicTab?tab=adminaccount&action=<%=action%>">Visualizza e gestisci lista account amministratore.</a></p> <!-- permette modifica e rimozione nella pagina aperta -->
                     <p><a href="newAdminAccountForm.jsp">Aggiungi nuovo account amministratore.</a></p>
                 </fieldset>
             </td><td width="50%" class="adminTable">
