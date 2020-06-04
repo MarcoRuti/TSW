@@ -1,14 +1,13 @@
 package model;
 
+import beans.OrdineBean;
+import beans.ProductBean;
+import components.DriverManagerConnectionPool;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import beans.OffertaBean;
-import beans.OrdineBean;
-import beans.ProductBean;
-import components.DriverManagerConnectionPool;
 
 public class OrdineModel {
     private static final String TAB_NAME="ordine"; //Nome tabella in DB
@@ -77,7 +76,7 @@ public class OrdineModel {
                     }
                 }
 
-            } else if(ordine.getProdottiOrdine().get(i) instanceof OffertaBean) {
+            } else if(ordine.getProdottiOrdine().get(i) instanceof ProductBean) {
                 PreparedStatement preparedStatement2=null;
                 String insertSQL2="INSERT INTO contiene VALUES(?,NULL,?);";
                 try {

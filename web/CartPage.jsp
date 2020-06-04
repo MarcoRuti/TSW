@@ -1,4 +1,4 @@
-<%@page import="beans.OffertaBean"%>
+
 <%@page import="beans.Acquistabile"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
@@ -12,10 +12,10 @@
     String usernameCliente = (String) session.getAttribute("usernameCliente"); //prendo id negozio
     if(usernameCliente == null) //se id negozio = null lo imposto a 0 per visualizzazione default
         usernameCliente = "0";
-    String url = "http://localhost:8080/LaSaporita/index.jsp"; //la stringa url porterà all'index
-//String url = request.getRequestURL().toString(); //prendo url pagina per passarlo al login
-//Cart cart = (Cart) request.getAttribute("cart"); //prendo un carrello
-    Cart cart = (Cart) session.getAttribute("cart"); //prendo un carrello dalla sessione
+    String url = "http://localhost:8080/k_war_exploded/index.jsp"; //la stringa url porterà all'index
+ // String url = request.getRequestURL().toString(); //prendo url pagina per passarlo al login
+// Cart cart = (Cart) request.getAttribute("cart"); //prendo un carrello
+   Cart cart = (Cart) session.getAttribute("cart"); //prendo un carrello dalla sessione
 %>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -34,7 +34,7 @@
 
 <%
     int isAdmin = 0; //variabile usata per tener traccia di admin loggato
-    int isCliente = 0; //variabile usata per tener traccia di negozio loggato
+    int isCliente = 0; //variabile usata per tener traccia di  loggato
     try { //prende una o l'altra variabile (non potranno essere prese entrambe - 1 login)
         isAdmin = (int) session.getAttribute("adminIn");
         isCliente = (int) session.getAttribute("clienteIn");
@@ -58,21 +58,20 @@
                                                              class="icon" id="home" style=></a></li>
 
                 <!-- PRODOTTI -->
-                <li class="has_children"><a href="./AllProductList"> PRODOTTI</a>
+                <li class="has_children"><a href="AllProductList"> PRODOTTI</a>
                     <ul>
                         <!-- dropdown menu -->
 
-                        <li><a href="./AllProductList?tipo=pizze">Pizze</a></li>
+                        <li><a href="AllProductList?tipo=pizze">Pizze</a></li>
 
-                        <li><a href="./AllProductList?tipo=panini">Panini</a></li>
+                        <li><a href="AllProductList?tipo=panini">Panini</a></li>
 
-                        <li><a href="./AllProductList?tipo=sfizi">Sfizi e Varie</a></li>
+                        <li><a href="AllProductList?tipo=sfizi">Sfizi e Varie</a></li>
 
-                        <li><a href="./AllProductList?tipo=bibite">Bibite</a></li>
+                        <li><a href="AllProductList?tipo=bibite">Bibite</a></li>
 
                     </ul></li>
-                <!-- OFFERTE -->
-                <li class= "has_children"><a href="./AllOffertaList?">OFFERTE</a>
+
 
                         <%
 				if (name != null) {
@@ -142,7 +141,7 @@
 
                 <td rowspan="5" style="text-align:center; vertical-align:middle;" width="20%">
                     <p>Codice Prodotto: <%=beancart.getCodice() %></p>
-                    <a href="./ProductControl?action=deleteC&codice=<%=beancart.getCodice()%>&page=cart&ordine=<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi dal carrello" id="cartDel" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
+                    <a href="ProductControl?action=deleteC&codice=<%=beancart.getCodice()%>&page=cart&ordine=<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi dal carrello" id="cartDel" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
                 </td>
             </tr>
 
@@ -178,7 +177,7 @@
         </tr><tr>
             <td style="text-align:center; vertical-align:middle;" width="20%">
                 <p>Codice Prodotto: <%=beancart.getCodice() %></p>
-                <a href="./ProductControl?action=deleteC&codice=<%=beancart.getCodice()%>&page=cart&ordine<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi dal carrello" id="cartDel" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
+                <a href="ProductControl?action=deleteC&codice=<%=beancart.getCodice()%>&page=cart&ordine<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi dal carrello" id="cartDel" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
             </td>
         </tr>
         </table>
@@ -186,7 +185,7 @@
         <%
             prod++;
             formatter2.close();
-        } else if(beancart instanceof OffertaBean){
+        } else if(beancart instanceof ProductBean){
 
             Formatter formatter = new Formatter(); //UTILIZZATO PER POTER STAMPARE SEMPRE 2 DECIMALI DOPO LA VIRGOLA
 
@@ -201,9 +200,9 @@
                 <td align="right"><%= beancart.getNome() %></td>
 
                 <td rowspan="5" style="text-align:center; vertical-align:middle;" width="20%">
-                    <p>Codice Offerta: <%=beancart.getCodice() %></p>
+                    <p>Codice Prodotto: <%=beancart.getCodice() %></p>
 
-                    <a href="./OffertaControl?action=deleteC&codice=<%=beancart.getCodice()%>&page=cart&ordine=<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi dal carrello" id="cartDel" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
+                    <a href="ProductControl?action=deleteC&codice=<%=beancart.getCodice()%>&page=cart&ordine=<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi dal carrello" id="cartDel" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
                 </td>
             </tr>
 
@@ -238,8 +237,8 @@
 
         </tr><tr>
             <td style="text-align:center; vertical-align:middle;" width="20%">
-                <p>Codice Offerta: <%=beancart.getCodice() %></p>
-                <a href="./OffertaControl?action=deleteC&codice=<%=beancart.getCodice()%>&page=cart&ordine<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi dal carrello" id="cartDel" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
+                <p>Codice Prodotto: <%=beancart.getCodice() %></p>
+                <a href="ProductControl?action=deleteC&codice=<%=beancart.getCodice()%>&page=cart&ordine<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi dal carrello" id="cartDel" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
             </td>
         </tr>
         </table>

@@ -1,8 +1,10 @@
 package control;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+import beans.Acquistabile;
+import beans.OrdineBean;
+import beans.ProductBean;
+import components.Cart;
+import model.ProductModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,14 +12,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import beans.Acquistabile;
-import beans.OffertaBean;
-import beans.OrdineBean;
-import beans.ProductBean;
-import components.Cart;
-import model.OffertaModel;
-import model.ProductModel;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Servlet implementation class AcquistabileControl
@@ -33,7 +30,7 @@ public class AcquistabileControl extends HttpServlet {
     static String password = "root";
 
     static ProductModel model = new ProductModel(db, username, password);
-    static OffertaModel modelO= new OffertaModel(db, username, password);
+
 
     public AcquistabileControl() {
         super();
@@ -81,9 +78,9 @@ public class AcquistabileControl extends HttpServlet {
                     if(inCart.size()>0) {
                         System.out.println("Sono presenti " + inCart.size() + " elementi nel carrello.");
                         for(int i=0; i<inCart.size(); i++){
-                          if(codice.equals(inCart.get(i).getCodice())) {
-                               justAdded = 1;
-                           }
+                         // if(codice.equals(inCart.get(i).getCodice())) {
+                         //      justAdded = 1;
+                         //  }
                         }
                     }
                     if(justAdded == 0) {
@@ -91,8 +88,8 @@ public class AcquistabileControl extends HttpServlet {
                         Acquistabile prod = null;
                         if(prod instanceof ProductBean)
                             model.doRetrieveProductByKey(codice);
-                      //  else if(prod instanceof OffertaBean)
-                      //      model.doRetrieveProductByKey(codice);
+                       else if(prod instanceof ProductBean)
+                           model.doRetrieveProductByKey(codice);
 
                         prod.toString();
                         cart.addItem(prod);

@@ -1,7 +1,6 @@
 package controls;
 
-import java.io.IOException;
-import java.sql.SQLException;
+import model.AdmAccountModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import model.AdmAccountModel;
+import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Servlet implementation class AdmAccountControl
@@ -20,7 +19,7 @@ public class AdmAccountControl extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     static boolean isDataSource = true;
-    static String db = "pizzeria";
+    static String db = "i-buy";
     static String username = "root";
     static String password = "root";
 

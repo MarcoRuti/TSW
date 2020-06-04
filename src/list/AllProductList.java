@@ -1,7 +1,6 @@
 package list;
 
-import java.io.IOException;
-import java.sql.SQLException;
+import model.ProductModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import model.ProductModel;
+import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Servlet implementation class AllProductList
@@ -19,7 +18,7 @@ import model.ProductModel;
 public class AllProductList extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    static String db = "pizzeria";
+    static String db = "i-buy";
     static String username = "root";
     static String password = "root";
 
