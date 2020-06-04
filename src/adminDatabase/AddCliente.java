@@ -17,7 +17,7 @@ import model.ClientModel;
 public class AddCliente extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    static String db ="i-buy";
+    static String db = "i-buy";
     static String username= "root";
     static String password = "rootroot";
 
