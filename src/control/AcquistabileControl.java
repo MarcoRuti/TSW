@@ -25,9 +25,9 @@ public class AcquistabileControl extends HttpServlet {
     public int i=0;
 
     static boolean isDataSource = true;
-    static String db = "pizzeria";
+    static String db = "i-buy";
     static String username = "root";
-    static String password = "root";
+    static String password = "rootroot";
 
     static ProductModel model = new ProductModel(db, username, password);
 

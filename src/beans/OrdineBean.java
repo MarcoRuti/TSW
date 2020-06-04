@@ -1,10 +1,10 @@
 package beans;
 
+import model.OrdineModel;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import model.OrdineModel;
 
 public class OrdineBean {
     int codice;
@@ -28,7 +28,7 @@ public class OrdineBean {
     }
 
     public int assegnaCodice() throws SQLException {
-        OrdineModel model =new OrdineModel("pizzeria", "root", "root");
+        OrdineModel model =new OrdineModel("i-buy", "root", "rootroot");
         return model.assegnaCodice();
     }
 

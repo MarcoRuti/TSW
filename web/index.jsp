@@ -98,13 +98,13 @@
           <ul>
             <!-- dropdown menu -->
 
-            <li><a href="">Pizze</a></li>
+            <li><a href="">Accessori</a></li>
 
-            <li><a href="">Panini</a></li>
+            <li><a href="">Smartphone</a></li>
 
-            <li><a href="">Sfizi</a></li>
+            <li><a href="">Workstation</a></li>
 
-            <li><a href="">Bibite</a></li>
+            <li><a href="">Notebook</a></li>
 
           </ul></li>
 

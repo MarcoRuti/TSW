@@ -34,7 +34,7 @@ public class AddProdotto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         int codice = Integer.parseInt(request.getParameter("codice"));
         String nome = request.getParameter("nome");
-        String ingredienti = request.getParameter("ingredienti");
+        String descrizione = request.getParameter("descrizione");
         double prezzo = Double.parseDouble(request.getParameter("prezzo"));
         String tipo = request.getParameter("tipo");
 
@@ -43,7 +43,7 @@ public class AddProdotto extends HttpServlet {
         bean.setNome(nome);
         bean.setPrezzo(prezzo);
         bean.setCodice(codice);
-        bean.setDescrizione(ingredienti);
+        bean.setDescrizione(descrizione);
         bean.setTipo(tipo);
 
         try {

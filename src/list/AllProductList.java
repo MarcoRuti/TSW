@@ -20,7 +20,7 @@ public class AllProductList extends HttpServlet {
 
     static String db = "i-buy";
     static String username = "root";
-    static String password = "root";
+    static String password = "rootroot";
 
     ProductModel model = new ProductModel(db, username, password);
 

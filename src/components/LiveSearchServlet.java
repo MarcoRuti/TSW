@@ -1,14 +1,16 @@
 package components;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.*;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  * Servlet implementation class LiveSearchServlet
@@ -46,9 +48,9 @@ public class LiveSearchServlet extends HttpServlet {
 
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                String url = "jdbc:mysql://localhost:3306/progettoPW";
-                String user = "root";
-                String psw = "root";
+                 String url = "jdbc:mysql://localhost:3306/i-buy?serverTimezone=UTC";
+                 String user = "root";
+                 String psw = "rootroot";
                 Connection con = DriverManager.getConnection(url, user, psw);
                 Statement st=con.createStatement();
                 String query = "select * from prodotto where nome LIKE '%" + name + "%'";
