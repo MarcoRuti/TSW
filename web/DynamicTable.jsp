@@ -109,7 +109,7 @@
         <nav>
             <ul id="menu">
                 <!-- HOME -->
-                <li class="current"><a href="index.jsp"><img src="img/logo.png" alt="Home" class="icon" id="home" ></a></li>
+                <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home" ></a></li>
                 <%
                     if(name!=null) {
                 %>

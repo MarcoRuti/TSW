@@ -15,7 +15,8 @@
 
   <!-- Linkare bootstrap da un sito -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-  <title>I-Buy</title><link rel="stylesheet" type="text/css" href="css/page_style.css">
+  <title>I-Buy</title>
+  <link rel="stylesheet" type="text/css" href="css/page_style.css">
   <link rel="stylesheet" type="text/css" href="css/footer.css">
   <link rel="stylesheet" href="css/slides.css" type="text/css">
   <link rel="stylesheet" href="css/divStyle.css" type="text/css">
@@ -139,7 +140,7 @@
   <div class="dropdown" >
     <form name="vinform" action="" method="get">
       <label>Cerca il tuo prodotto</label><br>
-      <input type="text" name="search" onkeyup="sendInfo()" id="txtbox" size="70" placeholder="Es. Margherita">
+      <input type="text" name="search" onkeyup="sendInfo()" id="txtbox" size="70" placeholder="Es. Macbook">
     </form>
 
     <span id="amit"> </span>
@@ -245,20 +246,3 @@
   I-Buy. All rights reserved.</p>
 </body>
 </html>
-<!--
-</head>
-<body>
-
-  <h1>I-Buy Platform</h1>
-  <h2>I-Buy Platform</h2>
-  <h3>I-Buy Platform</h3>
- Script per includere Jquery, Popper.js e Bootstrap
-   Da inserire subito prima del tag "</body>"
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-  </body>
-  </html>
-
--->

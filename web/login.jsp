@@ -73,7 +73,7 @@
         <%
         } else {
         %>
-        -->
+
 
         <div id="leftLogin">
             <form action="AdminLogin" method="POST">
