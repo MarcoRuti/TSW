@@ -1,16 +1,12 @@
 package components;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import model.OffertaModel;
+import java.io.IOException;
 
 
 @WebServlet("/OffPage")
@@ -21,7 +17,7 @@ public class OffPage extends HttpServlet {
     static String username = "root";
     static String password = "root";
 
-    OffertaModel model = new OffertaModel(db, username, password);
+
 
 
 

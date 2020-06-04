@@ -106,8 +106,7 @@
             <li><a href="">Bibite</a></li>
 
           </ul></li>
-        <!-- OFFERTE -->
-        <li class= "has_children"><a href="">OFFERTE</a>
+
 
             <%
 				if (name != null) {
@@ -151,7 +150,7 @@
 <div class="divContorno">
   <div id="contenitore">
 
-    <!-- SLIDE SHOW OFFERTE -->
+
 
     <div class="slideshow-container">
       <div class="mySlides fade">
@@ -184,7 +183,7 @@
 
 
 <script type="text/javascript">
-  //Slides con offerte
+  //Slides con prodotti
   var slideIndex = 0;
   showSlides();
 

@@ -1,7 +1,9 @@
 package adminDatabase;
 
-import java.io.IOException;
-import java.sql.SQLException;
+import model.AdmAccountModel;
+import model.ClientModel;
+import model.OrdineModel;
+import model.ProductModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,13 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import model.AdmAccountModel;
-import model.ClientModel;
-import model.LocaleModel;
-import model.OffertaModel;
-import model.OrdineModel;
-import model.ProductModel;
+import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Servlet implementation class DeleteServlet
@@ -70,29 +67,8 @@ public class DeleteServlet extends HttpServlet {
 
                 break;
             }
-            case "locale": {
-                LocaleModel model = new LocaleModel(db,username,password);
-                System.out.println("Tabella" + table);
-                try {
-                    result = model.doDeleteInt(Integer.parseInt(primaryKey));
-                }
-                catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                break;
-            }
+        
 
-          //  case "offerta": {
-          //      OffertaModel model = new OffertaModel(db,username,password);
-          //      System.out.println("Tabella" + table);
-          //      try {
-                 //   result = model.doDeleteInt(primaryKey);
-            //    }
-              //  catch (SQLException e) {
-               //     e.printStackTrace();
-             //   }
-          //      break;
-          //  }
 
             case "ordine": {
                 OrdineModel model = new OrdineModel(db,username,password);

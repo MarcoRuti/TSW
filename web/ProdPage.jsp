@@ -7,7 +7,7 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
-         import="beans.ProductBean, beans.OrdineBean, beans.Acquistabile, java.util.*"%>
+         import="beans.ProductBean, beans.OrdineBean, java.util.*"%>
 <!DOCTYPE html>
 <html>
 <%

@@ -7,7 +7,7 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
-         import="beans.ProductBean, beans.Acquistabile, java.util.*"%>
+         import="beans.ProductBean, java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +34,7 @@
 
 
 <%
-    String url = "http://localhost:8080/LaSaporita/index.jsp"; //la stringa url porter‡ all'index
+    String url = "http://localhost:8080/index.jsp"; //la stringa url porter‡ all'index
 //	String url = request.getRequestURL().toString(); //riceve una stringa contenente l'url della pagina
     String name = (String) session.getAttribute("name"); //riceve il nome dell'utente dalla sessione
 
@@ -62,24 +62,24 @@
         <nav>
             <ul id="menu">
                 <!-- HOME -->
-                <li class="current"><a href="index.jsp"><img src="img/logo.png" alt="Home"
+                <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home"
                                                              class="icon" id="home"></a></li>
                 <!-- PRODOTTI -->
-                <li class="has_children"><a href="./AllProductList"> PRODOTTI</a>
+                <li class="has_children"><a href="AllProductList"> PRODOTTI</a>
                     <ul>
                         <!-- dropdown menu -->
 
-                        <li><a href="./AllProductList?tipo=pizze">Pizze</a></li>
+                        <li><a href="AllProductList?tipo=pizze">Pizze</a></li>
 
-                        <li><a href="./AllProductList?tipo=panini">Panini</a></li>
+                        <li><a href="AllProductList?tipo=panini">Panini</a></li>
 
-                        <li><a href="./AllProductList?tipo=sfizi">Sfizi e Varie</a></li>
+                        <li><a href="AllProductList?tipo=sfizi">Sfizi e Varie</a></li>
 
-                        <li><a href="./AllProductList?tipo=bibite">Bibite</a></li>
+                        <li><a href="AllProductList?tipo=bibite">Bibite</a></li>
 
                     </ul></li>
                 <!-- OFFERTE -->
-                <li class= "has_children"><a href="./AllOffertaList?">OFFERTE</a>
+                <li class= "has_children"><a href="AllOffertaList?">OFFERTE</a>
                         <%
 				if (name != null) {
 			%>
@@ -95,7 +95,7 @@
                     }
                 %>
                 <li style="float: right;"><a href="CartPage.jsp"><img
-                        src="img/empty-cart-light.png" alt="Carrello" class="icon"
+                        src="img/carrello_vuoto.png" alt="Carrello" class="icon"
                         id="cartHome" style="height: 30px; width: 30px;"></a></li>
 
 
@@ -106,7 +106,7 @@
 
 </div>
 
-<!-- 	<p>Tipo: <%=tipoProd%></p>  -->
+<!-- 	<p>Tipo: < %=tipoProd%></p>  -->
 
 <%
     if(tipoPage.equals("tutti")) {
@@ -123,7 +123,7 @@
     String returnCarrello = "";
     String servletToCall = "";
     if(tipoPage.equals("tutti")) {
-        servletToCall = "./AllProductList";
+        servletToCall = "AllProductList";
         returnCarrello = "tutti";
     }
 
@@ -180,14 +180,14 @@
                     %>
                 </td>
 
-                <td align="right"><a href="./ProductPage?codice=<%=bean.getCodice()%>"><%= bean.getNome() %></a></td>
+                <td align="right"><a href="ProductPage?codice=<%=bean.getCodice()%>"><%= bean.getNome() %></a></td>
                 <%
                     if(isCliente!=0) {
                 %>
                 <!-- SEZIONE AGGIUNTA CARRELLO -->
                 <td rowspan="5" style="text-align:center; vertical-align:middle;" width="20%">
                     <p>Codice Prodotto: <%=bean.getCodice() %></p>
-                    <a href="./ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>"><img src="img/cartIcon.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
+                    <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>"><img src="img/carrello_vuoto.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
                 </td>
                 <%
                     }
@@ -237,7 +237,7 @@
                     %>
                 </td>
             </tr><tr>
-            <td><a href="./ProductPage?codice=<%=bean.getCodice()%>"><%= bean.getNome() %></a></td>
+            <td><a href="ProductPage?codice=<%=bean.getCodice()%>"><%= bean.getNome() %></a></td>
         </tr><tr>
             <td><%= bean.getDescrizione() %></td>
         </tr><tr>
@@ -253,7 +253,7 @@
             <td style="text-align:center; vertical-align:middle;" width="20%">
                 <p>Codice Prodotto: <%=bean.getCodice() %></p>
                 <div id="imgContainer">
-                    <a href="./ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>"><img src="img/cartIcon.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
+                    <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>"><img src="img/carrello_vuoto.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
                 </div>
             </td>
 
