@@ -1,14 +1,14 @@
 package model;
 
+import beans.ProductBean;
+import components.DriverManagerConnectionPool;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
-
-import beans.ProductBean;
-import components.DriverManagerConnectionPool;
 
 public class ProductModel {
 	private static final String TAB_NAME = "prodotto"; //Nome tabella in DB
@@ -116,8 +116,7 @@ public class ProductModel {
 				DriverManagerConnectionPool.releaseConnection(connection1);
 			}
 		}
-		//OffertaModel model= new OffertaModel();
-		//model.doDeleteInt(getCodiciOfferte(code));
+
 
 
 		Connection connection = null;
