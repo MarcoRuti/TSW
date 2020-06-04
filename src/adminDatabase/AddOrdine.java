@@ -17,9 +17,9 @@ import model.OrdineModel;
 public class AddOrdine extends HttpServlet{
     private static final long serialVersionUID = 1L;
 
-    static String db = "pizzeria";
+    static String db = "i-buy";
     static String username = "root";
-    static String password = "root";
+    static String password = "rootroot";
 
     OrdineModel model = new OrdineModel(db,username,password);
 
@@ -28,7 +28,7 @@ public class AddOrdine extends HttpServlet{
         super();
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Error. This Servlet must be called with POST method.");
+        System.out.println("Questa Servlet deve essere chiamata con il metodo Post!");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,6 +37,7 @@ public class AddOrdine extends HttpServlet{
         double prezzo = Double.parseDouble(request.getParameter("prezzo"));
         String usernameCliente = request.getParameter("username_cliente");
 
+        //Creo il bean per contenere i dati da inserire
         OrdineBean bean = new OrdineBean();
         bean.setCodice(codice);
         bean.setUsernameCliente(usernameCliente);

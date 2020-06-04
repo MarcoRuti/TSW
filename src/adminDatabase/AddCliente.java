@@ -17,9 +17,9 @@ import model.ClientModel;
 public class AddCliente extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    static String db ="pizzeria";
+    static String db ="i-buy";
     static String username= "root";
-    static String password = "root";
+    static String password = "rootroot";
 
 
     ClientModel model = new ClientModel(db, username, password);
@@ -28,7 +28,7 @@ public class AddCliente extends HttpServlet {
         super();
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("[AddCliente.java] Error. This Servlet must be called with POST method.");
+        System.out.println("Questa Servlet deve essere chiamata con il metodo Post!");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -36,6 +36,8 @@ public class AddCliente extends HttpServlet {
         String cognome = request.getParameter("cognome");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
+        //Creo il bean per contenere i dati da inserire
         ClienteBean bean = new ClienteBean();
         bean.setNome(nome);
         bean.setCognome(cognome);

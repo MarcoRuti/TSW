@@ -17,22 +17,20 @@ import java.sql.SQLException;
 public class AddProdotto extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-
     static String db = "i-buy";
     static String username = "root";
     static String password = "root";
 
-
     ProductModel model = new ProductModel(db,username,password);
-
 
     public AddProdotto() {
         super();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        System.out.println("Errore. This Servlet must be called with POST method.");
+        System.out.println("Questa Servlet deve essere chiamata con il metodo Post!");
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         int codice = Integer.parseInt(request.getParameter("codice"));
         String nome = request.getParameter("nome");
@@ -40,7 +38,7 @@ public class AddProdotto extends HttpServlet {
         double prezzo = Double.parseDouble(request.getParameter("prezzo"));
         String tipo = request.getParameter("tipo");
 
-
+        //Creo il bean per contenere i dati da inserire
         ProductBean bean = new ProductBean();
         bean.setNome(nome);
         bean.setPrezzo(prezzo);

@@ -19,9 +19,9 @@ import model.AdmAccountModel;
 public class AddAdminAccount extends HttpServlet{
     private static final long serialVersionUID = 1L;
 
-    static String db = "pizzeria";
+    static String db = "i-buy";
     static String username = "root";
-    static String password = "root";
+    static String password = "rootroot";
 
     static AdmAccountModel model = new AdmAccountModel(db, username, password);
 
@@ -30,21 +30,19 @@ public class AddAdminAccount extends HttpServlet{
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        System.out.println("Errore. Questa Servlet deve essere chiamata con il metodo Post! ");
+        System.out.println("Questa Servlet deve essere chiamata con il metodo Post!");
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String userForm= request.getParameter("Username");
+        String userForm = request.getParameter("Username");
         String passwordForm = request.getParameter("Password");
 
-//Creo i bean per contenere i dati da inserire
-
+        //Creo il bean per contenere i dati da inserire
         AdminAccountBean bean = new AdminAccountBean();
         bean.setPassword(passwordForm);
         bean.setUsername(userForm);
 
         HttpSession session = request.getSession();
         session.setAttribute("AddOk", "");
-
         try {
             model.doSave(bean);
             session.setAttribute("AddOk", userForm);
@@ -55,8 +53,8 @@ public class AddAdminAccount extends HttpServlet{
             session.setAttribute("AddOk", "Errore");
         }
 
-//Trasferisco il cliente sulla pagina dopo il login
-        RequestDispatcher dispositivo = getServletContext().getRequestDispatcher("/newAdminAccoutForm.jsp");
+        //Trasferisco il cliente sulla pagina dopo il login
+        RequestDispatcher dispositivo = getServletContext().getRequestDispatcher("/newAdminAccountForm.jsp");
         dispositivo.forward(request, response);
     }
 }

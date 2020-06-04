@@ -21,18 +21,16 @@ import java.sql.SQLException;
 public class DeleteServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    static String db = "pizzeria";
+    static String db = "i-buy";
     static String username = "root";
-    static String password = "root";
+    static String password = "rootroot";
+
     public DeleteServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String primaryKey = request.getParameter("primaryKey");
         String table = request.getParameter("table");
 
@@ -44,7 +42,6 @@ public class DeleteServlet extends HttpServlet {
 
                 AdmAccountModel model = new AdmAccountModel(db,username,password);
                 System.out.println("Tabella " + table );
-
                 try {
                     result = model.doDeleteString(primaryKey);
                 }
@@ -57,7 +54,6 @@ public class DeleteServlet extends HttpServlet {
             case "cliente": {
                 ClientModel model = new ClientModel(db,username,password);
                 System.out.println("Tabella " + table);
-
                 try {
                     result= model.doDeleteString(primaryKey);
                 }
@@ -67,8 +63,6 @@ public class DeleteServlet extends HttpServlet {
 
                 break;
             }
-        
-
 
             case "ordine": {
                 OrdineModel model = new OrdineModel(db,username,password);
@@ -94,7 +88,7 @@ public class DeleteServlet extends HttpServlet {
                 break;
             }
             default : {
-                System.out.println("Tabella sconosciuta. Impossibile eliminare.");
+                System.out.println("Tabella sconosciuta");
                 break;
             }
         }
@@ -104,12 +98,7 @@ public class DeleteServlet extends HttpServlet {
         dispositivo.forward(request, response);
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         doGet(request, response);
     }
-
 }

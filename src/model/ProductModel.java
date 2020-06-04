@@ -28,7 +28,6 @@ public class ProductModel {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-
 		String insertSQL = "INSERT INTO " + ProductModel.TAB_NAME
 				+ " VALUES (?, ?, ?, ?, ?)";
 
@@ -43,9 +42,7 @@ public class ProductModel {
 			preparedStatement.setString(5, product.getDescrizione());
 
 			System.out.println(preparedStatement.toString());
-
 			preparedStatement.executeUpdate();
-
 			connection.commit();
 		} finally {
 			try {
@@ -62,7 +59,6 @@ public class ProductModel {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-
 		String insertSQL = "INSERT INTO " + ProductModel.TAB_NAME
 				+ " (codice, nome, prezzo, ingredienti, Tipo) "
 				+ "VALUES (?, ?, ?, ?, ?)";
@@ -77,7 +73,6 @@ public class ProductModel {
 			preparedStatement.setString(5, product.getTipo());
 
 			preparedStatement.executeUpdate();
-
 			connection.commit();
 		} finally {
 			try {
@@ -89,16 +84,12 @@ public class ProductModel {
 		}
 	}
 
-
 	//Genera query DELETE per eliminare la riga identificata da 'code' all'interno del DB
-	public synchronized boolean doDeleteInt(int code)
-			throws SQLException {
+	public synchronized boolean doDeleteInt(int code) throws SQLException {
 
 		Connection connection1 = null;
 		PreparedStatement preparedStatement1 = null;
-
 		int result = 0;
-
 		String deleteSQL1 = "DELETE FROM riguarda WHERE Prodotto_codice = ?";
 
 		try {
@@ -117,11 +108,8 @@ public class ProductModel {
 			}
 		}
 
-
-
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-
 
 		String deleteSQL = "DELETE FROM " + ProductModel.TAB_NAME + " WHERE codice = ?";
 
@@ -141,20 +129,15 @@ public class ProductModel {
 			}
 		}
 		return (result != 0);
-
-
 	}
 
 	//Genera query SELECT per ricevere i dati in base a quella determinata key
-
 	public synchronized ProductBean doRetrieveProductByName(String nome) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		ProductBean bean = new ProductBean();
-
-
 		String selectSQL = "SELECT * FROM " + ProductModel.TAB_NAME + " WHERE Nome = ?";
 
 		try {
@@ -165,19 +148,16 @@ public class ProductModel {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-
 				bean.setCodice(rs.getInt("Codice"));
 				bean.setNome(rs.getString("Nome"));
 				bean.setDescrizione(rs.getString("Ingredienti"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
-
 			}
 
 		} finally {
 			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
+				if (preparedStatement != null)	preparedStatement.close();
 			} finally {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
@@ -191,7 +171,6 @@ public class ProductModel {
 		PreparedStatement preparedStatement = null;
 
 		Collection<ProductBean> products = new LinkedList<ProductBean>();
-
 		String selectSQL = "SELECT * FROM " + ProductModel.TAB_NAME;
 
 		try {
@@ -207,7 +186,6 @@ public class ProductModel {
 				bean.setDescrizione(rs.getString("ingredienti"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
-
 				products.add(bean);
 			}
 
@@ -228,8 +206,8 @@ public class ProductModel {
 		PreparedStatement preparedStatement = null;
 
 		Collection<ProductBean> products = new LinkedList<ProductBean>();
-
 		String selectSQL = "SELECT * FROM " + ProductModel.TAB_NAME+ " WHERE tipo= ?";
+
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
@@ -244,20 +222,17 @@ public class ProductModel {
 				bean.setDescrizione(rs.getString("ingredienti"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
-
 				products.add(bean);
 			}
 
 		} finally {
 			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
+				if (preparedStatement != null)	preparedStatement.close();
 			} finally {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
 		}
 		return products;
-
 	}
 
 	public synchronized ProductBean doRetrieveProductByKey(String code) throws SQLException {
@@ -266,7 +241,6 @@ public class ProductModel {
 		PreparedStatement preparedStatement = null;
 
 		ProductBean bean= new ProductBean();
-
 		String selectSQL = "SELECT * FROM " + ProductModel.TAB_NAME + " WHERE codice = ?";
 
 		try {
@@ -282,13 +256,11 @@ public class ProductModel {
 				bean.setDescrizione(rs.getString("Ingredienti"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
-
 			}
 
 		} finally {
 			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
+				if (preparedStatement != null) preparedStatement.close();
 			} finally {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}
@@ -301,8 +273,6 @@ public class ProductModel {
 		PreparedStatement preparedStatement3 = null;
 		int i=0;
 
-
-
 		String selectSQL = "SELECT Offerta_codice FROM riguarda WHERE Prodotto_codice= ?";
 
 		try {
@@ -314,13 +284,11 @@ public class ProductModel {
 
 			while (rs.next()) {
 				i=rs.getInt("Offerta_codice");
-
 			}
 
 		} finally {
 			try {
-				if (preparedStatement3 != null)
-					preparedStatement3.close();
+				if (preparedStatement3 != null)	preparedStatement3.close();
 			} finally {
 				DriverManagerConnectionPool.releaseConnection(connection3);
 			}
