@@ -1,7 +1,7 @@
 package components;
 
-import java.io.IOException;
-import java.sql.SQLException;
+import beans.ClienteBean;
+import model.ClientModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import beans.ClienteBean;
-import model.ClientModel;
+import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Servlet implementation class ClientLogin
@@ -67,7 +66,7 @@ public class ClientLogin extends HttpServlet {
             session.setAttribute("usernameCliente", userForm);
             isClientIn=1;
             session.setAttribute("name", account.getNome());
-            session.setAttribute("clientIn", isClientIn);
+            session.setAttribute("clientIn", isClientIn); //inserisco il bit nella session per leggerlo dalle page autorizzate
 
             response.sendRedirect(linkReind);
         }

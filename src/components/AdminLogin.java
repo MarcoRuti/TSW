@@ -1,18 +1,16 @@
 package components;
 
-import java.io.IOException;
-import java.sql.SQLException;
+import beans.AdminAccountBean;
+import model.AdmAccountModel;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import beans.AdminAccountBean;
-import model.AdmAccountModel;
+import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Servlet implementation class AdminLogin
@@ -25,33 +23,27 @@ public class AdminLogin extends HttpServlet {
     static String username = "root";
     static String password = "rootroot";
 
-
     static AdmAccountModel model = new AdmAccountModel(db,username,password);
 
-
-    /*
-    @see HttpServlet#HttpServlet()
-     */
     public AdminLogin() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    /*
-    @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
+   /**
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+    */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Error. This servlet must be called with POST method.");
     }
 
-    /*
-    @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+    /**
+    *@see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-        String userForm=request.getParameter("UsernameAdmin");
-        String passForm=request.getParameter("PasswordAdmin");
+        String userForm=request.getParameter("Username");
+        String passForm=request.getParameter("Password");
         System.out.println("Username: " + userForm + ", password: " + passForm);
 
 
@@ -76,13 +68,12 @@ public class AdminLogin extends HttpServlet {
         if(account.getUsername().equals(userForm) && account.getPassword().equals(passForm)) { //username e password corrispondono
 
 
-            session.setAttribute("name", userForm); //salvo il nome dell'admin nella sessione
+            session.setAttribute("Username", userForm); //salvo il nome dell'admin nella sessione
             isAdminIn = 1; //metto il bit di controllo admin a 1 per l'accesso autorizzato
-            session.setAttribute("adminIn", isAdminIn); //inserisco il bit nella session per leggerlo dalle page autorizzate
 
-            RequestDispatcher disp = getServletContext().getRequestDispatcher("/" + linkReind); //trasferisco sulla pagina dopo il login
-            disp.forward(request, response);
-            response.sendRedirect(linkReind);
+            session.setAttribute("adminIn", isAdminIn); //inserisco il bit nella session per leggerlo dalle page autorizzate
+            session.setAttribute("name",account.getUsername());
+            response.sendRedirect("index.jsp");
         }
         else { //username o psw o entrambi errati
             response.sendRedirect(request.getContextPath() + "/loginFail.jsp"); //vado sulla pagina di errore login
