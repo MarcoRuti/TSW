@@ -221,21 +221,11 @@
     <p>
       <a href="">Contatti</a>
     </p>
-    <%
-      if (isAdmin == 1) { //Admin connesso. Passa a pannello controllo admin
-    %>
+
     <p id="right_side" align="right">
       <a href="adminPage.jsp">Zona Riservata</a>
     </p>
-    <%
-    } else  {
-    %>
-    <p id="right_side" align="right">
-      <a href="login.jsp?link=<%=url%>">Zona Riservata</a>
-    </p>
-    <%
-      }
-    %>
+
   </div>
 
 </footer>

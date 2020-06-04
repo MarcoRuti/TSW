@@ -59,7 +59,7 @@
         <nav>
             <ul id="menu">
                 <!-- HOME -->
-                <li class="current"><a href="index.jsp"><img src="img/logo.png" alt="Home" class="icon" id="home"></a></li>
+                <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home"></a></li>
                 <%
                     if(name!=null) {
                 %>
@@ -100,27 +100,27 @@
             </td><td width="50%" class="adminTable">
                 <fieldset>
                     <legend>Gestione cliente</legend>
-                    <p><a href="./DynamicTab?tab=cliente&action=<%=action%>">Visualizza e gestisci lista clienti.</a></p>
+                    <p><a href="DynamicTab?tab=cliente&action=<%=action%>">Visualizza e gestisci lista clienti.</a></p>
                     <p><a href="newCliente.jsp">Aggiungi cliente.</a></p>
                 </fieldset>
             </td></tr>
             <tr class="adminTable"><td width="50%" class="adminTable">
                 <fieldset>
                     <legend>Gestione locale</legend>
-                    <p><a href="./DynamicTab?tab=locale&action=<%=action%>">Visualizza e gestisci locale.</a></p>
+                    <p><a href="DynamicTab?tab=locale&action=<%=action%>">Visualizza e gestisci locale.</a></p>
                     <p><a href="newLocale.jsp">Aggiungi locale.</a></p>
                 </fieldset>
             </td><td width="50%" class="adminTable">
                 <fieldset>
                     <legend>Gestione offerta</legend>
-                    <p><a href="./DynamicTab?tab=offerta&action=<%=action%>">Visualizza e gestisci lista offerte.</a></p>
+                    <p><a href="DynamicTab?tab=offerta&action=<%=action%>">Visualizza e gestisci lista offerte.</a></p>
                     <p><a href="newOfferta.jsp">Aggiungi offerta.</a></p>
                 </fieldset>
             </td></tr>
             <tr class="adminTable"><td width="50%" class="adminTable">
                 <fieldset>
                     <legend>Gestione prodotto</legend>
-                    <p><a href="./DynamicTab?tab=prodotto&action=<%=action%>">Visualizza e gestisci lista prodotti.</a></p>
+                    <p><a href="DynamicTab?tab=prodotto&action=<%=action%>">Visualizza e gestisci lista prodotti.</a></p>
                     <p><a href="newProdotto.jsp">Aggiungi prodotto.</a></p>
 
                 </fieldset>
@@ -128,7 +128,7 @@
                 <td width="50%" class="adminTable">
                     <fieldset>
                         <legend>Gestione Ordini</legend>
-                        <p><a href="./DynamicTab?tab=ordine&action=<%=action%>">Visualizza e gestisci lista ordini.</a></p>
+                        <p><a href="DynamicTab?tab=ordine&action=<%=action%>">Visualizza e gestisci lista ordini.</a></p>
                     </fieldset>
                 </td></tr>
         </table>
