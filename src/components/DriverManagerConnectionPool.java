@@ -14,10 +14,10 @@ public class DriverManagerConnectionPool {
 	static {
 		freeDbConnections = new LinkedList<Connection>();
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			System.out.println("DB driver not found:"+ e.getMessage());
-		} 
+		}
 	}
 	
 	private static synchronized Connection createDBConnection() throws SQLException {
@@ -29,7 +29,7 @@ public class DriverManagerConnectionPool {
 		String password = "rootroot";
 
 		newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ 
-					port+"/"+db+"?serverTimezone=UTC", 
+					port+"/"+db+"?useSSL=false&serverTimezone=UTC",
 					username, password);
 
 		System.out.println("Create a new DB connection");

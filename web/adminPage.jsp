@@ -83,7 +83,7 @@
         if(isAdmin == 1) { //accesso alla pagina con account amministratore
 
 %>
-<h2 align="center">Pagina administrator</h2>
+<h2 align="center">Pagina Amministratore</h2>
 
 <br/><br/>
 
@@ -93,42 +93,29 @@
         <table width="100%" class="adminTable">
             <tr class="adminTable"><td width="50%" class="adminTable">
                 <fieldset>
-                    <legend>Admin account</legend>
-                    <p><a href="DynamicTab?tab=adminaccount&action=<%=action%>">Visualizza e gestisci lista account amministratore.</a></p> <!-- permette modifica e rimozione nella pagina aperta -->
-                    <p><a href="newAdminAccountForm.jsp">Aggiungi nuovo account amministratore.</a></p>
+                    <legend>GESTIONE AMMINISTRATORI</legend>
+                    <p><a href="DynamicTab?tab=adminaccount&action=<%=action%>">Gestisci gli account Amministratore</a></p> <!-- permette modifica e rimozione nella pagina aperta -->
+                    <p><a href="newAdminAccountForm.jsp">Aggiungi nuovo Amministratore</a></p>
                 </fieldset>
             </td><td width="50%" class="adminTable">
                 <fieldset>
-                    <legend>Gestione cliente</legend>
-                    <p><a href="DynamicTab?tab=cliente&action=<%=action%>">Visualizza e gestisci lista clienti.</a></p>
-                    <p><a href="newCliente.jsp">Aggiungi cliente.</a></p>
+                    <legend>GESTIONE CLIENTI</legend>
+                    <p><a href="DynamicTab?tab=cliente&action=<%=action%>">Gestisci gli account Cliente</a></p>
+                    <p><a href="newCliente.jsp">Aggiungi Cliente</a></p>
                 </fieldset>
             </td></tr>
             <tr class="adminTable"><td width="50%" class="adminTable">
                 <fieldset>
-                    <legend>Gestione locale</legend>
-                    <p><a href="DynamicTab?tab=locale&action=<%=action%>">Visualizza e gestisci locale.</a></p>
-                    <p><a href="newLocale.jsp">Aggiungi locale.</a></p>
-                </fieldset>
-            </td><td width="50%" class="adminTable">
-                <fieldset>
-                    <legend>Gestione offerta</legend>
-                    <p><a href="DynamicTab?tab=offerta&action=<%=action%>">Visualizza e gestisci lista offerte.</a></p>
-                    <p><a href="newOfferta.jsp">Aggiungi offerta.</a></p>
-                </fieldset>
-            </td></tr>
-            <tr class="adminTable"><td width="50%" class="adminTable">
-                <fieldset>
-                    <legend>Gestione prodotto</legend>
-                    <p><a href="DynamicTab?tab=prodotto&action=<%=action%>">Visualizza e gestisci lista prodotti.</a></p>
-                    <p><a href="newProdotto.jsp">Aggiungi prodotto.</a></p>
+                    <legend>GESTIONE PRODOTTI</legend>
+                    <p><a href="DynamicTab?tab=prodotto&action=<%=action%>">Gestisci lista prodotti</a></p>
+                    <p><a href="newProdotto.jsp">Aggiungi prodotto</a></p>
 
                 </fieldset>
             </td>
                 <td width="50%" class="adminTable">
                     <fieldset>
-                        <legend>Gestione Ordini</legend>
-                        <p><a href="DynamicTab?tab=ordine&action=<%=action%>">Visualizza e gestisci lista ordini.</a></p>
+                        <legend>GESTIONE ORDINI</legend>
+                        <p><a href="DynamicTab?tab=ordine&action=<%=action%>">Gestisci lista ordini</a></p>
                     </fieldset>
                 </td></tr>
         </table>
@@ -141,7 +128,7 @@
         %>
 
         <h2>ACCESSO NON AUTORIZZATO!</h2>
-        <p>Questa pagina è riservata solo ad account administrator. Torna alla <u><a href="index.jsp">home</a></u> per loggarti.</p>
+        <p>Questa pagina è riservata solo ad account Amministratore. Torna alla <u><a href="index.jsp">home</a></u> per loggarti.</p>
         <%
         }
         else if(isAdmin == 0) { //isAdmin sarà = 0 quando nessun account è al momento collegato

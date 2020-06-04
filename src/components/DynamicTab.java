@@ -1,23 +1,13 @@
 package components;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.*;
 
 /**
  * Servlet implementation class DynamicTab
@@ -26,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 public class DynamicTab extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    static String url = "jdbc:mysql://localhost:3306/i-buy";
+    static String url = "jdbc:mysql://localhost:3306/i-buy?useSSL=false&serverTimezone=UTC";
     static String user = "root";
-    static String psw = "root";
+    static String psw = "rootroot";
 
     public DynamicTab() {
         super();

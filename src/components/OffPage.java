@@ -13,9 +13,9 @@ import java.io.IOException;
 public class OffPage extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    static String db = "pizzeria";
+    static String db = "i-buy";
     static String username = "root";
-    static String password = "root";
+    static String password = "rootroot";
 
 
 

@@ -82,12 +82,7 @@
     int isAdmin = 0;
     int isCliente = 0;
     if(name!=null) {
-%>
-<!--
-  <p><%=name %></p>
-  <a href="logout.jsp?link=<%=url %>">Logout</a><br/>
-   -->
-<%
+
     try {
 
         isAdmin = (int) session.getAttribute("adminIn");
@@ -157,7 +152,7 @@
         <th>Nome</th>
         <th>Tipo</th>
         <th>Prezzo</th>
-        <th>Ingredienti</th>
+        <th>Descrizione</th>
         <th>Delete</th>
 
     </tr>
@@ -167,16 +162,6 @@
     <tr>
         <th>Username</th>
         <th>Password</th>
-        <th>Delete</th>
-
-    </tr>
-    <%}  if(tab.equals("offerta")){ %>
-    <tr class="tabConPan">
-    <tr>
-        <th>Codice</th>
-        <th>Prezzo</th>
-        <th>Data Inizio</th>
-        <th>Data Fine</th>
         <th>Delete</th>
 
     </tr>
@@ -216,7 +201,7 @@
 
 
         %>
-        <td class="tabConPan"><a href="./DeleteServlet?table=<%=tab%>&primaryKey=<%=primaryKey%>">ELIMINA</a></td>
+        <td class="tabConPan"><a href="DeleteServlet?table=<%=tab%>&primaryKey=<%=primaryKey%>">ELIMINA</a></td>
     </tr>
     <%
         numData++;

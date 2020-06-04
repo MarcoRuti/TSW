@@ -21,7 +21,7 @@ public class AdmAccountControl extends HttpServlet {
     static boolean isDataSource = true;
     static String db = "i-buy";
     static String username = "root";
-    static String password = "root";
+    static String password = "rootroot";
 
     static AdmAccountModel model = new AdmAccountModel(db, username, password);
 
