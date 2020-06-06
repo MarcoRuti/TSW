@@ -57,10 +57,10 @@
                         <li class="has_children"><a href="AllProductList"> PRODOTTI </a>
                             <ul>
                                 <!-- Dropdown -->
-                                <li><a href="AllProductList?tipo=pizze">Telefonia</a></li>
-                                <li><a href="AllProductList?tipo=panini">Computer Fissi</a></li>
-                                <li><a href="AllProductList?tipo=sfizi">Computer Portatili</a></li>
-                                <li><a href="AllProductList?tipo=bibite">Bibite</a></li>
+                                <li><a href="AllProductList?tipo=Accessori">Accessori</a></li>
+                                <li><a href="AllProductList?tipo=Smartphone">Smartphone</a></li>
+                                <li><a href="AllProductList?tipo=Workstation">Workstation</a></li>
+                                <li><a href="AllProductList?tipo=Notebook">Notebook</a></li>
                             </ul>
                         </li>
 

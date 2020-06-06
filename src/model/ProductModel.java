@@ -90,7 +90,7 @@ public class ProductModel {
 		Connection connection1 = null;
 		PreparedStatement preparedStatement1 = null;
 		int result = 0;
-		String deleteSQL1 = "DELETE FROM riguarda WHERE Prodotto_codice = ?";
+		String deleteSQL1 = "DELETE FROM riguarda WHERE code = ?";
 
 		try {
 			connection1 = DriverManagerConnectionPool.getConnection();
@@ -111,7 +111,7 @@ public class ProductModel {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String deleteSQL = "DELETE FROM " + ProductModel.TAB_NAME + " WHERE codice = ?";
+		String deleteSQL = "DELETE FROM " + ProductModel.TAB_NAME + " WHERE code = ?";
 
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
@@ -150,7 +150,7 @@ public class ProductModel {
 			while (rs.next()) {
 				bean.setCodice(rs.getInt("Codice"));
 				bean.setNome(rs.getString("Nome"));
-				bean.setDescrizione(rs.getString("Ingredienti"));
+				bean.setDescrizione(rs.getString("Descrizione"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
 			}
@@ -183,7 +183,7 @@ public class ProductModel {
 				ProductBean bean = new ProductBean();
 				bean.setCodice(rs.getInt("Codice"));
 				bean.setNome(rs.getString("Nome"));
-				bean.setDescrizione(rs.getString("ingredienti"));
+				bean.setDescrizione(rs.getString("Descrizione"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
 				products.add(bean);
@@ -219,7 +219,7 @@ public class ProductModel {
 				ProductBean bean = new ProductBean();
 				bean.setCodice(rs.getInt("Codice"));
 				bean.setNome(rs.getString("Nome"));
-				bean.setDescrizione(rs.getString("ingredienti"));
+				bean.setDescrizione(rs.getString("Descrizione"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
 				products.add(bean);
@@ -253,7 +253,7 @@ public class ProductModel {
 			while (rs.next()) {
 				bean.setCodice(rs.getInt("Codice"));
 				bean.setNome(rs.getString("Nome"));
-				bean.setDescrizione(rs.getString("Ingredienti"));
+				bean.setDescrizione(rs.getString("Descrizione"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setTipo(rs.getString("Tipo"));
 			}
@@ -267,33 +267,7 @@ public class ProductModel {
 		}
 		return bean;
 	}
-	public synchronized int getCodiciOfferte (int code) throws SQLException {
 
-		Connection connection3 = null;
-		PreparedStatement preparedStatement3 = null;
-		int i=0;
 
-		String selectSQL = "SELECT Offerta_codice FROM riguarda WHERE Prodotto_codice= ?";
-
-		try {
-			connection3 = DriverManagerConnectionPool.getConnection();
-			preparedStatement3 = connection3.prepareStatement(selectSQL);
-			preparedStatement3.setInt(1, code);
-
-			ResultSet rs = preparedStatement3.executeQuery();
-
-			while (rs.next()) {
-				i=rs.getInt("Offerta_codice");
-			}
-
-		} finally {
-			try {
-				if (preparedStatement3 != null)	preparedStatement3.close();
-			} finally {
-				DriverManagerConnectionPool.releaseConnection(connection3);
-			}
-		}
-		return i;
-	}
 }
 

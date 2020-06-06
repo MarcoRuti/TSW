@@ -98,13 +98,10 @@
           <ul>
             <!-- dropdown menu -->
 
-            <li><a href="">Accessori</a></li>
-
-            <li><a href="">Smartphone</a></li>
-
-            <li><a href="">Workstation</a></li>
-
-            <li><a href="">Notebook</a></li>
+            <li><a href="AllProductList?tipo=Accessori">Accessori</a></li>
+            <li><a href="AllProductList?tipo=Smartphone">Smartphone</a></li>
+            <li><a href="AllProductList?tipo=Workstation">Workstation</a></li>
+            <li><a href="AllProductList?tipo=Notebook">Notebook</a></li>
 
           </ul></li>
 

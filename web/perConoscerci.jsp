@@ -63,25 +63,21 @@
         <nav>
             <ul id="menu">
                 <!-- HOME -->
-                <li class="current"><a href="index.jsp"><img src="img/logo.png" alt="Home"
+                <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home"
                                                              class="icon" id="home"></a></li>
 
                 <!-- PRODOTTI -->
-                <li class="has_children"><a href="./AllProductList"> PRODOTTI</a>
+                <li class="has_children"><a href="AllProductList"> PRODOTTI</a>
                     <ul>
                         <!-- dropdown menu -->
 
-                        <li><a href="./AllProductList?tipo=pizze">Pizze</a></li>
-
-                        <li><a href="./AllProductList?tipo=panini">Panini</a></li>
-
-                        <li><a href="./AllProductList?tipo=sfizi">Sfizi e Varie</a></li>
-
-                        <li><a href="./AllProductList?tipo=bibite">Bibite</a></li>
+                        <li><a href="AllProductList?tipo=Accessori">Accessori</a></li>
+                        <li><a href="AllProductList?tipo=Smartphone">Smartphone</a></li>
+                        <li><a href="AllProductList?tipo=Workstation">Workstation</a></li>
+                        <li><a href="AllProductList?tipo=Notebook">Notebook</a></li>
 
                     </ul></li>
-                <!-- OFFERTE -->
-                <li class= "has_children"><a href="./AllOffertaList?">OFFERTE</a>
+
                         <%
 				if (name != null) {
 			%>
@@ -97,7 +93,7 @@
                     }
                 %>
                 <li style="float: right;"><a href="CartPage.jsp"><img
-                        src="img/empty-cart-light.png" alt="Carrello" class="icon"
+                        src="img/carrello_vuoto.png" alt="Carrello" class="icon"
                         id="cartHome" style="height: 30px; width: 30px;"></a></li>
 
 
@@ -108,7 +104,7 @@
 
 </div>
 
-<h2 align="center">La Saporita</h2>
+<h2 align="center">I-Buy</h2>
 <br/>
 <div class="divContorno">
     <div id="contenitore">

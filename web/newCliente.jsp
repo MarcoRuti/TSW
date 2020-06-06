@@ -36,7 +36,7 @@
         <nav>
             <ul id="menu">
                 <!-- HOME -->
-                <li class="current"><a href="index.jsp"><img src="img/logo.png" alt="Home" class="icon" id="home"></a></li>
+                <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home"></a></li>
                 <%
                     if(username!=null) {
                 %>
@@ -59,7 +59,7 @@
 
 <div class="divContorno">
     <div id="contenitore">
-        <form action="./AddCliente" method="post">
+        <form action="AddCliente" method="post">
             <table align="center" style="width:300px; height:250px">
                 <caption class="tabTitle">New Cliente</caption>
                 <tr><td colspan=2>Nome:</td></tr>
