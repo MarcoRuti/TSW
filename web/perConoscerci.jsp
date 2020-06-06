@@ -1,75 +1,56 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: dario
-  Date: 28/05/2020
-  Time: 15:28
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
          import="java.util.*, java.lang.*"%>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
+        <link rel="stylesheet" type="text/css" href="css/page_style.css">
+        <link rel="stylesheet" type="text/css" href="css/footer.css">
+        <link rel="stylesheet" href="css/slides.css" type="text/css">
+        <link rel="stylesheet" href="css/divStyle.css" type="text/css">
 
+        <title>Per conoscerci</title>
+    </head>
+    <body>
+        <%
+            String url = request.getRequestURL().toString();
+            String name = (String) session.getAttribute("name");
+            String usernameCliente = (String) session.getAttribute("usernameCliente");
 
-    <link rel="stylesheet" type="text/css" href="css/page_style.css">
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <link rel="stylesheet" href="css/slides.css" type="text/css">
-    <link rel="stylesheet" href="css/divStyle.css" type="text/css">
+            int isAdmin = 0;
+            int isCliente = 0;
+            if(name!=null) {
 
-    <title>Per conoscerci</title>
-</head>
-<body>
+                    try {
+                    isAdmin = (int) session.getAttribute("adminIn");
+                    isCliente = (int) session.getAttribute("clienteIn");
+                }
+                catch(Exception e){
+                    ;
+                }
+                //if(usernameCliente!=null) {
+          		//<p>ID negozio: < %=usernameCliente % ></p>  -->
+            }
+        %>
+    <!-- Navbar grande -->
+    <div class="navbar">
 
+        <div id="main_menu">
+            <label class="toggle" for="toggle">&#9776;</label> <!-- simbolo del menu (3 linee orizzontali) -->
+            <input class="toggle" id="toggle" type="checkbox">
+            <nav>
+                <ul id="menu">
+                    <!-- HOME -->
+                    <li class="current">
+                        <a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home"></a>
+                    </li>
 
-<%
-    String url = request.getRequestURL().toString();
-    String name = (String) session.getAttribute("name");
-    String usernameCliente = (String) session.getAttribute("usernameCliente");
-
-    int isAdmin = 0;
-    int isCliente = 0;
-    if(name!=null) {
-
-        try {
-            isAdmin = (int) session.getAttribute("adminIn");
-            isCliente = (int) session.getAttribute("clienteIn");
-        }
-        catch(Exception e){
-            ;
-        }
-
-%>
-
-
-<%
-    if(usernameCliente!=null) {
-%>
-<!-- 		<p>ID negozio: <%=usernameCliente %></p>  -->
-<%
-        }
-    }
-
-%>
-<!-- Navbar grande -->
-<div class="navbar">
-
-    <div id="main_menu">
-        <label class="toggle" for="toggle">&#9776;</label> <!-- simbolo del menu (3 linee orizzontali) -->
-        <input class="toggle" id="toggle" type="checkbox">
-        <nav>
-            <ul id="menu">
-                <!-- HOME -->
-                <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home"
-                                                             class="icon" id="home"></a></li>
-
-                <!-- PRODOTTI -->
-                <li class="has_children"><a href="AllProductList"> PRODOTTI</a>
-                    <ul>
-                        <!-- dropdown menu -->
+                    <!-- PRODOTTI -->
+                    <li class="has_children"><a href="AllProductList"> PRODOTTI</a>
+                        <ul>
+                            <!-- dropdown menu -->
 
                         <li><a href="AllProductList?tipo=Accessori">Accessori</a></li>
                         <li><a href="AllProductList?tipo=Smartphone">Smartphone</a></li>
