@@ -35,8 +35,8 @@
     </head>
     <body>
         <%
-            String url = "http://localhost:8080/LaSaporita/index.jsp"; //la stringa url porter? all'index
-        //	String url = request.getRequestURL().toString(); //riceve una stringa contenente l'url della pagina
+            String url = "http://localhost:8080/k_war_exploded/index.jsp"; //la stringa url porter? all'index
+             url = request.getRequestURL().toString(); //riceve una stringa contenente l'url della pagina
             String name = (String) session.getAttribute("name"); //riceve il nome dell'utente dalla sessione
 
             String tipoPage = (String) request.getAttribute("pagina");
@@ -51,16 +51,18 @@
                 <nav>
                     <ul id="menu">
                         <!-- HOME -->
-                        <li class="current"><a href="index.jsp"><img src="img/logo.png" alt="Home"
+                        <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home"
                                                                  class="icon" id="home"></a></li>
                         <!-- PRODOTTI -->
-                            <li class="has_children"><a href="./AllProductList"> PRODOTTI</a>
+                        <li class="has_children"><a href="AllProductList?tipo=tutti"> PRODOTTI</a>
                             <ul>
                                 <!-- dropdown menu -->
-                                <li><a href="AllProductList?tipo=pizze">Pizze</a></li>
-                                <li><a href="AllProductList?tipo=panini">Panini</a></li>
-                                <li><a href="AllProductList?tipo=sfizi">Sfizi e Varie</a></li>
-                                <li><a href="AllProductList?tipo=bibite">Bibite</a></li>
+
+                                <li><a href="AllProductList?tipo=Accessori">Accessori</a></li>
+                                <li><a href="AllProductList?tipo=Smartphone">Smartphone</a></li>
+                                <li><a href="AllProductList?tipo=Workstation">Workstation</a></li>
+                                <li><a href="AllProductList?tipo=Notebook">Notebook</a></li>
+
                             </ul></li>
 
                         <!-- OFFERTE -->
@@ -85,7 +87,7 @@
                                 }
                             %>
                             <li style="float: right;">
-                                <a href="CartPage.jsp"><img src="img/empty-cart-light.png" alt="Carrello" class="icon" id="cartHome" style="height: 30px; width: 30px;"></a>
+                                <a href="CartPage.jsp"><img src="img/carrello_vuoto.png" alt="Carrello" class="icon" id="cartHome" style="height: 30px; width: 30px;"></a>
                             </li>
                         </li>
                     </ul>
@@ -183,7 +185,7 @@
                     <!-- SEZIONE AGGIUNTA CARRELLO -->
                     <tr>
                         <td colspan="2" align="center">
-                            <a href="./ProductControl?action=addC&id=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/cartIcon.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
+                            <a href="ProductControl?action=addC&id=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/cartIcon.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
                         </td>
                     </tr>
                     <%

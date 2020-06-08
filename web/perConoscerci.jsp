@@ -48,7 +48,7 @@
                     </li>
 
                     <!-- PRODOTTI -->
-                    <li class="has_children"><a href="AllProductList"> PRODOTTI</a>
+                    <li class="has_children"><a href="AllProductList?tipo=tutti"> PRODOTTI</a>
                         <ul>
                             <!-- dropdown menu -->
 
