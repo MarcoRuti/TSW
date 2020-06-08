@@ -65,9 +65,6 @@
 
                             </ul></li>
 
-                        <!-- OFFERTE -->
-                        <li class= "has_children">
-                            <a href="./AllOffertaList?">OFFERTE</a>
                             <%
     				            if (name != null) {
     			            %>
