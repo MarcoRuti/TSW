@@ -148,31 +148,31 @@
 
                         <!-- SEZIONE SELEZIONE IMMAGINE DI ANTEPRIMA -->
                         <%
-                            if(bean.getTipo().equals("pizze")) {
+                            if(bean.getTipo().equals("Accessori")) {
                         %>
 
-                        <img src="img/<%=bean.getNome()%>.jpg" width="100px" height="100px" alt="Foto <%=bean.getNome()%>" id="pizze">
+                        <img src="img/<%=bean.getNome()%>.jpg" width="100px" height="100px" alt="Foto <%=bean.getNome()%>" id="Accessori">
 
                         <%
                             }
-                            else if(bean.getTipo().equals("panini")) {
+                            else if(bean.getTipo().equals("Smartphone")) {
                         %>
 
-                        <img src="img/<%=bean.getNome()%>.jpg"  width="100px" height="100px" alt="Foto <%=bean.getNome()%>" id="panini">
+                        <img src="img/<%=bean.getNome()%>.jpg"  width="100px" height="100px" alt="Foto <%=bean.getNome()%>" id="Smartphone">
 
                         <%
                             }
-                            else if(bean.getTipo().equals("sfizi")) {
+                            else if(bean.getTipo().equals("Workstation")) {
                         %>
 
-                        <img src="img/<%=bean.getNome()%>.jpg"  width="100px" height="100px" alt="Foto <%=bean.getNome()%>" id="sfizi">
+                        <img src="img/<%=bean.getNome()%>.jpg"  width="100px" height="100px" alt="Foto <%=bean.getNome()%>" id="Workstation">
 
                         <%
                             }
-                            else if(bean.getTipo().equals("bibite")) {
+                            else if(bean.getTipo().equals("Notebook")) {
                         %>
 
-                        <img src="img/<%=bean.getNome()%>.jpg" width="100px" height="100px"  alt="Foto <%=bean.getNome()%>" id="bibite">
+                        <img src="img/<%=bean.getNome()%>.jpg" width="100px" height="100px"  alt="Foto <%=bean.getNome()%>" id="Notebook">
 
                         <%
                             }
@@ -219,34 +219,37 @@
 
                             <!-- SEZIONE SELEZIONE IMMAGINE DI ANTEPRIMA -->
                             <%
-                                if(bean.getTipo().equals("pizze")) {
+                                if(bean.getTipo().equals("Accessori")) {
                             %>
-                            <img src="img/<%=bean.getNome()%>.jpg" width="100px" height="100px" alt="Foto <%=bean.getNome()%>">
+
+                            <img src="img/<%=bean.getNome()%>.jpg" width="100px" height="100px" alt="Foto <%=bean.getNome()%>" id="Accessori">
 
                             <%
-                                }
-                                else if(bean.getTipo().equals("panini")) {
+                            }
+                            else if(bean.getTipo().equals("Smartphone")) {
                             %>
-                            <img src="img/<%=bean.getNome()%>.jpg"  width="100px" height="100px" alt="Foto <%=bean.getNome()%>">
+
+                            <img src="img/<%=bean.getNome()%>.jpg"  width="100px" height="100px" alt="Foto <%=bean.getNome()%>" id="Smartphone">
 
                             <%
-                                }
-                                else if(bean.getTipo().equals("sfizi")) {
+                            }
+                            else if(bean.getTipo().equals("Workstation")) {
                             %>
-                            <img src="img/<%=bean.getNome()%>.jpg"  width="100px" height="100px" alt="Foto <%=bean.getNome()%>">
+
+                            <img src="img/<%=bean.getNome()%>.jpg"  width="100px" height="100px" alt="Foto <%=bean.getNome()%>" id="Workstation">
 
                             <%
-                                }
-                                else if(bean.getTipo().equals("bibite")) {
+                            }
+                            else if(bean.getTipo().equals("Notebook")) {
                             %>
-                            <img src="img/<%=bean.getNome()%>.jpg" width="100px" height="100px"  alt="Foto <%=bean.getNome()%>">
+
+                            <img src="img/<%=bean.getNome()%>.jpg" width="100px" height="100px"  alt="Foto <%=bean.getNome()%>" id="Notebook">
 
                             <%
-                                }
-                                else {
+                            }
+                            else {
                             %>
-                                FOTO NON TROVATA
-
+                            FOTO NON TROVATA
                             <%
                                 }
                             %>
