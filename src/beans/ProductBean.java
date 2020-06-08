@@ -53,8 +53,7 @@ public class ProductBean implements Serializable,Acquistabile {
     }
 
     public String toString() {
-        return "ProdottoBean[Codice=" + codice + ", Nome=" + nome + ", Descrizione= "
-                + "" + descrizione + ", Tipo=" + tipo + ",Prezzo=" + prezzo + "]";
+        return "ProdottoBean[Codice=" + codice + ", Nome=" + nome + ", Descrizione= " + "" + descrizione + ", Tipo=" + tipo + ",Prezzo=" + prezzo + "]";
     }
 
 

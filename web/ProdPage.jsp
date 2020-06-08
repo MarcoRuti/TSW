@@ -183,7 +183,7 @@
                     <!-- SEZIONE AGGIUNTA CARRELLO -->
                     <tr>
                         <td colspan="2" align="center">
-                            <a href="./ProductControl?action=addC&id=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/cartIcon.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
+                            <a href="ProductControl?action=addC&id=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/cartIcon.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
                         </td>
                     </tr>
                     <%

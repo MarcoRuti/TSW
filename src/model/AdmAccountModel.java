@@ -121,7 +121,6 @@ public class AdmAccountModel {
         return bean;
     }
 
-
     //genera query SELECT * per prendere tutte le righe dal DB in un certo ordine
 
     public synchronized Collection<AdminAccountBean> doRetrieveAllAccount(String order) throws SQLException {

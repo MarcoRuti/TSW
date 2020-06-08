@@ -56,7 +56,6 @@ public class ClientModel{
         }
     }
 
-
     //Genera query DELETE per eliminare la riga identificata da 'code' all'interno del DB
     public synchronized boolean doDeleteString(String code)
             throws SQLException {
@@ -83,7 +82,6 @@ public class ClientModel{
             }
         }
         return (result != 0);
-
 
     }
 

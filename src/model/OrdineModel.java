@@ -72,7 +72,6 @@ public class OrdineModel {
                     } finally {
                         DriverManagerConnectionPool.releaseConnection(connection);
 
-
                     }
                 }
 
@@ -148,7 +147,6 @@ public class OrdineModel {
             }
         }
         return (result != 0);
-
 
     }
 
