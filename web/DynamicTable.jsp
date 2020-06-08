@@ -26,15 +26,15 @@
     <!-- LA GENERAZIONE DINAMICA DEI NOMI DEI CAMPI NON SEMPRE FUNZIONA
 <style>
 @media screen and (max-width: 920px) {
-<%
+< %
   for (int i =1; i <colNumb+ 1; i++) {
-%>
-  td:nth-of-type (<%=i %>):before {
-    content: "<%=metaData.getColumnLabel(i)%>";
+% >
+  td:nth-of-type (<% =i % >):before {
+    content: "<% =metaData.getColumnLabel(i)% >";
   }
-<%
+< %
 }
-%>
+% >
 </style>
  -->
 

@@ -23,7 +23,6 @@ public class AddOrdine extends HttpServlet{
 
     OrdineModel model = new OrdineModel(db,username,password);
 
-
     public AddOrdine() {
         super();
     }

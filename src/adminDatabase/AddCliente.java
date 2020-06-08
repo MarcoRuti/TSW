@@ -21,7 +21,6 @@ public class AddCliente extends HttpServlet {
     static String username= "root";
     static String password = "rootroot";
 
-
     ClientModel model = new ClientModel(db, username, password);
 
     public AddCliente() {
