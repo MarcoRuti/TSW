@@ -22,8 +22,8 @@
     </head>
     <body>
         <%
-            String url = "http://localhost:8080/index.jsp";
-            //	String url = request.getRequestURL().toString();
+            String url = "localhost:8080/k_war_exploded/index.jsp";
+            url = request.getRequestURL().toString();
             String name = (String) session.getAttribute("name");
 
             int isAdmin = 0;
@@ -54,13 +54,15 @@
                         <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home"></a></li>
 
                         <!-- PRODOTTI -->
-                        <li class="has_children"><a href="AllProductList"> PRODOTTI </a>
+                        <li class="has_children"><a href="AllProductList?tipo=tutti"> PRODOTTI</a>
                             <ul>
-                                <!-- Dropdown -->
+                                <!-- dropdown menu -->
+
                                 <li><a href="AllProductList?tipo=Accessori">Accessori</a></li>
                                 <li><a href="AllProductList?tipo=Smartphone">Smartphone</a></li>
                                 <li><a href="AllProductList?tipo=Workstation">Workstation</a></li>
                                 <li><a href="AllProductList?tipo=Notebook">Notebook</a></li>
+
                             </ul>
                         </li>
 
@@ -99,7 +101,7 @@
         <!-- DA CAMBIARE 04/06/2020
     	    <p>Tipo: < %=tipoProd%></p>
 
-        < %
+        <%
             if(tipoPage.equals("tutti")) {
         %>
         -->
@@ -327,5 +329,6 @@
 
         <hr>
         <p style="color:grey; text-align:center;">Copyright © 2020 I-Buy. All rights reserved.</p>
+
     </body>
 </html>

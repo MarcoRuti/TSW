@@ -94,7 +94,7 @@
         <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home"
                                                      class="icon" id="home" width="40px" height="40px"></a></li>
         <!-- PRODOTTI -->
-        <li class="has_children"><a href=""> PRODOTTI</a>
+        <li class="has_children"><a href="AllProductList?tipo=tutti"> PRODOTTI</a>
           <ul>
             <!-- dropdown menu -->
 
@@ -102,6 +102,7 @@
             <li><a href="AllProductList?tipo=Smartphone">Smartphone</a></li>
             <li><a href="AllProductList?tipo=Workstation">Workstation</a></li>
             <li><a href="AllProductList?tipo=Notebook">Notebook</a></li>
+
 
           </ul></li>
 
