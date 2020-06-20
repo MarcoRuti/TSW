@@ -1,3 +1,13 @@
+//
+//
+//
+
+        //
+        //
+        //
+        //
+        // DA ELIMINARE TUTTA LA CLASSE OFFPAGE. Offerta noi non la implementiamo proprio
+
 package components;
 
 import javax.servlet.RequestDispatcher;
@@ -8,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
 @WebServlet("/OffPage")
 public class OffPage extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -17,14 +26,9 @@ public class OffPage extends HttpServlet {
     static String username = "root";
     static String password = "rootroot";
 
-
-
-
-
     public OffPage() {
         super();
     }
-
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

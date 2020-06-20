@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-/**
- * Servlet implementation class DynamicTab
- */
 @WebServlet("/DynamicTab")
 public class DynamicTab extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -25,9 +22,7 @@ public class DynamicTab extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 
         Connection con;
         Statement st;
@@ -39,25 +34,22 @@ public class DynamicTab extends HttpServlet {
         String tab = request.getParameter("tab");
 
         try {
-            //SELEZIONO IL DRIVER DI COMUNICAZIONE
+            //Seleziono il driver
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
             //Istanzio una connessione col DB con le credenziali
             con = DriverManager.getConnection(url, user, psw);
-            //System.out.println("Connessione eseguita.");
 
-            //preparo l'oggetto per l'istruzione SQL
+            //Preparo l'oggetto per l'istruzione SQL
             st = con.createStatement();
 
             String query = "SELECT * FROM " + tab;
-
 
             rs = st.executeQuery(query);
 
             metaData = rs.getMetaData();
             columnCount = metaData.getColumnCount();
             System.out.println("Numero colonne: " + columnCount);
-
         }
         catch(Exception e)
         {
@@ -67,13 +59,15 @@ public class DynamicTab extends HttpServlet {
         try {
             request.removeAttribute("colNum");
             request.setAttribute("colNum", columnCount);
+
             request.removeAttribute("rsMetaData");
             request.setAttribute("rsMetaData", metaData);
+
             request.removeAttribute("rs");
             request.setAttribute("rs", rs);
+
             request.removeAttribute("tab");
             request.setAttribute("tab", tab);
-
         }
         catch(Exception e) {
             System.out.println("[DynamicTab.java - aggiunta in request] ERROR: " + e);
@@ -83,12 +77,8 @@ public class DynamicTab extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         doGet(request, response);
     }
-
 }

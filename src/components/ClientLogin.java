@@ -12,9 +12,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-/**
- * Servlet implementation class ClientLogin
- */
 @WebServlet("/ClientLogin")
 public class ClientLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -27,36 +24,29 @@ public class ClientLogin extends HttpServlet {
 
     public ClientLogin() {
         super();
-        //    TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         response.getWriter().append("Served at: ").append(request.getContextPath());
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String userForm=request.getParameter("usernameCliente");
-        String passForm=request.getParameter("pswCliente");
+        String userForm = request.getParameter("usernameCliente");
+        String passForm = request.getParameter("pswCliente");
         System.out.println("Username: " + userForm + ", password: " + passForm);
 
-        ClienteBean account= new ClienteBean();
-        HttpSession session=request.getSession();
-        int isAdminIn=0;
-        int isClientIn=0;
+        ClienteBean account = new ClienteBean();
+        HttpSession session = request.getSession();
+        int isAdminIn = 0;
+        int isClientIn = 0;
         session.setAttribute("adminIn", isAdminIn);
         session.setAttribute("clientIn", isClientIn);
-        String linkReind= (String) session.getAttribute("link");
+        String linkReind = (String) session.getAttribute("link");
 
         try {
             request.removeAttribute("accounts");
-            account= model.doRetrieveClientByName(userForm);
+            account = model.doRetrieveClientByName(userForm);
             request.setAttribute("accounts", account);
         }catch(SQLException e) {
             System.out.println("[ClienteLogin.java] Error: "+ e);
@@ -64,9 +54,11 @@ public class ClientLogin extends HttpServlet {
 
         if(account.getUsername().equals(userForm)&&account.getPassword().equals(passForm)) {
             session.setAttribute("usernameCliente", userForm);
-            isClientIn=1;
+            isClientIn = 1;
             session.setAttribute("name", account.getNome());
-            session.setAttribute("clientIn", isClientIn); //inserisco il bit nella session per leggerlo dalle page autorizzate
+
+            //inserisco il bit nella session per leggerlo dalle page autorizzate
+            session.setAttribute("clientIn", isClientIn);
 
             response.sendRedirect(linkReind);
         }
@@ -74,5 +66,4 @@ public class ClientLogin extends HttpServlet {
             response.sendRedirect(request.getContextPath()+"/loginFail.jsp");
         }
     }
-
 }

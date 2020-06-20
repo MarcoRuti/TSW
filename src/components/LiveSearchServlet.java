@@ -12,32 +12,29 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-/**
- * Servlet implementation class LiveSearchServlet
- */
 @WebServlet("/LiveSearchServlet")
 public class LiveSearchServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public LiveSearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String s=request.getParameter("val");
-//		System.out.println("value: " + s);
+
+        //Perchè è commentato? -->
+
+        //		System.out.println("value: " + s);
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
         if(s==null || s.trim().equals("")){
+
+            //Perchè è commentato? -->
+
             //		out.print("Please enter name");
         }
         else {
@@ -45,19 +42,27 @@ public class LiveSearchServlet extends HttpServlet {
 
             out.print("<div id=\"myDropdown\" class=\"dropdown-content\">");
 
-
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                 String url = "jdbc:mysql://localhost:3306/i-buy?serverTimezone=UTC";
-                 String user = "root";
-                 String psw = "rootroot";
+                String url = "jdbc:mysql://localhost:3306/i-buy?serverTimezone=UTC";
+                String user = "root";
+                String psw = "rootroot";
+
                 Connection con = DriverManager.getConnection(url, user, psw);
                 Statement st=con.createStatement();
                 String query = "select * from prodotto where nome LIKE '%" + name + "%'";
+
+                //Perchè è commentato? -->
+
                 //	out.print(query);
+
                 ResultSet rs=st.executeQuery(query);
                 while(rs.next()){
+
+                    //Perchè è commentato? -->
+
                     //	out.println(rs.getInt("Codice")+" "+rs.getString("Nome") + "<br/>");
+
                     out.print("<a href='./ProductPage?codice=" + rs.getInt("Codice") + "'>" + rs.getInt("Codice")+" - "+rs.getString("Nome") + "</a>");
                 }
                 con.close();
@@ -68,11 +73,7 @@ public class LiveSearchServlet extends HttpServlet {
         }
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         doGet(request, response);
     }
 
