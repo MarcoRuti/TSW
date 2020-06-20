@@ -1,5 +1,4 @@
 package list;
-
 import model.ProductModel;
 
 import javax.servlet.RequestDispatcher;
@@ -11,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-/**
- * Servlet implementation class AllProductList
- */
 @WebServlet("/AllProductList")
 public class AllProductList extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -24,45 +20,35 @@ public class AllProductList extends HttpServlet {
 
     ProductModel model = new ProductModel(db, username, password);
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public AllProductList() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String tipo = request.getParameter("tipo");
         String search = request.getParameter("search");
-
         request.removeAttribute("pagina");
-        if(tipo!=null && !tipo.equals("")) { //invia una specifica variabile in modo da gestire l'eventuale ordinamento
 
+        if(tipo!=null && !tipo.equals("")) {
+            //invia una specifica variabile in modo da gestire l'eventuale ordinamento
             request.setAttribute("tipo", tipo);
-
         }
 
         if(search!=null && !search.equals(""))
             request.setAttribute("search", search);
 
         request.setAttribute("pagina", "tutti");
-
         request.removeAttribute("productList");
-        try {
 
+        try {
             if(tipo!=null) {
                 request.setAttribute("productList", model.doRetrieveProductByType(tipo));
             }
             else if(search!=null) {
                 request.setAttribute("productList", model.doRetrieveProductByName(search));
             }
-            else
-                request.setAttribute("productList", model.doRetrieveAllProduct());
+            else    request.setAttribute("productList", model.doRetrieveAllProduct());
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -75,12 +61,7 @@ public class AllProductList extends HttpServlet {
 
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         doGet(request, response);
     }
-
 }
