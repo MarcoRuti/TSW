@@ -16,9 +16,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Servlet implementation class AcquistabileControl
- */
+// Servlet implementation class AcquistabileControl
+
 @WebServlet("/AcquistabileControl")
 public class AcquistabileControl extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -31,22 +30,17 @@ public class AcquistabileControl extends HttpServlet {
 
     static ProductModel model = new ProductModel(db, username, password);
 
-
     public AcquistabileControl() {
         super();
     }
 
-
-
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String usernameCliente=(String) request.getSession().getAttribute("usernameCliente");
         OrdineBean ordine= (OrdineBean) request.getSession().getAttribute("ordine");
         i++;
 
-        //Prende un oggetto di tipo carrello dalla sessione. Se non Ë presente, lo crea e lo aggiunge alla sessione
+        //Prende un oggetto di tipo carrello dalla sessione
+        // Se non è presente, lo crea e lo aggiunge alla sessione
         Cart cart = (Cart)request.getSession().getAttribute("cart");
         if(cart == null) {
             cart = new Cart();
@@ -59,12 +53,12 @@ public class AcquistabileControl extends HttpServlet {
 
         //Riceve il parametro per capire quale azione effettuare
         String action = request.getParameter("action");
+
         //Riceve la pagina che ha aggiunto l'articolo al carrello per poterci tornare
         String page = request.getParameter("page");
 
         System.out.println("Aggiunto in pagina: " + page);
         ordine.setCodice(i);
-
 
         try {
             if (action != null) {
@@ -78,6 +72,10 @@ public class AcquistabileControl extends HttpServlet {
                     if(inCart.size()>0) {
                         System.out.println("Sono presenti " + inCart.size() + " elementi nel carrello.");
                         for(int i=0; i<inCart.size(); i++){
+
+                            //Perchè tutto commentato?
+                            //->
+
                          // if(codice.equals(inCart.get(i).getCodice())) {
                          //      justAdded = 1;
                          //  }
@@ -88,17 +86,19 @@ public class AcquistabileControl extends HttpServlet {
                         Acquistabile prod = null;
                         if(prod instanceof ProductBean)
                             model.doRetrieveProductByKey(codice);
-                       else if(prod instanceof ProductBean)
-                           model.doRetrieveProductByKey(codice);
+                        //Stessa parte di codice scritta due volte, da togliere e risolvere i warning
+                        //  else if(prod instanceof ProductBean)
+                        //      model.doRetrieveProductByKey(codice);
 
                         prod.toString();
+                        //a che serve sto ToString?
+
                         cart.addItem(prod);
                         ordine.addProdotto(prod);
                         ordine.setUsernameCliente(usernameCliente);
                         System.out.println("Aggiunto al carrello oggetto " + codice + ".");
                     }
-                    else
-                        System.out.println("Elemento gi‡ nel carrello.");
+                    else    System.out.println("Elemento già nel carrello.");
 
                 } else if (action.equalsIgnoreCase("deleteC")) {
                     String cod;
@@ -121,9 +121,9 @@ public class AcquistabileControl extends HttpServlet {
         request.setAttribute("ordine", ordine);
         request.getSession().setAttribute("ordine", ordine);
 
+        //Cancelliamo tutto questo? -->
 /*
-		String order = request.getParameter("order"); //Se order Ë null, in ProductModel verr‡ gestito
-
+		String order = request.getParameter("order"); //Se order è null, in ProductModel verrà gestito
 
 		try {
 			request.removeAttribute("products");
@@ -133,21 +133,17 @@ public class AcquistabileControl extends HttpServlet {
 		}
 */
 //		System.out.println("Product Control eseguito. Trasferisco su JSP.");
+
         if(page.equals("cart")) {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartPage.jsp");
             dispatcher.forward(request, response);
         }
         else if(page.equals("tutti")) {
 
-
             response.sendRedirect("./AllProductList?");
         }
-
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         doGet(request, response);

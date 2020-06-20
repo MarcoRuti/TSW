@@ -1,4 +1,4 @@
-package controls;
+package control;
 
 import model.AdmAccountModel;
 
@@ -11,9 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-/**
- * Servlet implementation class AdmAccountControl
- */
+// Servlet implementation class AdmAccountControl
+
 @WebServlet("/AdmAccountControl")
 public class AdmAccountControl extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -31,15 +30,9 @@ public class AdmAccountControl extends HttpServlet {
     }
 
 
-
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-        String order = request.getParameter("order"); //Se order Ë null, in ProductModel verr‡ gestito
-
+        String order = request.getParameter("order"); //Se order è null, in ProductModel verrà gestito
 
         try {
             request.removeAttribute("accounts");
@@ -53,9 +46,6 @@ public class AdmAccountControl extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         doGet(request, response);

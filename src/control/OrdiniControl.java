@@ -11,9 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Servlet implementation class OrdiniControl
- */
+// Servlet implementation class OrdiniControl
+
 @WebServlet("/OrdiniControl")
 public class OrdiniControl extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -30,9 +29,6 @@ public class OrdiniControl extends HttpServlet {
         super();
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         OrdineBean ordine= (OrdineBean) request.getSession().getAttribute("ordine");
         Cart cart=(Cart)request.getSession().getAttribute("cart");
@@ -54,22 +50,14 @@ public class OrdiniControl extends HttpServlet {
                     cart.deleteItems();
                     response.sendRedirect("./acquistoj.jsp?ordine="+ordine);
 
-
                 }
             }
         }catch(Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
+      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
