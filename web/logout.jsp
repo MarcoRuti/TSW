@@ -34,10 +34,10 @@
             </div>
         </div>
 
-<!--
-            HttpSession session=request.getSession();
-            session.invalidate(); //Invalidando la sessione, le altre pagine non vedono l'account collegato.
--->
+        <%
+            HttpSession session2 = request.getSession();
+            session2.invalidate();
+        %>
 
         <div class="divContorno">
             <div id="contenitore">

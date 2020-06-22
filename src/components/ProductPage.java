@@ -23,7 +23,6 @@ public class ProductPage extends HttpServlet {
 
     public ProductPage() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,7 +35,6 @@ public class ProductPage extends HttpServlet {
         try {
             request.setAttribute("prodPage", model.doRetrieveProductByKey("codice"));
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             System.out.println("[ProductPage.java - setAttribute prodotto] ERROR: " + e.getMessage());
         }

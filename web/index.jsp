@@ -1,236 +1,225 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: pc
-  Date: 22/05/2020
-  Time: 16:27
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html>
-<head>
-  <!-- Codice da inserire -->
-  <!-- <meta charset="UTF-8"> -->
+  <head>
 
+    <title>I-Buy</title>
+    <link rel="stylesheet" type="text/css" href="css/page_style.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" href="css/slides.css" type="text/css">
+    <link rel="stylesheet" href="css/divStyle.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/searchProductHome.css">
 
-  <!-- Linkare bootstrap da un sito -->
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-  <title>I-Buy</title>
-  <link rel="stylesheet" type="text/css" href="css/page_style.css">
-  <link rel="stylesheet" type="text/css" href="css/footer.css">
-  <link rel="stylesheet" href="css/slides.css" type="text/css">
-  <link rel="stylesheet" href="css/divStyle.css" type="text/css">
-  <link rel="stylesheet" type="text/css" href="css/searchProductHome.css">
+    <script>
+      //Ricerca Live homepage
 
-  <script>
-    //Ricerca Live homepage
+      var request = new XMLHttpRequest(); //crea una XMLRequest
+      function sendInfo() {
+        var v = document.vinform.t1.value; //legge il valore del textbox 't1' nel form 'vinform'
+        var url = "./LiveSearchServlet?val=" + v; //crea un url da inviare alla pagina contenente il valore letto dal form
 
-    var request = new XMLHttpRequest(); //crea una XMLRequest
-    function sendInfo() {
-      var v = document.vinform.t1.value; //legge il valore del textbox 't1' nel form 'vinform'
-      var url = "./LiveSearchServlet?val=" + v; //crea un url da inviare alla pagina contenente il valore letto dal form
+        try {
+          request.onreadystatechange = getInfo;
+          request.open("GET", url, true);
+          request.send();
+        } catch (e) {
+          alert("Unable to connect to server");
+        }
+      }
+
+      /* WHATTHEFUCK?
+
+      function getInfo() {
+
+        if (request.readyState == 4) {
+          var val = request.responseText;
+          document.getElementById('amit').innerHTML = val;
+        }
+      }
+      */
+
+    </script>
+
+    <title>I-Buy - Home Page</title>
+  </head>
+  <body>
+    <%
+      String url = request.getRequestURL().toString();
+      String name = (String) session.getAttribute("name");
+      String usernameCliente = (String) session.getAttribute("usernameCliente");
+
+      int isAdmin = 0;
+      int isCliente = 0;
+      if (name != null) {
 
       try {
-        request.onreadystatechange = getInfo;
-        request.open("GET", url, true);
-        request.send();
-      } catch (e) {
-        alert("Unable to connect to server");
+        isAdmin = (int) session.getAttribute("adminIn");
+        isCliente = (int) session.getAttribute("ClienteIn");
+      } catch (Exception e) {
+        ;
       }
-    }
 
-    function getInfo() {
-      if (request.readyState == 4) {
-        var val = request.responseText;
-        document.getElementById('amit').innerHTML = val;
+
+
+      if (usernameCliente != null) {
+          %>
+
+
+    		<p>Username Cliente: <%=usernameCliente%></p>
+    <%
+        }
       }
-    }
-  </script>
+    %>
+    <div id="header" align="center">
+      <img src="img/logo.jpg" alt="Titolo" width=30% height=5%>
+    </div>
+    <!-- Navbar -->
+    <div class="navbar">
 
-  <title>La Saporita - HomePage</title>
-</head>
-<body>
-<%
-  String url = request.getRequestURL().toString();
-  String name = (String) session.getAttribute("name");
-  String usernameCliente = (String) session.getAttribute("usernameCliente");
+      <div id="main_menu">
+        <label class="toggle" for="toggle">&#9776;</label> <!-- simbolo del menu (3 linee orizzontali) -->
+        <input class="toggle" id="toggle" type="checkbox">
+        <nav>
+          <ul id="menu">
+            <!-- HOME -->
+            <li class="current">
+              <a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home" width="40px" height="40px"></a>
+            </li>
 
-  int isAdmin = 0;
-  int isCliente = 0;
-  if (name != null) {
-%>
-<!--
-	<p>< %=name%></p>
-	<a href="logout.jsp?link=< %=url%>">Logout</a><br/>
-	 -->
-<%
-  try {
-    isAdmin = (int) session.getAttribute("adminIn");
-    isCliente = (int) session.getAttribute("ClienteIn");
-  } catch (Exception e) {
-    ;
-  }
-%>
+            <!-- PRODOTTI -->
+            <li class="has_children">
+              <a href="AllProductList?tipo=tutti"> PRODOTTI</a>
+              <ul>
+                <!-- dropdown menu -->
 
+                <li>
+                  <a href="AllProductList?tipo=Accessori">Accessori</a>
+                </li>
+                <li>
+                  <a href="AllProductList?tipo=Smartphone">Smartphone</a>
+                </li>
+                <li>
+                  <a href="AllProductList?tipo=Workstation">Workstation</a>
+                </li>
+                <li>
+                  <a href="AllProductList?tipo=Notebook">Notebook</a>
+                </li>
 
-<%
-  if (usernameCliente != null) {
-%>
-<!-- 		<p>Username Cliente: <%=usernameCliente%></p>  -->
-<%
-    }
-  }
-%>
-<div id="header" align="center"><img src="img/logo.jpg" alt="Titolo" width=30% height=5% ></div>
-<!-- Navbar -->
-<div class="navbar">
-
-  <div id="main_menu">
-    <label class="toggle" for="toggle">&#9776;</label> <!-- simbolo del menu (3 linee orizzontali) -->
-    <input class="toggle" id="toggle" type="checkbox">
-    <nav>
-      <ul id="menu">
-        <!-- HOME -->
-        <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home"
-                                                     class="icon" id="home" width="40px" height="40px"></a></li>
-        <!-- PRODOTTI -->
-        <li class="has_children"><a href="AllProductList?tipo=tutti"> PRODOTTI</a>
-          <ul>
-            <!-- dropdown menu -->
-
-            <li><a href="AllProductList?tipo=Accessori">Accessori</a></li>
-            <li><a href="AllProductList?tipo=Smartphone">Smartphone</a></li>
-            <li><a href="AllProductList?tipo=Workstation">Workstation</a></li>
-            <li><a href="AllProductList?tipo=Notebook">Notebook</a></li>
-
-
-          </ul></li>
-
+              </ul>
+            </li>
 
             <%
-				if (name != null) {
-			%>
-        <li style="float: right;"><a>Benvenuto <%=name%></a></li>
-        <li style="float: right;"><a href="logout.jsp?link=<%=url%>">
-          Logout </a></li>
-        <%
-        } else {
-        %>
-        <li style="float: right;"><a href="login.jsp?link=<%=url%>">
-          Login </a></li>
-        <%
-          }
-        %>
-        <li style="float: right;"><a href="CartPage.jsp">
-          <img src="img/carrello_vuoto.png" alt="Carrello" class="icon"
-                id="cartHome" style="height: 30px; width: 30px;"></a></li>
+              if (name != null) {
+	  	    %>
+            <li style="float: right;">
+              <a>Benvenuto <%=name%></a>
+            </li>
+            <li style="float: right;">
+              <a href="logout.jsp?link=<%=url%>">Logout </a>
+            </li>
+            <%
+              } else {
+            %>
+            <li style="float: right;">
+              <a href="login.jsp?link=<%=url%>">Login </a>
+            </li>
+            <%
+              }
+            %>
+            <li style="float: right;">
+              <a href="CartPage.jsp">
+                <img src="img/carrello_vuoto.png" alt="Carrello" class="icon" id="cartHome" style="height: 30px; width: 30px;">
+              </a>
+            </li>
 
-
-
-      </ul>
-    </nav>
-  </div>
-
-</div><!-- end navbar  -->
-
-
-<div class="dropdown-padre">
-  <div class="dropdown" >
-    <form name="vinform" action="" method="get">
-      <label>Cerca il tuo prodotto</label><br>
-      <input type="text" name="search" onkeyup="sendInfo()" id="txtbox" size="70" placeholder="Es. Macbook">
-    </form>
-
-    <span id="amit"> </span>
-  </div>
-</div>
-
-
-<div class="divContorno">
-  <div id="contenitore">
-
-
-
-    <div class="slideshow-container">
-      <div class="mySlides fade">
-        <img src="img/prodotto1.jpeg" style="width: 100%">
-
+          </ul>
+        </nav>
       </div>
+    </div><!-- end navbar  -->
 
-      <div class="mySlides fade">
-        <img src="img/prodotto2.jpg" style="width: 100%">
+    <div class="dropdown-padre">
+      <div class="dropdown" >
+        <form name="vinform" action="" method="get">
+          <label>Cerca il tuo prodotto</label>
+          <br>
+          <input type="text" name="search" onkeyup="sendInfo()" id="txtbox" size="70" placeholder="Macbook, I-Phone X, ...">
+        </form>
 
+        <span id="amit"> </span>
       </div>
-
-      <div class="mySlides fade">
-        <img src="img/prodotto1.jpeg" style="width: 100%">
-
-      </div>
-
-    </div>
-    <br>
-
-    <div style="text-align: center">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-
     </div>
 
-  </div>
-</div>
+    <div class="divContorno">
+      <div id="contenitore">
 
+        <div class="slideshow-container">
 
-<script type="text/javascript">
-  //Slides con prodotti
-  var slideIndex = 0;
-  showSlides();
+          <div class="mySlides fade">
+            <img src="img/prodotto1.jpeg" style="width: 100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="img/prodotto2.jpg" style="width: 100%">
+          </div>
 
-  function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {
-      slideIndex = 1
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-    setTimeout(showSlides, 5000); // Cambia immagine ogni 5 secondi
-  }
-</script>
+          <div class="mySlides fade">
+            <img src="img/prodotto1.jpeg" style="width: 100%">
+          </div>
 
+        </div>
 
-<!-- Footer -->
+        <br>
 
-<footer id="footer">
-  <hr>
+        <div style="text-align: center">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </div>
 
-  <div id="info_menu">
-    <p>
-      <a href="">Per conoscerci</a>
-    </p>
-    <p>
-      <a href="">Contatti</a>
-    </p>
+    <script type="text/javascript">
+      //Slides con prodotti
+      var slideIndex = 0;
+      showSlides();
 
-    <p id="right_side" align="right">
-      <a href="adminPage.jsp">Zona Riservata</a>
-    </p>
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 3000); // Cambia immagine ogni 3 secondi
+      }
+    </script>
 
-  </div>
+    <!-- Footer -->
 
-</footer>
+    <footer id="footer">
+      <div id="info_menu">
 
-<hr>
+        <p>
+          <a href="">Per conoscerci</a>
+        </p>
+        <p>
+          <a href="">Contatti</a>
+        </p>
+        <p id="right_side" align="right">
+          <a href="adminPage.jsp">Zona Riservata</a>
+        </p>
 
-<p style="color: grey; text-align: center;">Copyright � 2020
-  I-Buy. All rights reserved.</p>
-</body>
+      </div>
+    </footer>
+
+    <p style="color: grey; text-align: center;">Copyright � 2020 I-Buy. All rights reserved.</p>
+  </body>
 </html>

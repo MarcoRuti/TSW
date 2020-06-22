@@ -19,7 +19,6 @@ public class DynamicTab extends HttpServlet {
 
     public DynamicTab() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
