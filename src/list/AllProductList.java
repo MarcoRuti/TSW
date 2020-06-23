@@ -51,7 +51,6 @@ public class AllProductList extends HttpServlet {
             else    request.setAttribute("productList", model.doRetrieveAllProduct());
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             System.out.println("[AllProductList.java - setAttribute productList] ERROR: " + e);
         }

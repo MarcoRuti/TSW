@@ -41,7 +41,7 @@
 
         <div class="divContorno">
             <div id="contenitore">
-                <p>Disconnessione. Verrai reindirizzato alla pagina home in 2 secondi.</p>
+                <p>Disconnessione in corso... Verrai reindirizzato alla Home in pochi secondi.</p>
             </div>
         </div>
     </body>

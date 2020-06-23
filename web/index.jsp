@@ -70,6 +70,7 @@
         }
       }
     %>
+
     <div id="header" align="center">
       <img src="img/logo.jpg" alt="Titolo" width=30% height=5%>
     </div>

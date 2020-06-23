@@ -31,7 +31,9 @@
                 <nav>
                     <ul id="menu" style="width:100%; height:75px">
                         <!-- HOME -->
-                        <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home"></a></li>
+                        <li class="current">
+                            <a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home"></a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -47,7 +49,6 @@
             <div id="contenitore">
                 <%
                     try {
-
                         String username = (String) session.getAttribute("name");
                         if(username!=null) {
                 %>
@@ -56,19 +57,19 @@
                     <a href="logout.jsp?link=< %=url %>">Logout</a>
                 </p>
                 <%
-                } else {
+                        } else {
                 %>
 
                 <div id="leftLogin">
                     <form action="AdminLogin" method="POST">
                         <table align="center" style="width:300px; height:250px">
-                            <caption class="tabTitle">Admin</caption>
+                            <caption class="tabTitle">Accedi come ADMIN</caption>
                             <tr>
-                                <td colspan=2>Username:</td>
+                                <td colspan=2>Username</td>
                             </tr>
                             <tr>
                                 <td colspan=2>
-                                    <input type="text" placeholder="Enter username" name="Username" required style="width:100%; height:100%">
+                                    <input type="text" placeholder="Enter Username" name="Username" required style="width:100%; height:100%">
                                 </td>
                             </tr>
                             <tr>
@@ -76,15 +77,15 @@
                             </tr>
                             <tr>
                                 <td colspan=2>
-                                    <input type="password" placeholder="Enter password" name="Password" required style="width:100%; height:100%">
+                                    <input type="password" placeholder="Enter Password" name="Password" required style="width:100%; height:100%">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="buttonTd">
-                                    <input type="submit" style="width:100%; height:100%" >
+                                    <input type="submit" value="Login" style="width:100%; height:100%" >
                                 </td>
                                 <td class="buttonTd">
-                                    <input type="reset" style="width:100%; height:100%">
+                                    <input type="reset" value="Reset" style="width:100%; height:100%">
                                 </td>
                             </tr>
                         </table>
@@ -94,13 +95,13 @@
                 <div id="rightLogin">
                     <form action="ClientLogin" method="POST">
                         <table align="center" style="width:300px; height:250px">
-                            <caption class="tabTitle">Cliente</caption>
+                            <caption class="tabTitle">Accedi come Cliente</caption>
                             <tr>
-                                <td colspan=2>Username:</td>
+                                <td colspan=2>Username</td>
                             </tr>
                             <tr>
                                 <td colspan=2>
-                                    <input type="text" placeholder="Enter username" name="usernameCliente" required style="width:100%; height:100%">
+                                    <input type="text" placeholder="Enter Username" name="usernameCliente" required style="width:100%; height:100%">
                                 </td>
                             </tr>
                             <tr>
@@ -108,15 +109,15 @@
                             </tr>
                             <tr>
                                 <td colspan=2>
-                                    <input type="password" placeholder="Enter password" name="pswCliente" required style="width:100%; height:100%">
+                                    <input type="password" placeholder="Enter Password" name="pswCliente" required style="width:100%; height:100%">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="buttonTd">
-                                    <input type="submit" style="width:100%; height:100%" >
+                                    <input type="submit" value="Login" style="width:100%; height:100%" >
                                 </td>
                                 <td class="buttonTd">
-                                    <input type="reset" style="width:100%; height:100%">
+                                    <input type="reset" value="Reset" style="width:100%; height:100%">
                                 </td>
                             </tr>
                         </table>
