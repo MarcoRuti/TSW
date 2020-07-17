@@ -1,4 +1,5 @@
 package list;
+
 import model.ProductModel;
 
 import javax.servlet.RequestDispatcher;
@@ -39,6 +40,9 @@ public class AllProductList extends HttpServlet {
             request.setAttribute("search", search);
 
         request.setAttribute("pagina", "tutti");
+
+
+
         request.removeAttribute("productList");
 
         try {

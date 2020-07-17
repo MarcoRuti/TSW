@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/slides.css" type="text/css">
     <link rel="stylesheet" href="css/divStyle.css" type="text/css">
     <link rel="stylesheet" href="css/tabControlPanel.css" type="text/css">
+    <link rel="stylesheet" href="css/tables.css" type="text/css">
 
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
 
@@ -29,8 +30,8 @@
 < %
   for (int i =1; i <colNumb+ 1; i++) {
 % >
-  td:nth-of-type (<% =i % >):before {
-    content: "<% =metaData.getColumnLabel(i)% >";
+  td:nth-of-type (< % =i % >):before {
+    content: "< % =metaData.getColumnLabel(i)% >";
   }
 < %
 }

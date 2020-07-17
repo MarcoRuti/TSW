@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
+/**
+ * Servlet implementation class DynamicTab
+ */
 @WebServlet("/DynamicTab")
 public class DynamicTab extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -19,9 +22,12 @@ public class DynamicTab extends HttpServlet {
 
     public DynamicTab() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
         Connection con;
         Statement st;
@@ -33,11 +39,11 @@ public class DynamicTab extends HttpServlet {
         String tab = request.getParameter("tab");
 
         try {
-            //Seleziono il driver
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+
 
             //Istanzio una connessione col DB con le credenziali
             con = DriverManager.getConnection(url, user, psw);
+            //System.out.println("Connessione eseguita.");
 
             //Preparo l'oggetto per l'istruzione SQL
             st = con.createStatement();

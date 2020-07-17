@@ -199,9 +199,7 @@
                 <p>
                     <a href="perConoscerci.jsp">Per conoscerci</a>
                 </p>
-                <p>
-                    <a href="contatti.jsp">Contatti</a>
-                </p>
+
                 <%
                     //Admin connesso. Passa a pannello controllo admin
                     if(isAdmin == 1) {

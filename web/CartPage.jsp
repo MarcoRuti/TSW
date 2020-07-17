@@ -300,7 +300,7 @@ else {
 
     <div id = "info_menu">
         <p><a href="perConoscerci.jsp">Per conoscerci</a> </p>
-        <p><a href="contatti.jsp">Contatti</a></p>
+
         <%
             if(isAdmin == 1) { //Admin connesso. Passa a pannello controllo admin
         %>

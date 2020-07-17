@@ -191,8 +191,7 @@ public class ProductModel {
 
 		} finally {
 			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
+				if (preparedStatement != null) preparedStatement.close();
 			} finally {
 				DriverManagerConnectionPool.releaseConnection(connection);
 			}

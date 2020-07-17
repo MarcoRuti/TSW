@@ -35,8 +35,8 @@
             catch(Exception e){
             }
 
-            String tipoPage = (String) request.getAttribute("pagina");
-            String tipoProd = (String) request.getAttribute("tipo");
+            String tipoPage = (String) request.getAttribute("pagina"); // tipo pag TUTTI
+            String tipoProd = (String) request.getAttribute("tipo"); //TIPO PAG ES. NOTEBOOK
             String searchKey = (String) request.getAttribute("search");
         %>
 
@@ -98,13 +98,13 @@
             </div>
         </div>
 
-        <!-- DA CAMBIARE 04/06/2020
-    	    <p>Tipo: < %=tipoProd%></p>
+
+
 
         <%
-            if(tipoPage.equals("tutti")) {
+          if(tipoPage.equals("tutti")) {
         %>
-        -->
+
 
         <h2>Lista prodotti</h2>
 
@@ -303,7 +303,7 @@
 
             <div id = "info_menu">
                 <p><a href="perConoscerci.jsp">Per conoscerci</a> </p>
-                <p><a href="contatti.jsp">Contatti</a></p>
+
 
                 <%
                     if(isAdmin == 1) { //Admin connesso. Passa a pannello controllo admin
@@ -324,6 +324,9 @@
                     <a href="login.jsp?link=<%=url %>">Zona Riservata</a>
                 </p>
 
+                <%
+                    }
+                %>
                 <%
                     }
                 %>
