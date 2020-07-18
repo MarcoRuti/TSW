@@ -42,7 +42,7 @@
 <%
     try {
         isAdmin = (int) session.getAttribute("adminIn");
-        isCliente = (int) session.getAttribute("clienteIn");
+        isCliente = (int) session.getAttribute("clientIn");
     }
     catch(Exception e){
         ;

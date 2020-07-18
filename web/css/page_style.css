@@ -192,12 +192,12 @@
 	
 	/* SEZIONE TABELLA PAGINA PRODOTTI */
 	#tabBigPage {
-		/*
-		visibility: hidden;
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-		*/
+
+		visibility: hidden; /* DARIO 18/07  */
+		position: absolute; /**/
+		top: -9999px;		/**/
+		left: -9999px;		/**/
+
 		display: none; /* NASCONDE LA TABELLA CONTENENTE I DETTAGLI SUL PRODOTTO 
 						  SE LA DIMENSIONE DELLA FINESTRA DIVENTA TROPPO PICCOLA */
 	}

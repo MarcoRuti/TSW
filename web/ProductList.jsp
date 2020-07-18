@@ -100,10 +100,9 @@
 
 
 
-
         <%
           if(tipoPage.equals("tutti")) {
-        %>
+       %>
 
 
         <h2>Lista prodotti</h2>
@@ -127,7 +126,7 @@
         <!-- FORM BARRA RICERCA -->
         <form action="<%=servletToCall %>" method="get">
             <input type="hidden" name="id" value="<%=usernameCliente%>">
-            <input type="text" name="search" placeholder="Search..">
+            <input type="text" name="search" placeholder="Cerca...">
             <input type="submit">
         </form>
 
@@ -178,7 +177,7 @@
                             }
                             else {
                         %>
-                        FOTO NON TROVATA
+                            <img src="img/logo.jpg" width="100px" height="100px"  alt="Foto esempio" > <!-- AGGIUNTA DARIO 18/07 -->
                         <%
                             }
                         %>
@@ -194,7 +193,7 @@
                         <!-- SEZIONE AGGIUNTA CARRELLO -->
                         <td rowspan="5" style="text-align:center; vertical-align:middle;" width="20%">
                             <p>Codice Prodotto: <%=bean.getCodice() %></p>
-                            <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>"><img src="img/carrello_vuoto.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
+                            <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>"><img src="img/aggiungi_carrello.jpg" alt="Aggiungi al carrello" class="icon" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
                         </td>
 
                         <%
@@ -276,7 +275,7 @@
                         <td style="text-align:center; vertical-align:middle;" width="20%">
                             <p>Codice Prodotto: <%=bean.getCodice() %></p>
                             <div id="imgContainer">
-                                <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>"><img src="img/carrello_vuoto.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
+                                <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>"><img src="img/aggiungi_carrello.jpg" alt="Aggiungi al carrello" class="icon" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
                             </div>
                         </td>
                     </tr>

@@ -37,8 +37,8 @@ public class ClientLogin extends HttpServlet {
 
         ClienteBean account = new ClienteBean();
         HttpSession session = request.getSession();
-        int isAdminIn = 0;
-        int isClientIn = 0;
+        int isAdminIn=0;
+        int isClientIn=0;
         session.setAttribute("adminIn", isAdminIn);
         session.setAttribute("clientIn", isClientIn);
         String linkReind = (String) session.getAttribute("link");
@@ -48,7 +48,7 @@ public class ClientLogin extends HttpServlet {
             account = model.doRetrieveClientByName(userForm);
             request.setAttribute("accounts", account);
         }catch(SQLException e) {
-            System.out.println("[ClienteLogin.java] Error: "+ e);
+            System.out.println("[ClientLogin.java] Error: "+ e);
         }
 
         if(account.getUsername().equals(userForm)&&account.getPassword().equals(passForm)) {
@@ -57,8 +57,8 @@ public class ClientLogin extends HttpServlet {
             session.setAttribute("name", account.getNome());
 
             //inserisco il bit nella session per leggerlo dalle page autorizzate
-            session.setAttribute("clientIn", isClientIn);
-
+            session.setAttribute("clientIn", isClientIn); //DA CLIENTEIN A CLIENTIN NON CAMBIARE NOMI ALTRIMENTI NON PRENDE ATTRIBUTO
+                                                            //GIUSTO NEL CARRELLO
             response.sendRedirect(linkReind);
         }
         else {

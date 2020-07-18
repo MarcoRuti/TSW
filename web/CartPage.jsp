@@ -1,16 +1,16 @@
 
 <%@page import="beans.Acquistabile"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
          import="components.Cart, beans.OrdineBean, beans.ProductBean, java.util.*, java.sql.*"%>
 
 <%@ page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <%
-    String name = (String) session.getAttribute("name"); //prendo nome negozio
+    String name = (String) session.getAttribute("name"); //prendo nome
     OrdineBean ordine=(OrdineBean) session.getAttribute("ordine");
-    String usernameCliente = (String) session.getAttribute("usernameCliente"); //prendo id negozio
-    if(usernameCliente == null) //se id negozio = null lo imposto a 0 per visualizzazione default
+    String usernameCliente = (String) session.getAttribute("usernameCliente"); //prendo PK cliente
+    if(usernameCliente == null) //se PK  = null lo imposto a 0 per visualizzazione default
         usernameCliente = "0";
     String url = "http://localhost:8080/k_war_exploded/index.jsp"; //la stringa url porterà all'index
  // String url = request.getRequestURL().toString(); //prendo url pagina per passarlo al login
@@ -37,7 +37,7 @@
     int isCliente = 0; //variabile usata per tener traccia di  loggato
     try { //prende una o l'altra variabile (non potranno essere prese entrambe - 1 login)
         isAdmin = (int) session.getAttribute("adminIn");
-        isCliente = (int) session.getAttribute("clienteIn");
+        isCliente = (int) session.getAttribute("clientIn");
     }
     catch(Exception e){
         ;
@@ -62,31 +62,41 @@
                     <ul>
                         <!-- dropdown menu -->
 
-                        <li><a href="AllProductList?tipo=pizze">Pizze</a></li>
+                        <li>
+                            <a href="AllProductList?tipo=Accessori">Accessori</a>
+                        </li>
+                        <li>
+                            <a href="AllProductList?tipo=Smartphone">Smartphone</a>
+                        </li>
+                        <li>
+                            <a href="AllProductList?tipo=Workstation">Workstation</a>
+                        </li>
+                        <li>
+                            <a href="AllProductList?tipo=Notebook">Notebook</a>
+                        </li>
 
-                        <li><a href="AllProductList?tipo=panini">Panini</a></li>
+                    </ul>
+                </li>
 
-                        <li><a href="AllProductList?tipo=sfizi">Sfizi e Varie</a></li>
-
-                        <li><a href="AllProductList?tipo=bibite">Bibite</a></li>
-
-                    </ul></li>
-
-
-                        <%
+                <%
 				if (name != null) {
-			%>
+			    %>
+
                 <li style="float: right;"><a>Benvenuto <%=name%></a></li>
                 <li style="float: right;"><a href="logout.jsp?link=<%=url%>">
                     Logout </a></li>
+
                 <%
                 } else {
                 %>
+
                 <li style="float: right;"><a href="login.jsp?link=<%=url%>">
                     Login </a></li>
+
                 <%
                     }
                 %>
+
                 <li style="float: right;"><a href="CartPage.jsp"><img
                         src="img/carrello_vuoto.png" alt="Carrello" class="icon"
                         id="cartHome" style="height: 30px; width: 30px;"></a></li>
@@ -103,7 +113,7 @@
 <%
     if(name!=null) {
 %>
-<!-- 		<p>Nome: <%=name %>, id: <%=usernameCliente %></p>  -->
+ 		<p>Nome Cliente: <%=name %>, ID Cliente(username): <%=usernameCliente %>, isCliente: <%=isCliente  %>, isAdmin: <%=isAdmin  %> </p>  <!-- DARIO 18/07 -->
 <%
     }
 
@@ -260,8 +270,8 @@
         else { //se è presente almeno un articolo nel carrello
 
         %>
-        <a href="./ProductControl?action=deleteAll&page=cart&ordine<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi tutto" id="cartDelAll" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
-        <a href="./OrdiniControl?action=compra&page=cart&ordine=<%=ordine%>"><img src="img/soldi.png" alt="Compra" id="cartDelAll" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
+        <a href="ProductControl?action=deleteAll&page=cart&ordine<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi tutto" id="cartDelAll" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
+        <a href="OrdiniControl?action=compra&page=cart&ordine=<%=ordine%>"><img src="img/soldi.png" alt="Compra" id="cartDelAll" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
 
         <%
             }

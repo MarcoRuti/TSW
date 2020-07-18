@@ -41,18 +41,22 @@ public class AllProductList extends HttpServlet {
 
         request.setAttribute("pagina", "tutti");
 
-
-
         request.removeAttribute("productList");
 
         try {
-            if(tipo!=null) {
+
+            if (tipo=="tutti" && search.equals("")){
+                request.setAttribute("productList", model.doRetrieveAllProduct());
+                // COLLECTION DI PRODUCT BEAN
+            }
+
+            else if(tipo!=null && tipo!="tutti") {
                 request.setAttribute("productList", model.doRetrieveProductByType(tipo));
             }
-            else if(search!=null) {
+            else if (search!=null ) {
                 request.setAttribute("productList", model.doRetrieveProductByName(search));
             }
-            else    request.setAttribute("productList", model.doRetrieveAllProduct());
+
 
         } catch (SQLException e) {
             e.printStackTrace();

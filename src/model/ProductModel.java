@@ -2,7 +2,6 @@ package model;
 
 import beans.ProductBean;
 import components.DriverManagerConnectionPool;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -85,12 +84,14 @@ public class ProductModel {
 	}
 
 	//Genera query DELETE per eliminare la riga identificata da 'code' all'interno del DB
-	public synchronized boolean doDeleteInt(int code) throws SQLException {
+	public synchronized boolean doDeleteInt(int code) throws SQLException { //NON FUNZIONAAAAA----------------DARIO----------
 
 		Connection connection1 = null;
 		PreparedStatement preparedStatement1 = null;
+
 		int result = 0;
-		String deleteSQL1 = "DELETE FROM riguarda WHERE code = ?";
+
+		String deleteSQL1 = "DELETE FROM prodotto WHERE Prodotto_codice = ?";
 
 		try {
 			connection1 = DriverManagerConnectionPool.getConnection();
@@ -107,28 +108,8 @@ public class ProductModel {
 				DriverManagerConnectionPool.releaseConnection(connection1);
 			}
 		}
-
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-
-		String deleteSQL = "DELETE FROM " + ProductModel.TAB_NAME + " WHERE code = ?";
-
-		try {
-			connection = DriverManagerConnectionPool.getConnection();
-			preparedStatement = connection.prepareStatement(deleteSQL);
-			preparedStatement.setInt(1, code);
-
-			result = preparedStatement.executeUpdate();
-			connection.commit();
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				DriverManagerConnectionPool.releaseConnection(connection);
-			}
-		}
 		return (result != 0);
+
 	}
 
 	//Genera query SELECT per ricevere i dati in base a quella determinata key

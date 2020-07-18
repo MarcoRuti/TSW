@@ -1,16 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
          import="beans.ProductBean, beans.OrdineBean, java.util.*"%>
 <!DOCTYPE html>
 <html>
     <%
         OrdineBean ordine=(OrdineBean) request.getAttribute("ordine");
-        ProductBean bean = (ProductBean) request.getAttribute("prodPage");
+        ProductBean bean = (ProductBean) request.getAttribute("prodPage"); //ERA "prodPage" provo altro CREA PROBLEMI AL BEAN -DARIO
+                    // IL PROBLEMA E' SEMPRE DAL FILTRO PAGINA DOBBIAMO CHIARIRE QUEL TIPOPAGINA E TIPO PRODOTTI X FAR FUNZIONARE QUESTO -DARIO
+                    //  VIENE USATO ANCHE PER LA RICERCA IN MANIERA TALE DA MOSTRARE LA PAROLA CERCATA NEL TITOLO ALLA RIGA 33 -DARIO
+                    // BISOGNA CHIARIRE QUESTO ASPETTO -DARIO
         int isAdmin = 0; //variabile usata per tener traccia di admin loggato
         int isCliente = 0;
         try {
             isAdmin = (int) session.getAttribute("adminIn");
-            isCliente = (int) session.getAttribute("clienteIn");
+            isCliente = (int) session.getAttribute("clientIn"); // E' CLIENTIN NON MODIFICARE IN CLIENTEIN, QUELL'ATTRIBUTO NON ESISTE -DARIO
         }
         catch(Exception e){
             ;

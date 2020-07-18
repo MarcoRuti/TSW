@@ -78,7 +78,7 @@ public class DeleteServlet extends HttpServlet {
 
             case "prodotto": {
                 ProductModel model = new ProductModel(db,username,password);
-                System.out.println("Tabella" + table);
+                System.out.println("Tabella " + table);
                 try {
                     result = model.doDeleteInt(Integer.parseInt(primaryKey));
                 }

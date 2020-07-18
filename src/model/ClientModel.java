@@ -1,13 +1,14 @@
 package model;
 
+import beans.ClienteBean;
+import components.DriverManagerConnectionPool;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
-import beans.*;
-import components.*;
 
 public class ClientModel{
 
@@ -57,8 +58,8 @@ public class ClientModel{
     }
 
     //Genera query DELETE per eliminare la riga identificata da 'code' all'interno del DB
-    public synchronized boolean doDeleteString(String code)
-            throws SQLException {
+    public synchronized boolean doDeleteString(String code) throws SQLException {
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -72,7 +73,7 @@ public class ClientModel{
             preparedStatement.setString(1, code);
 
             result = preparedStatement.executeUpdate();
-           /* Che cazzo è?! */ connection.commit(); /*Porca madonna*/
+            connection.commit();
         } finally {
             try {
                 if (preparedStatement != null)

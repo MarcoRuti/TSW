@@ -89,7 +89,7 @@
 
             <!-- PRODOTTI -->
             <li class="has_children">
-              <a href="AllProductList?tipo=tutti"> PRODOTTI</a>
+              <a href="AllProductList?tipoPage=tutti"> PRODOTTI</a> <!-- RIMOSSO LINK ALL DARIO -->
               <ul>
                 <!-- dropdown menu -->
 
@@ -159,7 +159,7 @@
             <img src="img/prodotto1.jpeg" style="width: 100%">
           </div>
           <div class="mySlides fade">
-            <img src="img/prodotto2.jpg" style="width: 100%">
+            <img src="img/Surface.jpg" style="width: 100%">
           </div>
 
           <div class="mySlides fade">
@@ -209,11 +209,9 @@
       <div id="info_menu">
 
         <p>
-          <a href="">Per conoscerci</a>
+          <a href="perConoscerci.jsp">Per conoscerci</a>
         </p>
-        <p>
-          <a href="">Contatti</a>
-        </p>
+
         <p id="right_side" align="right">
           <a href="adminPage.jsp">Zona Riservata</a>
         </p>
