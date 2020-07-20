@@ -25,9 +25,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-    <meta name="description" content="La Saporita">
-    <meta name=" author" content="Silvio Cresci">
-    <meta name=" author" content="Raffaella Romano">
 
     <link rel="stylesheet" type="text/css" href="css/page_style.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
@@ -66,21 +63,25 @@
                                                              class="icon" id="home" style=></a></li>
 
                 <!-- PRODOTTI -->
-                <li class="has_children"><a href="./AllProductList"> PRODOTTI</a>
+                <li class="has_children"><a href=""> PRODOTTI</a>
                     <ul>
                         <!-- dropdown menu -->
 
-                        <li><a href="./AllProductList?tipo=pizze">Pizze</a></li>
+                        <li>
+                            <a href="AllProductList?tipo=Accessori">Accessori</a>
+                        </li>
+                        <li>
+                            <a href="AllProductList?tipo=Smartphone">Smartphone</a>
+                        </li>
+                        <li>
+                            <a href="AllProductList?tipo=Workstation">Workstation</a>
+                        </li>
+                        <li>
+                            <a href="AllProductList?tipo=Notebook">Notebook</a>
+                        </li>
 
-                        <li><a href="./AllProductList?tipo=panini">Panini</a></li>
-
-                        <li><a href="./AllProductList?tipo=sfizi">Sfizi e Varie</a></li>
-
-                        <li><a href="./AllProductList?tipo=bibite">Bibite</a></li>
-
-                    </ul></li>
-                <!-- OFFERTE -->
-                <li class= "has_children"><a href="./AllOffertaList?">OFFERTE</a>
+                    </ul>
+                </li>
 
                         <%
 				if (name != null) {
@@ -97,7 +98,7 @@
                     }
                 %>
                 <li style="float: right;"><a href="CartPage.jsp"><img
-                        src="img/empty-cart-light.png" alt="Carrello" class="icon"
+                        src="img/carrello_vuoto.png" alt="Carrello" class="icon"
                         id="cartHome" style="height: 30px; width: 30px;"></a></li>
 
 
@@ -148,6 +149,6 @@
 
 <hr>
 
-<p style="color:grey; text-align:center;">Copyright 2018 La Saporita. All rights reserved.</p>
+<p style="color:grey; text-align:center;">Copyright 2020 I-Buy. All rights reserved.</p>
 </body>
 </html>

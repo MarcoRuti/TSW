@@ -182,12 +182,12 @@
 	.current{
 		width: 100%;
 		padding-bottom: 100px;
-		float : center;
+		float : center; /* display: inline-block; ? */
 	}
 	.has_children{
 		padding-bottom: 100px;
 		width: 100%;
-		float: center;
+		float: center; /* display: inline-block; ? */
 	}
 	
 	/* SEZIONE TABELLA PAGINA PRODOTTI */

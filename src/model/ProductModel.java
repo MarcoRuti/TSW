@@ -84,14 +84,14 @@ public class ProductModel {
 	}
 
 	//Genera query DELETE per eliminare la riga identificata da 'code' all'interno del DB
-	public synchronized boolean doDeleteInt(int code) throws SQLException { //NON FUNZIONAAAAA----------------DARIO----------
+	public synchronized boolean doDeleteInt(int code) throws SQLException { //risolto delete product by admin
 
 		Connection connection1 = null;
 		PreparedStatement preparedStatement1 = null;
 
 		int result = 0;
 
-		String deleteSQL1 = "DELETE FROM prodotto WHERE Prodotto_codice = ?";
+		String deleteSQL1 = "DELETE FROM prodotto WHERE Codice  = ?";
 
 		try {
 			connection1 = DriverManagerConnectionPool.getConnection();
@@ -215,7 +215,7 @@ public class ProductModel {
 		return products;
 	}
 
-	public synchronized ProductBean doRetrieveProductByKey(String code) throws SQLException {
+	public synchronized ProductBean doRetrieveProductByKey(int code) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -226,7 +226,7 @@ public class ProductModel {
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setInt(1, Integer.parseInt(code));
+			preparedStatement.setInt(1, code);
 
 			ResultSet rs = preparedStatement.executeQuery();
 

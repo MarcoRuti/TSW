@@ -1,5 +1,6 @@
 
 <%@page import="beans.Acquistabile"%>
+
 <%@ page contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
          import="components.Cart, beans.OrdineBean, beans.ProductBean, java.util.*, java.sql.*"%>
@@ -58,7 +59,7 @@
                                                              class="icon" id="home" style=></a></li>
 
                 <!-- PRODOTTI -->
-                <li class="has_children"><a href="AllProductList"> PRODOTTI</a>
+                <li class="has_children"><a href=""> PRODOTTI</a>
                     <ul>
                         <!-- dropdown menu -->
 
@@ -113,7 +114,7 @@
 <%
     if(name!=null) {
 %>
- 		<p>Nome Cliente: <%=name %>, ID Cliente(username): <%=usernameCliente %>, isCliente: <%=isCliente  %>, isAdmin: <%=isAdmin  %> </p>  <!-- DARIO 18/07 -->
+ 		 <!-- <p>Nome Cliente: <%=name %> %> </p> -->  <!-- DARIO  -->
 <%
     }
 
@@ -122,8 +123,11 @@
     if(isCliente == 1) //cliente connesso
     {
 %>
+
 <p>Cliente <%=usernameCliente + ". " + name %> connesso.</p>
+
 <!-- QUI VA TUTTO IL CODICE DEL CARRELLO -->
+
 <div class="divContorno">
 
     <div id="contenitore">
@@ -151,6 +155,7 @@
 
                 <td rowspan="5" style="text-align:center; vertical-align:middle;" width="20%">
                     <p>Codice Prodotto: <%=beancart.getCodice() %></p>
+
                     <a href="ProductControl?action=deleteC&codice=<%=beancart.getCodice()%>&page=cart&ordine=<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi dal carrello" id="cartDel" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
                 </td>
             </tr>

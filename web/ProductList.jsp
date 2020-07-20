@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="css/footer.css">
         <link rel="stylesheet" href="css/slides.css" type="text/css">
         <link rel="stylesheet" href="css/divStyle.css" type="text/css">
+
         <meta name="viewport" content="width-device-width, initial-scale-1.0">
 
         <title>Lista Prodotti</title>
@@ -54,7 +55,7 @@
                         <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home"></a></li>
 
                         <!-- PRODOTTI -->
-                        <li class="has_children"><a href="AllProductList?tipo=tutti"> PRODOTTI</a>
+                        <li class="has_children"><a href=""> PRODOTTI</a>
                             <ul>
                                 <!-- dropdown menu -->
 
@@ -101,7 +102,7 @@
 
 
         <%
-          if(tipoPage.equals("tutti")) {
+               if(tipoPage.equals("tutti")) {
        %>
 
 
@@ -110,8 +111,7 @@
         <%
             if(searchKey!=null && !searchKey.equals("")) {
         %>
-
-        <h4>Chiave di ricerca: <%=searchKey %></h4>
+<!-- <h4>Chiave di ricerca: < %=searchKey %></h4> -->
 
         <%
             }
@@ -304,28 +304,12 @@
                 <p><a href="perConoscerci.jsp">Per conoscerci</a> </p>
 
 
-                <%
-                    if(isAdmin == 1) { //Admin connesso. Passa a pannello controllo admin
-                %>
-                <p id = "right_side" align="right"><a href="adminPage.jsp">Zona Riservata</a></p>
 
-                <%
-                } else if(isCliente == 1) { //cliente connesso
-                %>
-                <p id = "right_side" align="right">
-                    <a href="login.jsp?link=<%=url %>">Zona Riservata</a>
+                <p id="right_side" align="right">
+                    <a href="adminPage.jsp">Zona Riservata</a>
                 </p>
 
-                <%
-                } else { //nessuno connesso. Porta alla pagina di login
-                %>
-                <p id = "right_side" align="right">
-                    <a href="login.jsp?link=<%=url %>">Zona Riservata</a>
-                </p>
 
-                <%
-                    }
-                %>
                 <%
                     }
                 %>

@@ -89,7 +89,7 @@
 
             <!-- PRODOTTI -->
             <li class="has_children">
-              <a href="AllProductList?tipoPage=tutti"> PRODOTTI</a> <!-- RIMOSSO LINK ALL DARIO -->
+              <a href=""> PRODOTTI</a> <!-- RIMOSSO LINK ALL DARIO -->
               <ul>
                 <!-- dropdown menu -->
 

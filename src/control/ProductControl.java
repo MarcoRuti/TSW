@@ -1,6 +1,8 @@
 package control;
 
 
+import beans.Acquistabile;
+import beans.OrdineBean;
 import beans.ProductBean;
 import components.Cart;
 import model.ProductModel;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 
 @WebServlet("/ProductControl")
@@ -27,106 +30,112 @@ public class ProductControl extends HttpServlet {
 	static ProductModel model = new ProductModel(db,username,password);
 
     public ProductControl() {
-        super();
+
+    	super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String usernameCliente=(String) request.getSession().getAttribute("usernameCliente");
+		OrdineBean ordine= (OrdineBean) request.getSession().getAttribute("ordine");
 
-		@SuppressWarnings("unchecked")
-		Cart<ProductBean> cart = (Cart<ProductBean>) request.getSession().getAttribute("carrello");
-		if (cart == null) {
-			cart = new Cart<>();
-			request.getSession().setAttribute("carrello", cart);
+
+		//Prende un oggetto di tipo carrello dalla sessione. Se non � presente, lo crea e lo aggiunge alla sessione
+		Cart cart = (Cart)request.getSession().getAttribute("cart");
+		if(cart == null) {
+			cart = new Cart();
+			request.getSession().setAttribute("cart", cart);
+		}
+		if(ordine==null) {
+			ordine= new OrdineBean();
+			request.getSession().setAttribute("ordine", ordine);
 		}
 
-		String sort = request.getParameter("sort");
-
+		//Riceve il parametro per capire quale azione effettuare
 		String action = request.getParameter("action");
+		//Riceve la pagina che ha aggiunto l'articolo al carrello per poterci tornare
+		String page = request.getParameter("page");
+
+
+		System.out.println("Aggiunto in pagina: " + page);
 
 		try {
 			if (action != null) {
-				if (action.equals("details")) {
-					String id = request.getParameter("id");
-					request.removeAttribute("product");
-					request.setAttribute("product", model.doRetrieveProductByKey(id));
-				} else if (action.equals("addCart")) {
-					String id = request.getParameter("id");
-					ProductBean bean = model.doRetrieveProductByKey("id");
-					if(bean != null ) {
-						cart.addItem(bean);
-						request.setAttribute("message", "Product "+ bean.getNome()+" added to cart");
-				}
-			} else if (action.equals("clearCart")) {
-				cart.deleteItems();
-				request.setAttribute("message", "Cart cleaned");
-			} else if (action.equals("deleteCart")) {
-				String id = request.getParameter("id");
-					ProductBean bean = model.doRetrieveProductByKey(id);
-					if(bean != null ) {
-					cart.deleteItem(bean);
-					request.setAttribute("message", "Product "+ bean.getNome()+" deleted from cart");
-			}
-				} else if(action.equals("insert")) {
-			String name = request.getParameter("name");
-			String description = request.getParameter("description");
-			int price = Integer.parseInt(request.getParameter("price"));
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
+				if (action.equalsIgnoreCase("addC")) {
+					System.out.println("Entrato nell'if.");
+					int codice = Integer.parseInt(request.getParameter("codice"));
+					System.out.println("Provo ad aggiungere il prodotto Codice: " + codice);
+					int justAdded=0;
+					List<Acquistabile> inCart = cart.getItems();
 
-			ProductBean bean = new ProductBean();
-			bean.setNome(name);
-			bean.setDescrizione(description);
-			bean.setPrezzo(price);
-
-
-			model.doSave(bean);
-			request.setAttribute("message", "Product " + bean.getNome() + " added");
-					} else if(action.equals("delete")) {
-			String id = request.getParameter("id");
-			ProductBean bean = model.doRetrieveProductByKey(id);
-			if(bean != null) {
-			model.doDeleteInt(Integer.parseInt("id"));
-			request.setAttribute("message", "Product " + bean.getNome() + " deleted");
+					if(inCart.size()>0) {
+						System.out.println("Sono presenti " + inCart.size() + " elementi nel carrello.");
+						for(int i=0; i<inCart.size(); i++){
+							if(codice==inCart.get(i).getCodice()) {
+								justAdded = 1;
+							}
+						}
 					}
-				} else if(action.equals("update")) {
-				String id = request.getParameter("id");
-					String name = request.getParameter("name");
-					String description = request.getParameter("description");
-					int price = Integer.parseInt(request.getParameter("price"));
-					int quantity = Integer.parseInt(request.getParameter("quantity"));
+					if(justAdded == 0) {
 
-				ProductBean bean = new ProductBean();
-			bean.setCodice(Integer.parseInt(id));
-			bean.setNome(name);
-			bean.setDescrizione(description);
-			bean.setPrezzo(price);
+						ProductBean prod = model.doRetrieveProductByKey(codice);
+						prod.toString();
+						cart.addItem(prod);
+						ordine.addProdotto(prod);
+						System.out.println(prod.toString());
+						ordine.setUsernameCliente(usernameCliente);
+						System.out.println("Aggiunto al carrello oggetto " + codice + ".");
+					}
+					else
+						System.out.println("Elemento già nel carrello.");
 
-
-				model.doSave(bean);
-			request.setAttribute("message", "Product " + bean.getNome() + " updated");
+				} else if (action.equalsIgnoreCase("deleteC")) {
+					int cod = Integer.parseInt(request.getParameter("codice"));
+					cart.deleteItem(model.doRetrieveProductByKey(cod));
+					ordine.deleteProduct(model.doRetrieveProductByKey(cod));
 				}
+				else if (action.equalsIgnoreCase("deleteAll")) {
+					cart.deleteItems();
+					ordine.removeAll();
 				}
-	} catch(SQLException | NumberFormatException e) {
-	System.out.println("Error: "+ e.getMessage());
-	request.setAttribute("error", e.getMessage());
+			}
+		} catch (SQLException e) {
+			System.out.println("[ProductControl - action] Error:" + e.getMessage());
+		}
+
+		request.getSession().setAttribute("cart", cart);
+		request.setAttribute("cart", cart);
+		request.removeAttribute("ordine");
+		request.setAttribute("ordine", ordine);
+		request.getSession().setAttribute("ordine", ordine);
+
+/*
+		String order = request.getParameter("order"); //Se order � null, in ProductModel verr� gestito
+
+
+		try {
+			request.removeAttribute("products");
+			request.setAttribute("products", model.doRetrieveAllProduct(order));
+		} catch(SQLException e) {
+			System.out.println("[ProductControl - order] Error: " + e);
+		}
+*/
+//		System.out.println("Product Control eseguito. Trasferisco su JSP.");
+		if(page.equals("cart")) {
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartPage.jsp");
+			dispatcher.forward(request, response);
+		}
+		else if(page.equals("tutti")) {
+			response.sendRedirect("./AllProductList?tipo=Notebook");
+		}
+
 	}
 
-	request.setAttribute("cart", cart);
-
-	try {
-	request.removeAttribute("products");
-	request.setAttribute("products", model.doRetrieveAllProduct());
-	} catch(SQLException e) {
-	System.out.println("Error: "+ e.getMessage());
-request.setAttribute("error", e.getMessage());
-			}
-
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/ProdPage.jsp"); //CONTROLLARE SE /PRODUCTVIEW
-		dispatcher.forward(request, response);
-    }
-
-			protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				doGet(request, response);
-			}
-
-
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
+
+}

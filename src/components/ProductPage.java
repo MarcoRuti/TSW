@@ -22,6 +22,7 @@ public class ProductPage extends HttpServlet {
     ProductModel model = new ProductModel(db, username, password);
 
     public ProductPage() {
+
         super();
     }
 
@@ -33,7 +34,7 @@ public class ProductPage extends HttpServlet {
         request.removeAttribute("prodPage");
 
         try {
-            request.setAttribute("prodPage", model.doRetrieveProductByKey("codice"));
+            request.setAttribute("prodPage", model.doRetrieveProductByKey(codice));
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("[ProductPage.java - setAttribute prodotto] ERROR: " + e.getMessage());

@@ -64,35 +64,27 @@ public class AcquistabileControl extends HttpServlet {
             if (action != null) {
                 if (action.equalsIgnoreCase("addC")) {
                     //	System.out.println("Entrato nell'if.");
-                    String codice = ("codice");
+                    int codice = Integer.parseInt(request.getParameter("codice"));
                     System.out.println("Provo ad aggiungere il prodotto Codice: " + codice);
                     int justAdded=0;
-                    List<Acquistabile> inCart = cart.getItems();
+                    List <Acquistabile> inCart = cart.getItems();
 
                     if(inCart.size()>0) {
                         System.out.println("Sono presenti " + inCart.size() + " elementi nel carrello.");
                         for(int i=0; i<inCart.size(); i++){
-
-                            //Perchè tutto commentato?
-                            //->
-
-                         // if(codice.equals(inCart.get(i).getCodice())) {
-                         //      justAdded = 1;
-                         //  }
+                            if(codice==inCart.get(i).getCodice()) {
+                                justAdded = 1;
+                            }
                         }
                     }
                     if(justAdded == 0) {
 
                         Acquistabile prod = null;
                         if(prod instanceof ProductBean)
-                            model.doRetrieveProductByKey(codice);
-                        //Stessa parte di codice scritta due volte, da togliere e risolvere i warning
-                        //  else if(prod instanceof ProductBean)
-                        //      model.doRetrieveProductByKey(codice);
+                            model.doRetrieveProductByKey(codice); // ABBIAMO AGGIUNTO PARSE INT
+
 
                         prod.toString();
-                        //a che serve sto ToString?
-
                         cart.addItem(prod);
                         ordine.addProdotto(prod);
                         ordine.setUsernameCliente(usernameCliente);
@@ -101,8 +93,7 @@ public class AcquistabileControl extends HttpServlet {
                     else    System.out.println("Elemento già nel carrello.");
 
                 } else if (action.equalsIgnoreCase("deleteC")) {
-                    String cod;
-                    cod = "codice";
+                    int cod = Integer.parseInt(request.getParameter("codice"));
                     cart.deleteItem(model.doRetrieveProductByKey(cod));
                     ordine.deleteProduct(model.doRetrieveProductByKey(cod));
                 }
@@ -121,7 +112,7 @@ public class AcquistabileControl extends HttpServlet {
         request.setAttribute("ordine", ordine);
         request.getSession().setAttribute("ordine", ordine);
 
-        //Cancelliamo tutto questo? -->
+
 /*
 		String order = request.getParameter("order"); //Se order è null, in ProductModel verrà gestito
 

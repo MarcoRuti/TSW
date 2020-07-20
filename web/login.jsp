@@ -54,7 +54,7 @@
                 %>
                 <p>Utente <%=username %> già connesso!</p>
                 <p>
-                    <a href="logout.jsp?link=< %=url %>">Logout</a>
+                    <a href="logout.jsp?link=<%=url %>">Logout</a>
                 </p>
                 <%
                         } else {

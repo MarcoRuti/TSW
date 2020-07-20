@@ -57,7 +57,7 @@
                         <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home"
                                                                  class="icon" id="home"></a></li>
                         <!-- PRODOTTI -->
-                        <li class="has_children"><a href="AllProductList?tipo=tutti"> PRODOTTI</a>
+                        <li class="has_children"><a href=""> PRODOTTI</a>
                             <ul>
                                 <!-- dropdown menu -->
 
@@ -139,7 +139,7 @@
                     <!-- SEZIONE AGGIUNTA CARRELLO -->
                     <tr>
                         <td colspan="2" align="center">
-                        <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/carrello_vuoto.png" width="150px" height="100px" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
+                        <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/aggiungi_carrello.jpg" width="150px" height="100px" alt="Aggiungi al carrello" class="icon" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
                         </td>
                     </tr>
                     <%
@@ -185,7 +185,7 @@
                     <!-- SEZIONE AGGIUNTA CARRELLO -->
                     <tr>
                         <td colspan="2" align="center">
-                            <a href="ProductControl?action=addC&id=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/cartIcon.png" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
+                            <a href="ProductControl?action=addC&id=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/aggiungi_carrello.jpg" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
                         </td>
                     </tr>
                     <%
@@ -203,26 +203,9 @@
                     <a href="perConoscerci.jsp">Per conoscerci</a>
                 </p>
 
-                <%
-                    //Admin connesso. Passa a pannello controllo admin
-                    if(isAdmin == 1) {
-                %>
-                <p id = "right_side" align="right">
+                <p id="right_side" align="right">
                     <a href="adminPage.jsp">Zona Riservata</a>
                 </p>
-                <%
-                } else if(isCliente == 1) { //negozio connesso. Passa a pannello controllo negozio
-                %>
-                <p id = "right_side" align="right"><a href="login.jsp?link=<%=url %>">Zona Riservata</a></p>
-                <%
-                } else { //nessuno connesso. Porta alla pagina di login
-                %>
-                <p id = "right_side" align="right">
-                    <a href="login.jsp?link=<%=url %>">Zona Riservata</a>
-                </p>
-                <%
-                    }
-                %>
             </div>
         </footer>
 
