@@ -16,7 +16,7 @@
       var request = new XMLHttpRequest(); //crea una XMLRequest
       function sendInfo() {
         var v = document.vinform.t1.value; //legge il valore del textbox 't1' nel form 'vinform'
-        var url = "./LiveSearchServlet?val=" + v; //crea un url da inviare alla pagina contenente il valore letto dal form
+        var url = "LiveSearchServlet?val=" + v; //crea un url da inviare alla pagina contenente il valore letto dal form
 
         try {
           request.onreadystatechange = getInfo;
@@ -27,7 +27,7 @@
         }
       }
 
-      /* WHATTHEFUCK?
+
 
       function getInfo() {
 
@@ -36,7 +36,7 @@
           document.getElementById('amit').innerHTML = val;
         }
       }
-      */
+
 
     </script>
 
@@ -54,7 +54,7 @@
 
       try {
         isAdmin = (int) session.getAttribute("adminIn");
-        isCliente = (int) session.getAttribute("ClienteIn");
+        isCliente = (int) session.getAttribute("ClientIn");
       } catch (Exception e) {
         ;
       }
