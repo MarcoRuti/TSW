@@ -199,7 +199,7 @@
                         <!-- SEZIONE AGGIUNTA CARRELLO -->
                         <td rowspan="5" style="text-align:center; vertical-align:middle;" width="20%">
                             <p>Codice Prodotto: <%=bean.getCodice() %></p>
-                            <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>"><img src="img/aggiungi_carrello.jpg" alt="Aggiungi al carrello" class="icon" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
+                            <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>" onclick="alert('Prodotto Aggiunto al Carrello!');"><img src="img/aggiungi_carrello.jpg" alt="Aggiungi al carrello" class="icon" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
                         </td>
 
                         <%
@@ -285,7 +285,7 @@
                         <td style="text-align:center; vertical-align:middle;" width="20%">
                             <p>Codice Prodotto: <%=bean.getCodice() %></p>
                             <div id="imgContainer">
-                                <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>"><img src="img/aggiungi_carrello.jpg" alt="Aggiungi al carrello" class="icon" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
+                                <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>" onclick="alert('Prodotto Aggiunto al Carrello!');"> <img src="img/aggiungi_carrello.jpg" alt="Aggiungi al carrello" class="icon" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
                             </div>
                         </td>
                         <%
