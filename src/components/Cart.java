@@ -17,9 +17,6 @@ public class Cart<T> {
 	public void deleteItem(T item) {
 		items.remove(item);
 
-		//Perchè è commentato? Eliminiamo o lo inseriamo?
-		// -->
-
 		/*
 		for(T it: items) {
 			if(it.equals(item)) {

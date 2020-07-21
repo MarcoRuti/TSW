@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!doctype html>
 <html>
   <head>
@@ -206,8 +206,9 @@
     <!-- Footer -->
 
     <footer id="footer">
-      <div id="info_menu">
+      <hr>
 
+      <div id="info_menu">
         <p>
           <a href="perConoscerci.jsp">Per conoscerci</a>
         </p>
@@ -219,6 +220,8 @@
       </div>
     </footer>
 
-    <p style="color: grey; text-align: center;">Copyright � 2020 I-Buy. All rights reserved.</p>
+    <hr>
+    <p style="color: grey; text-align: center;">Copyright © 2020 I-Buy. All rights reserved.</p>
+
   </body>
 </html>

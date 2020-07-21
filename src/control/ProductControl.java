@@ -39,7 +39,7 @@ public class ProductControl extends HttpServlet {
 		OrdineBean ordine= (OrdineBean) request.getSession().getAttribute("ordine");
 
 
-		//Prende un oggetto di tipo carrello dalla sessione. Se non � presente, lo crea e lo aggiunge alla sessione
+		//Prende un oggetto di tipo carrello dalla sessione. Se non  presente, lo crea e lo aggiunge alla sessione
 		Cart cart = (Cart)request.getSession().getAttribute("cart");
 		if(cart == null) {
 			cart = new Cart();
@@ -89,6 +89,7 @@ public class ProductControl extends HttpServlet {
 						System.out.println("Elemento già nel carrello.");
 
 				} else if (action.equalsIgnoreCase("deleteC")) {
+					System.out.println("deleteC");
 					int cod = Integer.parseInt(request.getParameter("codice"));
 					cart.deleteItem(model.doRetrieveProductByKey(cod));
 					ordine.deleteProduct(model.doRetrieveProductByKey(cod));
@@ -109,7 +110,7 @@ public class ProductControl extends HttpServlet {
 		request.getSession().setAttribute("ordine", ordine);
 
 /*
-		String order = request.getParameter("order"); //Se order � null, in ProductModel verr� gestito
+		String order = request.getParameter("order"); //Se order è null, in ProductModel verrà gestito
 
 
 		try {
@@ -119,7 +120,7 @@ public class ProductControl extends HttpServlet {
 			System.out.println("[ProductControl - order] Error: " + e);
 		}
 */
-//		System.out.println("Product Control eseguito. Trasferisco su JSP.");
+		System.out.println("Product Control eseguito. Trasferisco su JSP.");
 		if(page.equals("cart")) {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CartPage.jsp");
 			dispatcher.forward(request, response);

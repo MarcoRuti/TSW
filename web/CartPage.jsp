@@ -1,11 +1,12 @@
 
 <%@page import="beans.Acquistabile"%>
 
-<%@ page contentType="text/html; charset=ISO-8859-1"
+<%@ page contentType="text/html; charset=UTF-8"
          pageEncoding="ISO-8859-1"
          import="components.Cart, beans.OrdineBean, beans.ProductBean, java.util.*, java.sql.*"%>
 
 <%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page import="java.net.URLEncoder" %>
 <!DOCTYPE html>
 <%
     String name = (String) session.getAttribute("name"); //prendo nome
@@ -19,7 +20,7 @@
    Cart cart = (Cart) session.getAttribute("cart"); //prendo un carrello dalla sessione
 %>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
     <link rel="stylesheet" type="text/css" href="css/page_style.css">
@@ -155,6 +156,17 @@
 
                 <td rowspan="5" style="text-align:center; vertical-align:middle;" width="20%">
                     <p>Codice Prodotto: <%=beancart.getCodice() %></p>
+
+                 <%
+                  /*
+                    String url1 =   URLEncoder.encode(< %=beancart.getCodice()% >&page=cart&ordine=< %=ordine% >,"UTF-8").replace("+","%20");
+                     int cod1 = beancart.getCodice();
+                     OrdineBean ord1 = ordine;
+                     String url2 ="cod1&page=cart&ordine=ord1";
+                     &page=cart&ordine=< %=ordine% >
+                   */
+                  %>
+
 
                     <a href="ProductControl?action=deleteC&codice=<%=beancart.getCodice()%>&page=cart&ordine=<%=ordine%>"><img src="img/cestino.png" alt="Rimuovi dal carrello" id="cartDel" style="heigth: 50px; width: 50px; border: 3px solid #f49723; border-radius: 20px 20px 20px 20px;"></a>
                 </td>

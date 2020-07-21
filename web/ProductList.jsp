@@ -122,7 +122,7 @@
             String returnCarrello = "";
             String servletToCall = "";
             if(tipoPage.equals("tutti")) {
-                servletToCall = "./list/AllProductList"; // prima solo AllProductList
+                servletToCall = "./AllProductList"; // prima solo AllProductList
                 returnCarrello = "tutti";
             }
         %>

@@ -184,8 +184,9 @@
                     %>
                     <!-- SEZIONE AGGIUNTA CARRELLO -->
                     <tr>
-                        <td colspan="2" align="center">
-                            <a href="ProductControl?action=addC&id=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/aggiungi_carrello.jpg" alt="Aggiungi al carrello" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
+                        <td style="text-align:center; vertical-align:middle;" width="20%">
+
+                            <a href="ProductControl?action=addC&id=<%=bean.getCodice()%>&page=cart&usernameCliente=<%=usernameCliente%>&ordine=<%=ordine%>"><img src="img/aggiungi_carrello.jpg" alt="Aggiungi al carrello" class= "icon" id="cart" style="border: 3px solid #f49723; border-radius: 30px 30px 30px 30px;"></a>
                         </td>
                     </tr>
                     <%
@@ -198,6 +199,7 @@
 
         <!-- Footer -->
         <footer id="footer">
+            <hr>
             <div id = "info_menu">
                 <p>
                     <a href="perConoscerci.jsp">Per conoscerci</a>
@@ -206,9 +208,11 @@
                 <p id="right_side" align="right">
                     <a href="adminPage.jsp">Zona Riservata</a>
                 </p>
+
             </div>
         </footer>
 
+        <hr>
         <p style="color:grey; text-align:center;">Copyright © 2020 I-Buy. All rights reserved.</p>
     </body>
 </html>
