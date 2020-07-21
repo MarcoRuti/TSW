@@ -24,18 +24,18 @@ public class LiveSearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String s=request.getParameter("val");
 
-        //Perchè è commentato? -->
 
-        //		System.out.println("value: " + s);
+
+        	System.out.println("value: " + s);
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
         if(s==null || s.trim().equals("")){
 
-            //Perchè è commentato? -->
 
-            //		out.print("Please enter name");
+
+            		out.print("Please enter name");
         }
         else {
             String name = s;
@@ -52,18 +52,19 @@ public class LiveSearchServlet extends HttpServlet {
                 Statement st=con.createStatement();
                 String query = "select * from prodotto where nome LIKE '%" + name + "%'";
 
-                //Perchè è commentato? -->
 
-                //	out.print(query);
+
+                	out.print(query);
 
                 ResultSet rs=st.executeQuery(query);
+
                 while(rs.next()){
 
-                    //Perchè è commentato? -->
 
-                    //	out.println(rs.getInt("Codice")+" "+rs.getString("Nome") + "<br/>");
 
-                    out.print("<a href='./ProductPage?codice=" + rs.getInt("Codice") + "'>" + rs.getInt("Codice")+" - "+rs.getString("Nome") + "</a>");
+                    	out.println(rs.getInt("Codice")+" "+rs.getString("Nome") + "<br/>");
+
+                    out.print("<a href='ProductPage?codice=" + rs.getInt("Codice") + "'>" + rs.getInt("Codice")+" - "+rs.getString("Nome") + "</a>");
                 }
                 con.close();
                 out.print("</div>");

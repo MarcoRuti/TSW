@@ -140,10 +140,10 @@
 
     <div class="dropdown-padre">
       <div class="dropdown" >
-        <form name="vinform" action="" method="get">
+        <form name="vinform" action="AllProductList" method="get">
           <label>Cerca il tuo prodotto</label>
           <br>
-          <input type="text" name="search" onkeyup="sendInfo()" id="txtbox" size="70" placeholder="Macbook, I-Phone X, ...">
+          <input type="text" name="search" onkeyup="sendInfo()" id="txtbox" size="70" placeholder="Macbook, iPhone X, ...">
         </form>
 
         <span id="amit"> </span>
@@ -156,14 +156,14 @@
         <div class="slideshow-container">
 
           <div class="mySlides fade">
-            <img src="img/prodotto1.jpeg" style="width: 100%">
+            <img src="img/MacbookPro.jpg" alt="slidefade" style="width: 100%">
           </div>
           <div class="mySlides fade">
-            <img src="img/Surface.jpg" style="width: 100%">
+            <img src="img/Surface.jpg" alt="slidefade" style="width: 100%">
           </div>
 
           <div class="mySlides fade">
-            <img src="img/prodotto1.jpeg" style="width: 100%">
+            <img src="img/Airpods2.jpg" alt="slidefade" style="width: 100%">
           </div>
 
         </div>

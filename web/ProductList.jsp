@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
          import="beans.ProductBean, java.util.*"%>
 
@@ -6,8 +6,11 @@
 <html>
     <head>
         <%
-            Collection<?> products = (Collection<?>) request.getAttribute("productList");
+
+           Collection<?> products = (Collection<?>) request.getAttribute("productList");
+
             String usernameCliente = (String) session.getAttribute("usernameCliente");
+
             if(usernameCliente == null)     usernameCliente = "0";
         %>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -111,24 +114,27 @@
         <%
             if(searchKey!=null && !searchKey.equals("")) {
         %>
-<!-- <h4>Chiave di ricerca: < %=searchKey %></h4> -->
+
+        <h4>Chiave di ricerca: < %=searchKey %></h4>
 
         <%
             }
             String returnCarrello = "";
             String servletToCall = "";
             if(tipoPage.equals("tutti")) {
-                servletToCall = "AllProductList";
+                servletToCall = "./list/AllProductList"; // prima solo AllProductList
                 returnCarrello = "tutti";
             }
         %>
 
         <!-- FORM BARRA RICERCA -->
-        <form action="<%=servletToCall %>" method="get">
-            <input type="hidden" name="id" value="<%=usernameCliente%>">
+      <!--
+        <form action="< %=servletToCall %>" method="get">
+            <input type="hidden" name="id" value="< %=usernameCliente%>">
             <input type="text" name="search" placeholder="Cerca...">
             <input type="submit">
         </form>
+        -->
 
         <div class="divContorno">
             <div id="contenitore">
@@ -177,7 +183,7 @@
                             }
                             else {
                         %>
-                            <img src="img/logo.jpg" width="100px" height="100px"  alt="Foto esempio" > <!-- AGGIUNTA DARIO 18/07 -->
+                            <img src="img/logo.jpg" width="100px" height="100px"  alt="Foto esempio" > <!-- AGGIUNTA DARIO  -->
                         <%
                             }
                         %>
@@ -248,7 +254,7 @@
                             }
                             else {
                             %>
-                            FOTO NON TROVATA
+                            <img src="img/logo.jpg" width="100px" height="100px"  alt="Foto esempio" >
                             <%
                                 }
                             %>
@@ -271,6 +277,10 @@
                     </tr>
                     <tr>
 
+                        <%
+                            if(isCliente!=0) {
+                        %>
+
                         <!-- SEZIONE AGGIUNTA CARRELLO -->
                         <td style="text-align:center; vertical-align:middle;" width="20%">
                             <p>Codice Prodotto: <%=bean.getCodice() %></p>
@@ -278,6 +288,10 @@
                                 <a href="ProductControl?action=addC&codice=<%=bean.getCodice()%>&page=<%=returnCarrello%>&usernameCliente=<%=usernameCliente%>&tipo=<%=tipoProd%>"><img src="img/aggiungi_carrello.jpg" alt="Aggiungi al carrello" class="icon" id="cart" style="border: 3px solid #0fc68e; border-radius: 30px 30px 30px 30px;"></a>
                             </div>
                         </td>
+                        <%
+                            }
+                        %>
+
                     </tr>
                 </table>
                 <%

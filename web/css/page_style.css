@@ -1,7 +1,7 @@
-	@CHARSET "ISO-8859-1";
+@CHARSET "ISO-8859-1";
 
 
-	/* body */
+/* body */
 
 	body {
 		background-color: #DDD;
@@ -27,14 +27,14 @@
 	ul {
 		list-style-type: none;
 		margin: 0 auto;
-		padding: 0%;
+		padding: 0;
 		overflow: hidden;
 	}
 
 	li { /*Lista*/
 		font-style: italic;
 		font-size: small;
-		size: 100;
+		/* size: 100; */
 		float: left;
 
 	}
@@ -56,7 +56,7 @@
 	ul#menu ul{
 		margin: 0;
 		padding: 5px;
-		display: right;
+		/* display: right; */
 		list-style: none;
 		opacity: 0;
 		visibility: hidden;
@@ -85,7 +85,7 @@
 		height: 50px;
 		width: 50px;
 		padding-left: 5px;
-		padding-rignt: 5px;
+		padding-right: 5px;
 		padding-bottom:10px
 	}
 	.current {
@@ -182,18 +182,20 @@
 	.current{
 		width: 100%;
 		padding-bottom: 100px;
-		float : center; /* display: inline-block; ? */
+		/* float : center; */
+		display: inline-block;
 	}
 	.has_children{
 		padding-bottom: 100px;
 		width: 100%;
-		float: center; /* display: inline-block; ? */
+		/*  float: center; */
+		display: inline-block;
 	}
 	
 	/* SEZIONE TABELLA PAGINA PRODOTTI */
 	#tabBigPage {
 
-		visibility: hidden; /* DARIO 18/07  */
+		visibility: hidden; /* DARIO  */
 		position: absolute; /**/
 		top: -9999px;		/**/
 		left: -9999px;		/**/
