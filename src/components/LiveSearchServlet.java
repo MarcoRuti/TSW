@@ -43,7 +43,7 @@ public class LiveSearchServlet extends HttpServlet {
             out.print("<div id=\"myDropdown\" class=\"dropdown-content\">");
 
             try{
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 String url = "jdbc:mysql://localhost:3306/i-buy?serverTimezone=UTC&useSSL=false";
                 String user = "root";
                 String psw = "rootroot";

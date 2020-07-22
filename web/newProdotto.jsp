@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*" %>
 
 <!DOCTYPE html>
@@ -18,11 +18,11 @@
 <%
     try {
         String urlRet = request.getRequestURL().toString();
-        String username = (String) session.getAttribute("username");
+        String name = (String) session.getAttribute("name");
         String addOk = (String) session.getAttribute("addOk");
         request.getSession().removeAttribute("addOk");
 %>
-<!-- Navbar piccola -->
+<!-- Navbar  -->
 <div class = "navbar">
 
     <div id = "main_menu">
@@ -35,9 +35,9 @@
                 <!-- HOME -->
                 <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home" class="icon" id="home"></a></li>
                 <%
-                    if(username!=null) {
+                    if(name!=null) {
                 %>
-                <li style="float: right;"><a>Benvenuto <%=username%></a></li>
+                <li style="float: right;"><a>Benvenuto <%=name%></a></li>
                 <li style="float: right;"><a href="logout.jsp?link=<%=urlRet %>"> Logout </a></li>
                 <%
                     }
