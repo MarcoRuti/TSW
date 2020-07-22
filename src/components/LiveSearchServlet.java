@@ -35,7 +35,7 @@ public class LiveSearchServlet extends HttpServlet {
 
 
 
-            		out.print("Please enter name");
+            		//out.print("Inizia a digitare");
         }
         else {
             String name = s;
@@ -44,7 +44,7 @@ public class LiveSearchServlet extends HttpServlet {
 
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                String url = "jdbc:mysql://localhost:3306/i-buy?serverTimezone=UTC";
+                String url = "jdbc:mysql://localhost:3306/i-buy?serverTimezone=UTC&useSSL=false";
                 String user = "root";
                 String psw = "rootroot";
 
@@ -54,7 +54,7 @@ public class LiveSearchServlet extends HttpServlet {
 
 
 
-                	out.print(query);
+                	// out.print(query);
 
                 ResultSet rs=st.executeQuery(query);
 
@@ -62,7 +62,7 @@ public class LiveSearchServlet extends HttpServlet {
 
 
 
-                    	out.println(rs.getInt("Codice")+" "+rs.getString("Nome") + "<br/>");
+                    	 // out.println(rs.getInt("Codice")+" "+rs.getString("Nome") + "<br/>");
 
                     out.print("<a href='ProductPage?codice=" + rs.getInt("Codice") + "'>" + rs.getInt("Codice")+" - "+rs.getString("Nome") + "</a>");
                 }

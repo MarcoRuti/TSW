@@ -16,13 +16,15 @@
       var request = new XMLHttpRequest(); //crea una XMLRequest
       function sendInfo() {
         var v = document.vinform.t1.value; //legge il valore del textbox 't1' nel form 'vinform'
-        var url = "LiveSearchServlet?val=" + v; //crea un url da inviare alla pagina contenente il valore letto dal form
+        var url = "LiveSearchServlet?val="+v; //crea un url da inviare alla pagina contenente il valore letto dal form
 
         try {
           request.onreadystatechange = getInfo;
           request.open("GET", url, true);
           request.send();
-        } catch (e) {
+        }
+        catch (e)
+        {
           alert("Unable to connect to server");
         }
       }
@@ -140,10 +142,10 @@
 
     <div class="dropdown-padre">
       <div class="dropdown" >
-        <form name="vinform" action="AllProductList" method="get">
+        <form name="vinform" action="" method="get">
           <label>Cerca il tuo prodotto</label>
           <br>
-          <input type="text" name="search" onkeyup="sendInfo()" id="txtbox" size="70" placeholder="Macbook, iPhone X, ...">
+          <input type="text" name="t1" onkeyup="sendInfo()" id="txtbox" size="70" placeholder="Inizia a digitare per cercare un prodotto...">
         </form>
 
         <span id="amit"> </span>
@@ -179,13 +181,13 @@
     </div>
 
     <script type="text/javascript">
-      //Slides con prodotti
+      //Slides con prodotti DOM JS
       var slideIndex = 0;
       showSlides();
 
       function showSlides() {
         var i;
-        var slides = document.getElementsByClassName("mySlides");
+        var slides = document.getElementsByClassName("mySlides"); // returns a collection of all elements in the document with the specified class name, as an HTMLCollection object.The HTMLCollection object represents a collection of nodes. The nodes can be accessed by index numbers. The index starts at 0.
         var dots = document.getElementsByClassName("dot");
         for (i = 0; i < slides.length; i++) {
           slides[i].style.display = "none";
