@@ -67,7 +67,7 @@
           %>
 
 
-    		<p>Username Cliente: <%=usernameCliente%></p>
+
     <%
         }
       }

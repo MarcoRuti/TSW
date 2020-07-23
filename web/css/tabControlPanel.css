@@ -1,10 +1,11 @@
-.tabConPan {
-	border: 1px solid black; /*test*/
+
+.tabConPan { /* tutti class tab con pan (tr e table)*/
+	/* border: 1px solid black; */
 }
 
 table.tabConPan {
 	font-family: arial, sans-serif;
-    border-collapse: collapse;
+     border-collapse: collapse;
     width: 100%;
 }
 
@@ -15,13 +16,13 @@ tr.tabConPan{
 }
 
 th{ /* Stile per la riga contenente gli header */
-	 border: 1px solid #dddddd;
+	border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
 
-th>a {
-	color: #BBB;
+th>a{ /* a intero derivante da :nth-of-type selector */
+	color: #BBBBBB;
 }
 td.tabConPan { /* Stile per le righe contenenti i dati*/
 	 border: 1px solid #dddddd;
@@ -38,37 +39,53 @@ tr:nth-child(even) {
 @media screen and (max-width: 920px) {
 
 	/* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr { 
-		display: block; 
+	table, thead, tbody, th, td, tr {
+		display: block;
 	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-	th { 
+
+	/* Hide table headers not display: none;, for accessibility */
+	th {
+		font-weight: bold;
 		position: absolute;
-		top: -9999px;
+		top: -9999px; /* per evitare overlapping */
 		left: -9999px;
+
 	}
-	
+
 	/* Bordi di ogni nuova tupla*/
-	tr { border: 1px solid #CCC; }
-	
-	td { 
+	tr { border: 1px solid #cccccc; }
+
+	td {
 		/* Behave  like a "row" */
 		border: none;
-		border-bottom: 1px solid #DDD; /* riga divisione campi stesso */
+		border-bottom: 1px solid #dddddd; /* riga divisione campi stesso */
 		position: relative;
-		padding-left: 50%; 
+		padding-left: 50%;
 	}
-	
-	td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
+
+	/*td::before {
+	/* Now like a table header */
+	/*	position: absolute;
+	/* Top/left values mimic padding */
+	/*	top: 6px;
 		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap; /* how white-space inside an element is handled.due o più spazi collassano in un unico spazio, come per il valore normal, ma le linee di testo vengono interrotte solo in corrispondenza delle interruzioni di linea del codice (X)HTML, come per il valore pre.*/
+	table.tabConPan{
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width:920px;
+
 	}
-	
+
+	tr.tabConPan{
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width:920px;
+
+	}
+
+
+
 }

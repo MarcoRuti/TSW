@@ -1,8 +1,7 @@
-<%@page import="java.sql.*"%>
-<%@page import="model.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.ResultSetMetaData"%>
+<%@ page contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <%
     int colNumb = (int) request.getAttribute("colNum");
@@ -15,14 +14,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-    <link rel="stylesheet" type="text/css" href="css/page_style.css">
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <link rel="stylesheet" href="css/slides.css" type="text/css">
-    <link rel="stylesheet" href="css/divStyle.css" type="text/css">
     <link rel="stylesheet" href="css/tabControlPanel.css" type="text/css">
-    <link rel="stylesheet" href="css/tables.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/page_style.css">
 
-    <meta name="viewport" content="width-device-width, initial-scale-1.0">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- LA GENERAZIONE DINAMICA DEI NOMI DEI CAMPI NON SEMPRE FUNZIONA
 <style>
@@ -38,7 +36,7 @@
 % >
 </style>
  -->
-
+<!-- ?structural pseudo-class?, meaning it is used to style content based on its relationship with parent and sibling elements. -->
     <style>
         @media screen and (max-width: 920px) {
         <%
@@ -47,7 +45,7 @@
             td:nth-of-type(1):before{ content:"Codice"; }
             td:nth-of-type(2):before{ content:"Nome"; }
             td:nth-of-type(3):before{ content:"Prezzo"; }
-            td:nth-of-type(4):before{ content:"Ingredienti"; }
+            td:nth-of-type(4):before{ content:"Descrizione"; }
             td:nth-of-type(5):before{ content:"Tipo"; }
         <%
           }
@@ -131,11 +129,11 @@
 <table align="center" class="tabConPan">
 
     <%
-
-
         String primaryKey="";
         int numData = 0;
-        if(tab.equals("cliente")){ %>
+        if(tab.equals("cliente")){
+    %>
+
     <tr class="tabConPan">
     <tr>
         <th>Username</th>
