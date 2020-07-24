@@ -52,8 +52,10 @@ tr:nth-child(even) {
 
 	}
 
-	/* Bordi di ogni nuova tupla*/
-	tr { border: 1px solid #cccccc; }
+	/* Bordi di ogni riga*/
+	tr {
+		border: 1px solid #cccccc;
+	}
 
 	td {
 		/* Behave  like a "row" */
@@ -72,18 +74,17 @@ tr:nth-child(even) {
 		width: 45%;
 		padding-right: 10px;
 		white-space: nowrap; /* how white-space inside an element is handled.due o più spazi collassano in un unico spazio, come per il valore normal, ma le linee di testo vengono interrotte solo in corrispondenza delle interruzioni di linea del codice (X)HTML, come per il valore pre.*/
+
 	table.tabConPan{
 		font-family: arial, sans-serif;
 		border-collapse: collapse;
 		width:920px;
-
 	}
 
 	tr.tabConPan{
 		font-family: arial, sans-serif;
 		border-collapse: collapse;
 		width:920px;
-
 	}
 
 

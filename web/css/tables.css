@@ -9,7 +9,7 @@
 	.adminTable td {
 		/* Behave  like a "row" */
 		border: none;
-		border-bottom: 1px solid #DDD; /* riga divisione campi stesso */
+		border-bottom: 1px solid #dddddd; /* riga divisione campi  */
 		position: relative;
 		width: 100%;
 		/*	padding-left: 50%; */

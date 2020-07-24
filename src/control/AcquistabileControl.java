@@ -65,7 +65,7 @@ public class AcquistabileControl extends HttpServlet {
                 if (action.equalsIgnoreCase("addC")) {
                     //	System.out.println("Entrato nell'if.");
                     int codice = Integer.parseInt(request.getParameter("codice"));
-                    System.out.println("Provo ad aggiungere il prodotto Codice: " + codice);
+                    //System.out.println("Provo ad aggiungere il prodotto Codice: " + codice);
                     int justAdded=0;
                     List <Acquistabile> inCart = cart.getItems();
 
