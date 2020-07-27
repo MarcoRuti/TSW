@@ -157,14 +157,14 @@
 
         <div class="slideshow-container">
 
-          <div class="mySlides fade">
+          <div class="mySlides fade"> <!-- Doppia classe -->
             <img src="img/MacbookPro.jpg" alt="slidefade" style="width: 100%">
           </div>
-          <div class="mySlides fade">
+          <div class="mySlides fade"> <!-- Doppia classe -->
             <img src="img/Surface.jpg" alt="slidefade" style="width: 100%">
           </div>
 
-          <div class="mySlides fade">
+          <div class="mySlides fade"> <!-- Doppia classe -->
             <img src="img/Airpods2.jpg" alt="slidefade" style="width: 100%">
           </div>
 

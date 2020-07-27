@@ -39,12 +39,12 @@
 		text-align: center;
 		padding: 30px;
 		text-decoration: none;
-		font-size: 1.7em;
+		font-size: 1.7em; /* Pixel is a static measurement, while percent and EM are relative measurements.*/
 
 	}
 
 	li a:hover {
-		background-color:  #ffda45;
+		background-color: #ffda45;
 	}
 
 	ul#menu ul{ /*prendiamo l'unordered list con ID="Menu"*/
@@ -88,8 +88,8 @@
 	}
 
 	.has_children{
-		padding-bottom:0px;
-		padding-top:0px;
+		padding-bottom:0;
+		padding-top:0;
 		width: 175px;
 		height:80px;
 	}
@@ -132,7 +132,7 @@
 
 	label.toggle {
 		font-weight: 100;
-		font-size: 1.2em;
+		font-size: 1.2em; /* Pixel is a static measurement, while percent and EM are relative measurements.*/
 		padding: 10px 10px;
 		color: #FFF;
 	}

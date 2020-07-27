@@ -1,6 +1,6 @@
 @media screen and (max-width: 920px) {
 
-	/* Force table to not be like tables anymore */
+	/* Force table to not be like tables anymore  Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width */
 	table, thead, tbody, th, td, tr {
 		display: block;
 	}
@@ -10,7 +10,8 @@
 		/* Behave  like a "row" */
 		border: none;
 		border-bottom: 1px solid #dddddd; /* riga divisione campi  */
-		position: relative;
+		position: relative;  /* viene posizionato relativamente al suo box contenitore.
+		In questo caso il box contenitore è rappresentato dal posto che l’elemento avrebbe occupato nel normale flusso del documento. */
 		width: 100%;
 		/*	padding-left: 50%; */
 	}

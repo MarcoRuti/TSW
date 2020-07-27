@@ -16,7 +16,7 @@ tr.tabConPan{
 }
 
 th{ /* Stile per la riga contenente gli header */
-	border: 1px solid #dddddd;
+	border: 1px solid #dddddd ;
     text-align: left;
     padding: 8px;
 }
@@ -33,7 +33,7 @@ td.tabConPan { /* Stile per le righe contenenti i dati*/
 
 /* Mette colori alternati per gli elementi nella tabella*/
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #dddddd ;
 }
 
 @media screen and (max-width: 920px) {
@@ -59,24 +59,26 @@ tr:nth-child(even) {
 
 	td {
 		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #dddddd; /* riga divisione campi stesso */
-		position: relative;
-		padding-left: 50%;
+		border: none  !important;
+		border-bottom: 1px solid #dddddd  !important; /* riga divisione campi stesso */
+		position: relative  !important;
+		padding-left: 50%  !important;
 	}
 
-	/*td::before {
-	/* Now like a table header */
-	/*	position: absolute;
-	/* Top/left values mimic padding */
-	/*	top: 6px;
-		left: 6px;
-		width: 45%;
-		padding-right: 10px;
-		white-space: nowrap; /* how white-space inside an element is handled.due o più spazi collassano in un unico spazio, come per il valore normal, ma le linee di testo vengono interrotte solo in corrispondenza delle interruzioni di linea del codice (X)HTML, come per il valore pre.*/
+	td::before {
+		/* Now like a table header */
+		position: absolute !important;
+		/* Top/left values mimic padding */
+		top: 6px !important;
+		left: 6px !important;
+		width: 45% !important;
+		padding-right: 10px !important;
+		white-space: nowrap  !important; /* how white-space inside an element is handled.due o più spazi collassano in un unico spazio, come per il valore normal, ma le linee di testo vengono interrotte solo in corrispondenza delle interruzioni di linea del codice (X)HTML, come per il valore pre.*/
+	}
+
 
 	table.tabConPan{
-		font-family: arial, sans-serif;
+		font-family: arial, sans-serif ;
 		border-collapse: collapse;
 		width:920px;
 	}

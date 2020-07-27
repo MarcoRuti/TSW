@@ -3,11 +3,11 @@
 /* Slideshow container */
 .slideshow-container {
   max-width: 700px;
-  position: relative;
+  position: relative; /* viene posizionato relativamente al suo box contenitore. In questo caso il box contenitore è rappresentato dal posto che l’elemento avrebbe occupato nel normale flusso del documento. */
   margin: auto;
 }
 
-.mySlides {
+.mySlides { /* classe degli elementi dello slide in index */
     display: none;
 }
 
@@ -57,7 +57,11 @@
   animation-duration: 1.5s;
 }
 
-@-webkit-keyframes fade {
+@-webkit-keyframes fade { /* The @keyframes rule specifies the animation code.
+
+The animation is created by gradually changing from one set of CSS styles to another.
+
+During the animation, you can change the set of CSS styles many times.*/
   from {opacity: .4} 
   to {opacity: 1}
 }
