@@ -20,7 +20,7 @@
 
         try {
           request.onreadystatechange = getInfo;
-          request.open("GET", url, true);
+          request.open("GET", url, true); // inizializza req to serv method,uri(res da ottenere),true(asincrono)
           request.send();
         }
         catch (e)
@@ -53,6 +53,13 @@
       int isAdmin = 0;
       int isCliente = 0;
       if (name != null) {
+
+    %>
+    <!--
+	<p>< %=name%></p>
+	<a href="logout.jsp?link=< %=url%>">Logout</a><br/>
+	 -->
+    <%
 
       try {
         isAdmin = (int) session.getAttribute("adminIn");
@@ -212,13 +219,34 @@
       <hr>
 
       <div id="info_menu">
+
         <p>
           <a href="perConoscerci.jsp">Per conoscerci</a>
         </p>
 
+        <%
+          if (isAdmin == 1) { //Admin connesso. Passa a pannello controllo admin
+        %>
         <p id="right_side" align="right">
           <a href="adminPage.jsp">Zona Riservata</a>
         </p>
+
+        <%
+        } else if (isCliente == 1) {
+        %>
+        <p id="right_side" align="right">
+          <a href="adminPage.jsp?link=<%=url%>">Zona Riservata</a>
+        </p>
+
+        <%
+        } else { //nessuno connesso. Porta alla pagina di login
+        %>
+        <p id="right_side" align="right">
+          <a href="adminPage.jsp?link=<%=url%>">Zona Riservata</a>
+        </p>
+        <%
+          }
+        %>
 
       </div>
     </footer>

@@ -34,8 +34,8 @@
     <%
         try {
             isAdmin = (int) session.getAttribute("adminIn");
-            //PROBLEMI CON "CLIENTEIN" PROBABILMENTE
-            isCliente = (int) session.getAttribute("clienteIn");
+
+            isCliente = (int) session.getAttribute("clientIn");
         }
         catch(Exception e){
             ;
@@ -150,7 +150,7 @@
             %>
 
             <h2>ACCESSO NON AUTORIZZATO!</h2>
-            <p>Non sei autorizzato ad entrare in questa pagina. Torna alla <u><a href="index.jsp">home</a></u> per loggarti.</p>
+            <p>Non sei autorizzato ad entrare in questa pagina. Torna alla <u><a href="login.jsp">login page</a></u> per effettuare l'accesso.</p>
 
             <%
                 }
@@ -161,7 +161,7 @@
             <p>.</p>
 
             <h2>ACCESSO NON AUTORIZZATO!</h2>
-            <p>Non sei autorizzato ad entrare in questa pagina. Torna alla <u><a href="index.jsp">home</a></u> per loggarti.</p>
+            <p>Non sei autorizzato ad entrare in questa pagina. Torna alla <u><a href="login.jsp">login page</a></u> per effettuare l'accesso.</p>
 
             <%
                 }

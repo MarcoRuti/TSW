@@ -42,7 +42,7 @@
     int isCliente = 0; //variabile usata per tener traccia di negozio loggato
     try { //prende una o l'altra variabile (non potranno essere prese entrambe - 1 login)
         isAdmin = (int) session.getAttribute("adminIn");
-        isCliente = (int) session.getAttribute("clienteIn");
+        isCliente = (int) session.getAttribute("clientIn");
     }
     catch(Exception e){
         ;
@@ -59,7 +59,7 @@
         <nav>
             <ul id="menu">
                 <!-- HOME -->
-                <li class="current"><a href="index.jsp"><img src="img/logo.png" alt="Home"
+                <li class="current"><a href="index.jsp"><img src="img/logo.jpg" alt="Home"
                                                              class="icon" id="home" style=></a></li>
 
                 <!-- PRODOTTI -->

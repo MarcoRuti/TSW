@@ -314,16 +314,32 @@
         <footer id="footer">
             <hr>
 
-            <div id = "info_menu">
-                <p><a href="perConoscerci.jsp">Per conoscerci</a> </p>
+            <div id="info_menu">
 
+                <p>
+                    <a href="perConoscerci.jsp">Per conoscerci</a>
+                </p>
 
-
+                <%
+                    if (isAdmin == 1) { //Admin connesso. Passa a pannello controllo admin
+                %>
                 <p id="right_side" align="right">
                     <a href="adminPage.jsp">Zona Riservata</a>
                 </p>
 
+                <%
+                } else if (isCliente == 1) {
+                %>
+                <p id="right_side" align="right">
+                    <a href="adminPage.jsp?link=<%=url%>">Zona Riservata</a>
+                </p>
 
+                <%
+                } else { //nessuno connesso. Porta alla pagina di login
+                %>
+                <p id="right_side" align="right">
+                    <a href="adminPage.jsp?link=<%=url%>">Zona Riservata</a>
+                </p>
                 <%
                     }
                 %>

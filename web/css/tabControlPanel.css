@@ -40,21 +40,21 @@ tr:nth-child(even) {
 
 	/* Force table to not be like tables anymore */
 	table, thead, tbody, th, td, tr {
-		display: block;
+		display: block !important;
 	}
 
 	/* Hide table headers not display: none;, for accessibility */
 	th {
-		font-weight: bold;
-		position: absolute;
-		top: -9999px; /* per evitare overlapping */
-		left: -9999px;
+		font-weight: bold !important;
+		position: absolute !important;
+		top: -9999px !important; /* per evitare overlapping */
+		left: -9999px !important;
 
 	}
 
 	/* Bordi di ogni riga*/
 	tr {
-		border: 1px solid #cccccc;
+		border: 1px solid #cccccc !important;
 	}
 
 	td {
@@ -78,16 +78,11 @@ tr:nth-child(even) {
 
 
 	table.tabConPan{
-		font-family: arial, sans-serif ;
-		border-collapse: collapse;
-		width:920px;
+		font-family: arial, sans-serif !important;
+		border-collapse: collapse !important;
+		width:920px !important;
 	}
 
-	tr.tabConPan{
-		font-family: arial, sans-serif;
-		border-collapse: collapse;
-		width:920px;
-	}
 
 
 

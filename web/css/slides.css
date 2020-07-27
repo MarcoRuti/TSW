@@ -7,7 +7,7 @@
   margin: auto;
 }
 
-.mySlides { /* classe degli elementi dello slide in index */
+.mySlides { /* classe delle img  dello slide in index */
     display: none;
 }
 
@@ -33,7 +33,7 @@
   top: 0;
 }
 
-/* I dots*/
+/* I dots slde*/
 .dot {
   
   height: 13px;
@@ -49,7 +49,7 @@
   background-color:black;
 }
 
-/* Animazione CSS sfumatura dello SlideShow*/
+/* Animazione CSS sfumatura delle IMG nello SlideShow*/
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;

@@ -17,7 +17,6 @@ import java.sql.SQLException;
 public class AdmAccountControl extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    static boolean isDataSource = true;
     static String db = "i-buy";
     static String username = "root";
     static String password = "rootroot";
