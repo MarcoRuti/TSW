@@ -184,9 +184,10 @@
       //Slides con prodotti DOM JS
       var slideIndex = 0;
       showSlides();
-
+     /* Html DOM Method */
       function showSlides() {
         var i;
+        /* javascript dom */
         var slides = document.getElementsByClassName("mySlides"); // returns a collection of all elements in the document with the specified class name, as an HTMLCollection object.The HTMLCollection object represents a collection of nodes. The nodes can be accessed by index numbers. The index starts at 0.
         var dots = document.getElementsByClassName("dot");
         for (i = 0; i < slides.length; i++) {

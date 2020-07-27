@@ -156,7 +156,7 @@
 		nav li {
 			float: none
 		}
-		nav li:hover ul {
+		nav li:hover ul { /* jQuery Events */
 			display: block;
 			position: relative
 		}
