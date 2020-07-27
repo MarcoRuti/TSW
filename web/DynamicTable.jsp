@@ -124,7 +124,7 @@
     }
 %>
 
-<a href="adminPage.jsp">Torna al pannello di controllo amministratore.</a>
+<a href="adminPage.jsp"><--Torna al pannello di Amministrazione</a>
 <h2 align="center">Tabella <%= tab%></h2>
 <table align="center" class="tabConPan">
 

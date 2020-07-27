@@ -51,7 +51,7 @@
 </div>
 
 
-<p><a href="adminPage.jsp"><--Torna alla pagina di amministrazione</a></p>
+<p><a href="adminPage.jsp"><--Torna al pannello di Amministrazione</a></p>
 <h2 align="center">Aggiungi un nuovo prodotto</h2>
 
 <div class="divContorno">
