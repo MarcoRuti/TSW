@@ -16,12 +16,13 @@
       var request = new XMLHttpRequest(); //crea una XMLRequest
       function sendInfo() {
         var v = document.vinform.t1.value; //legge il valore del textbox 't1' nel form 'vinform'
-        var url = "LiveSearchServlet?val="+v; //crea un url da inviare alla pagina contenente il valore letto dal form
+        var url = "LiveSearchServlet?val="+v; // Url Rew crea un url da inviare alla pagina contenente il valore letto dal form
 
         try {
           request.onreadystatechange = getInfo;
           request.open("GET", url, true); // inizializza req to serv method,uri(res da ottenere),true(asincrono)
-          request.send();
+          request.send(); //  Non è bloccante se il parametro async di open è stato impostato a true.
+        // Prende come parametro una stringa che costituisce il body della richiesta HTTP
         }
         catch (e)
         {
@@ -42,7 +43,7 @@
 
     </script>
 
-    <title>I-Buy - Home Page</title>
+    <title>iBuy - Home Page</title>
   </head>
   <body>
     <%
@@ -63,7 +64,7 @@
 
       try {
         isAdmin = (int) session.getAttribute("adminIn");
-        isCliente = (int) session.getAttribute("ClientIn");
+        isCliente = (int) session.getAttribute("clientIn");
       } catch (Exception e) {
         ;
       }

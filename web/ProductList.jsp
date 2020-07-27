@@ -314,11 +314,9 @@
         <footer id="footer">
             <hr>
 
-            <div id="info_menu">
+            <div id = "info_menu">
+                <p><a href="perConoscerci.jsp">Per conoscerci</a> </p>
 
-                <p>
-                    <a href="perConoscerci.jsp">Per conoscerci</a>
-                </p>
 
                 <%
                     if (isAdmin == 1) { //Admin connesso. Passa a pannello controllo admin
@@ -341,6 +339,7 @@
                     <a href="adminPage.jsp?link=<%=url%>">Zona Riservata</a>
                 </p>
                 <%
+                        }
                     }
                 %>
             </div>
