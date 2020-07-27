@@ -126,7 +126,7 @@ public class ProductControl extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		else if(page.equals("tutti")) {
-			response.sendRedirect("./AllProductList?tipo=Notebook");
+			response.sendRedirect("./CartPage.jsp");
 		}
 
 	}

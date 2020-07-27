@@ -14,6 +14,7 @@
 
         <meta name="viewport" content="width-device-width, initial-scale-1.0">
 
+
         <title>Login</title>
     </head>
     <body>
@@ -69,7 +70,8 @@
                             </tr>
                             <tr>
                                 <td colspan=2>
-                                    <input type="text" placeholder="Enter Username" name="Username" required style="width:100%; height:100%">
+
+                                    <input type="text" placeholder="Enter Username"  name="Username" required style="width:100%; height:100%">
                                 </td>
                             </tr>
                             <tr>
@@ -77,7 +79,7 @@
                             </tr>
                             <tr>
                                 <td colspan=2>
-                                    <input type="password" placeholder="Enter Password" name="Password" required style="width:100%; height:100%">
+                                    <input type="password" placeholder="Enter Password"  name="Password" required style="width:100%; height:100%">
                                 </td>
                             </tr>
                             <tr>
@@ -101,7 +103,7 @@
                             </tr>
                             <tr>
                                 <td colspan=2>
-                                    <input type="text" placeholder="Enter Username" name="usernameCliente" required style="width:100%; height:100%">
+                                    <input type="text" placeholder="Enter Username"  name="usernameCliente" required style="width:100%; height:100%">
                                 </td>
                             </tr>
                             <tr>
@@ -109,8 +111,12 @@
                             </tr>
                             <tr>
                                 <td colspan=2>
-                                    <input type="password" placeholder="Enter Password" name="pswCliente" required style="width:100%; height:100%">
+                                    <input type="password" placeholder="Enter Password"  name="pswCliente" required style="width:100%; height:100%">
                                 </td>
+
+
+
+
                             </tr>
                             <tr>
                                 <td class="buttonTd">
