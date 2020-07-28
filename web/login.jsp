@@ -140,5 +140,8 @@
 
             </div>
         </div>
+        <hr>
+        <p style="color: grey; text-align: center;">Copyright © 2020 I-Buy. All rights reserved.</p>
+
     </body>
 </html>
