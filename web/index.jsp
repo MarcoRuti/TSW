@@ -89,7 +89,7 @@
 
       <div id="main_menu">
         <label class="toggle" for="toggle">&#9776;</label> <!-- simbolo del menu (3 linee orizzontali) -->
-        <input class="toggle" id="toggle" type="checkbox">
+        <input class="toggle" id="toggle" type="checkbox"> <!--  serve per tree menu -->
         <nav>
           <ul id="menu">
             <!-- HOME -->

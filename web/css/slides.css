@@ -57,11 +57,9 @@
   animation-duration: 1.5s;
 }
 
-@-webkit-keyframes fade { /* The @keyframes rule specifies the animation code.
-
-The animation is created by gradually changing from one set of CSS styles to another.
-
-During the animation, you can change the set of CSS styles many times.*/
+@-webkit-keyframes fade {
+  /*  @keyframes regole di animazione.
+Animazione graduale con fade da un set css all'altro. */
   from {opacity: .4} 
   to {opacity: 1}
 }

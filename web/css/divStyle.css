@@ -1,4 +1,4 @@
-.divContorno {
+.divContorno { /* div del contenitore */
 	margin-left: 10%;
 	margin-right: 10%;
 	margin-bottom: 5%;
@@ -14,7 +14,7 @@
 	  padding-bottom:20px;
 }
 
-#contenitore {
+#contenitore { /* elementi in tabs come lista prodotti, slides in index ecc. */
 
 	margin: 2% 5% 2% 5%;
 	overflow: auto;
