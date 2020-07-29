@@ -25,13 +25,12 @@
 
                     try {
                     isAdmin = (int) session.getAttribute("adminIn");
-                    isCliente = (int) session.getAttribute("clienteIn");
+                    isCliente = (int) session.getAttribute("clientIn");
                 }
                 catch(Exception e){
                     ;
                 }
-                //if(usernameCliente!=null) {
-          		//<p>ID negozio: < %=usernameCliente % ></p>  -->
+
             }
         %>
     <!-- Navbar grande -->
@@ -88,7 +87,10 @@
         <div id="contenitore">
 
 		    <pre class="preDescrizione" style="white-space: pre-wrap; ">
-                I-Buy si occupa di prodotti tecnologici all'avanguardia, ad oggi è leader nel settore.
+                I-Buy si occupa di vendita all'ingrosso di prodotti tecnologici all'avanguardia, ad oggi è leader nel settore.<br>
+                Per essere autorizzati ad acquistare i prodotti presenti in catalogo:<br>
+                <a href="mailto:ibuysa@gmail.com"><b>Invia una mail</b></a> al nostro Servizio Clienti, il quale sarà lieto di abilitarti all'acquisto previa verifica della tua Partita IVA.<br>
+                Buona navigazione!
             </pre>
         </div>
     </div>
